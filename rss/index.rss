@@ -1,66 +1,102 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>dfgdfgdfgdfgdfgfd</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Sun, 27 Mar 2016 01:34:55 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Welcome to Ghost</title><description>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list&lt;/p&gt;</description><link>http://localhost:2368/2016/03/26/welcome-to-ghost/</link><guid isPermaLink="false">46eda0d2-2fd8-4488-b1a8-600999d7068c</guid><category>Getting Started</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sat, 26 Mar 2016 08:17:33 GMT</pubDate><content:encoded>&lt;p&gt;You're live! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. You can manage your content by signing in to the admin area at &lt;code&gt;&amp;lt;your blog URL&amp;gt;/ghost/&lt;/code&gt;. When you arrive, you can select this post from a list on the left and see a preview of it on the right. Click the little pencil icon at the top of the preview to edit this post and read the next section!&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>dfgdfgdfgdfgdfgfd</description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Wed, 06 Apr 2016 18:08:47 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
+Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o&lt;/p&gt;</description><link>http://localhost:2368/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
+Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  &lt;/p&gt;
 
-&lt;h2 id="gettingstarted"&gt;Getting Started&lt;/h2&gt;
-
-&lt;p&gt;Ghost uses something called Markdown for writing. Essentially, it's a shorthand way to manage your post formatting as you write!&lt;/p&gt;
-
-&lt;p&gt;Writing in Markdown is really easy. In the left hand panel of Ghost, you simply write as you normally would. Where appropriate, you can use &lt;em&gt;shortcuts&lt;/em&gt; to &lt;strong&gt;style&lt;/strong&gt; your content. For example, a list:&lt;/p&gt;
+&lt;h4 id="especificaogeral"&gt;Especificação geral&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Item number one&lt;/li&gt;
-&lt;li&gt;Item number two
-&lt;ul&gt;&lt;li&gt;A nested item&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;A final item&lt;/li&gt;
+&lt;li&gt;MK64FN1M0VLL12 MCU (120 MHz, 1 MB flash memory, 256 KB RAM, low-power, crystal-less USB, and 100 Low profile Quad Flat Package (LQFP))&lt;/li&gt;
+&lt;li&gt;Dual role USB interface with micro-B USB Connector&lt;/li&gt;
+&lt;li&gt;RGB LED&lt;/li&gt;
+&lt;li&gt;FXOS8700CQ accelerometer and magnetometer&lt;/li&gt;
+&lt;li&gt;Two user push buttons&lt;/li&gt;
+&lt;li&gt;Ethernet&lt;/li&gt;
+&lt;li&gt;SDHC&lt;/li&gt;
+&lt;li&gt;Add-on RF module: nRF24L01+ Nordic 2.4GHz Radio&lt;/li&gt;
+&lt;li&gt;Add-on Bluetooth module: JY-MCU BT board V1.05 BT&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;or with numbers!&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Remember to buy some milk  &lt;/li&gt;
-&lt;li&gt;Drink the milk  &lt;/li&gt;
-&lt;li&gt;Tweet that I remembered to buy the milk, and drank it&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;E a reação de quem só usa Arduino após conhecer esta placa.. &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
-&lt;h3 id="links"&gt;Links&lt;/h3&gt;
+&lt;h2 id="helloworldbin"&gt;Helloworld.bin&lt;/h2&gt;
 
-&lt;p&gt;Want to link to a source? No problem. If you paste in a URL, like &lt;a href="http://ghost.org"&gt;http://ghost.org&lt;/a&gt; - it'll automatically be linked up. But if you want to customise your anchor text, you can do that too! Here's a link to &lt;a href="http://ghost.org"&gt;the Ghost website&lt;/a&gt;. Neat.&lt;/p&gt;
+&lt;p&gt;Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  &lt;/p&gt;
 
-&lt;h3 id="whataboutimages"&gt;What about Images?&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-c  "&gt;#include "mbed.h" 
+DigitalOut led_red(LED_RED);  
+DigitalOut led_green(LED_GREEN);  
+DigitalIn sw2(SW2);  
+DigitalIn sw3(SW3);  
+Serial pc(USBTX, USBRX);
 
-&lt;p&gt;Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:&lt;/p&gt;
+void check_sw2(void){  
+    if (sw2 == 0) {
+        pc.printf("SW2 button pressed.");
+        led_red = 0;
+        led_green = 1;
+    }
+}
 
-&lt;p&gt;&lt;img src="https://ghost.org/images/ghost.png" alt="The Ghost Logo"&gt;&lt;/p&gt;
+void check_sw3(void){  
+    if (sw3 == 0) {
+        pc.printf("SW3 button pressed.");
+        led_green = 0;
+        led_red = 1;
+    }
+}
 
-&lt;p&gt;Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload:&lt;/p&gt;
-
-&lt;h3 id="quoting"&gt;Quoting&lt;/h3&gt;
-
-&lt;p&gt;Sometimes a link isn't enough, you want to quote someone on what they've said. Perhaps you've started using a new blogging platform and feel the sudden urge to share their slogan? A quote might be just the way to do it!&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ghost - Just a blogging platform&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="workingwithcode"&gt;Working with Code&lt;/h3&gt;
-
-&lt;p&gt;Got a streak of geek? We've got you covered there, too. You can write inline &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces of indentation gets you there.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.awesome-thing {
-    display: block;
-    width: 100%;
+int main() {  
+    led_green = 1;
+    led_red = 1;
+    pc.baud(9600);
+    pc.printf("Hello World from FRDM-K64F board.\n");
+    while (true) {
+        check_sw2();
+        check_sw3();
+        wait(0.3);
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id="readyforabreak"&gt;Ready for a Break?&lt;/h3&gt;
+&lt;p&gt;Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  &lt;/p&gt;
 
-&lt;p&gt;Throw 3 or more dashes down on any new line and you've got yourself a fancy new divider. Aw yeah.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;# screen /dev/ttyACM0
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;hr&gt;
+&lt;p&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
-&lt;h3 id="advancedusage"&gt;Advanced Usage&lt;/h3&gt;
+&lt;h2 id="andothercoolthings"&gt;And other cool things..&lt;/h2&gt;
 
-&lt;p&gt;There's one fantastic secret about Markdown. If you want, you can write plain old HTML and it'll still work! Very flexible.&lt;/p&gt;
+&lt;h6 id="conexocomoazureiothub"&gt;Conexão com o Azure IoT Hub&lt;/h6&gt;
 
-&lt;p&gt;&lt;input type="text" placeholder="I'm an input field!"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md"&gt;https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md&lt;/a&gt;  &lt;/p&gt;
 
-&lt;p&gt;That should be enough to get you started. Have fun - and let us know what you think :)&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;h6 id="instalarjavameerodaraplicaes"&gt;Instalar Java ME e rodar aplicações&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2"&gt;http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="desenvolvimentonoeclipse"&gt;Desenvolvimento no Eclipse&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/"&gt;http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="comodepurar"&gt;Como depurar&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="https://developer.mbed.org/handbook/Debugging"&gt;https://developer.mbed.org/handbook/Debugging&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Poised to become the de facto operating system for the Internet of Things, the cost-free mbed OS is a comprehensive platform for the creation of next-generation IoT devices. The OS includes the connectivity, security and device management functionalities required in virtually every IoT device. When deployed on Freescale’s Kinetis microcontrollers or heterogeneous i.MX processors, developers can bypass low-level software tasks and spend their time on higher-level development, user-experience enhancement and other differentiating features.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Um agradecimento para o pessoal do ABCMakerspace, especialmente o Pacman Pereira por apresentar a Freescale K64F na Campus Party 9&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
