@@ -1,0 +1,455 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Como criptografar e-mails com PGP</title>
+    <meta name="description" content="Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=c21791006a">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+    <!-- Config Prism -->
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=c21791006a">
+
+    <link rel="canonical" href="index.html">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Daniela Morais">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Como criptografar e-mails com PGP">
+    <meta property="og:description" content="Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações">
+    <meta property="og:url" content="http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/">
+    <meta property="og:image" content="http://localhost:2368/content/images/2016/05/bigbrother1-1.png">
+    <meta property="article:published_time" content="2016-05-29T07:15:15.515Z">
+    <meta property="article:modified_time" content="2016-05-29T07:16:27.827Z">
+    <meta property="article:tag" content="criptografia">
+    <meta property="article:tag" content="segurança">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Como criptografar e-mails com PGP">
+    <meta name="twitter:description" content="Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações">
+    <meta name="twitter:url" content="http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/">
+    <meta name="twitter:image:src" content="http://localhost:2368/content/images/2016/05/bigbrother1-1.png">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Daniela Morais",
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": "http://localhost:2368/content/images/2016/05/15854671410_846358242c_z.jpg",
+        "url": "http://localhost:2368/author/danielamorais/",
+        "sameAs": "https://www.linkedin.com/in/danielammorais"
+    },
+    "headline": "Como criptografar e-mails com PGP",
+    "url": "http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/",
+    "datePublished": "2016-05-29T07:15:15.515Z",
+    "dateModified": "2016-05-29T07:16:27.827Z",
+    "image": "http://localhost:2368/content/images/2016/05/bigbrother1-1.png",
+    "keywords": "criptografia, segurança",
+    "description": "Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="../../../../rss/index.html">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76783820-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body class="post-template tag-criptografia tag-seguranca nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(../../../../content/images/2016/05/bigbrother1-1.png)">
+    <nav class="main-nav overlay clearfix">
+        
+
+        <!---->
+         <a class="back-button icon-arrow-left" href="../../../../">Home</a>   
+    </nav>
+    
+</header>
+<main class="content" role="main">
+    <article class="post tag-criptografia tag-seguranca">
+
+        <header class="post-header">
+            <h1 class="post-title">Criptografia de e-mails com PGP</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-05-29">29 May 2016</time>  on <a href="../../../../tag/criptografia/">criptografia</a>, <a href="../../../../tag/seguranca/">segurança</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de <strong>nenhum crime</strong>. <br>
+Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de <a href="https://en.wikipedia.org/wiki/Panopticon">Panopticon</a> contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No <a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters">TEDx</a>, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. <br>
+Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.</p>
+
+<h4 id="comopgpfunciona">Como PGP funciona</h4>
+
+<p><img src="../../../../content/images/2016/05/Drawing-1--1.png" alt="How PGP Works">
+O PGP usa o conceito de <strong>criptografia assimétrica</strong>, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. <br>
+Na ilustração acima, Bob envia um documento para John e para ter certeza que <strong>somente John seja capaz de abrir</strong> ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  </p>
+
+<h4 id="openpgp">OpenPGP</h4>
+
+<p>É necessário ter o OpenPGP instalado, o qual por default já está instalado na maioria das distribuições Linux. O Seahorse (Passwords and Keys) é uma maneira fácil de administrar as chaves e o Thunderbird oferece uma integração também porém o terminal é muito mais divertido 
+<img src="https://media.giphy.com/media/RGvwaX6hv8k8M/giphy.gif" alt="Terminal is so much funny" title=""> <br>
+Utilizo a versão 2.1.11 do <em>gpg2</em>, existem relatos de erros de importação quando se utiliza o <em>gpg</em> (versão 1.x) mas eis a diferença segundo a descrição do comando:  </p>
+
+<blockquote>
+  <p>In  contrast  to the standalone command gpg from GnuPG 1.x, which is might be better suited for server and embedded platforms, the 2.x version is commonly installed under the name gpg2 and targeted to the desktop as it requires several other modules to be installed.</p>
+</blockquote>
+
+<h4 id="criarachave">Criar a chave</h4>
+
+<p>No momento de criação é questionado sobre o tipo de chave ser RSA, DSA ou ElGamal. Os três tipos são algoritmos que realizam diferentes operações matemáticas para gerar a chave, criptografia não é a minha área mas algumas observações antes de decidir:</p>
+
+<ul>
+<li><p>O default é RSA-RSA com 2048 bits</p></li>
+<li><p>O DSA possui no máximo 1024 bits e é capaz apenas de assinar (garantir que a mensagem não foi alterada no caminho), não é capaz de criptografar/descriptografar. É considerada vulnerável</p></li>
+<li><p>O RSA varia de 1024 até 4096 bits, é capaz de assinar e criptografar/descriptografar. É o recomendado pelo Debian desde que possua os 4096 bits e o seu criador recomenda ao menos 3k </p></li>
+<li><p>O ElGamal e RSA se diferem pelo tempo levado para criptografar/descriptografar, para saber mais sobre as especificidades clique <a href="http://crypto.stackexchange.com/questions/1677/when-to-use-rsa-and-when-elgamal-asymmetric-encryption">aqui</a></p></li>
+<li><p>O tamanho da chave não implica em ser mais segura, por exemplo uma chave X de 1024 bits pode ser mais vulnerável que uma chave Y de 56 bits</p></li>
+</ul>
+
+<p>Lembre-se de inserir uma senha segura, você pode checar em <a href="https://howsecureismypassword.net/">How Secure is My Password</a> (não inserir senha real). E de acordo com Snowden:  </p>
+
+<blockquote>
+  <p>Assume your adversary is capable of one trillion guesses per second</p>
+</blockquote>
+
+<pre><code class="language-bash">$ gpg2 --full-gen-key 
+gpg (GnuPG) 2.1.11; Copyright (C) 2016 Free Software Foundation, Inc.  
+This is free software: you are free to change and redistribute it.  
+There is NO WARRANTY, to the extent permitted by law.
+
+Please select what kind of key you want:  
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 1  
+RSA keys may be between 1024 and 4096 bits long.  
+What keysize do you want? (2048)  
+Requested keysize is 2048 bits  
+Please specify how long the key should be valid.  
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0)  
+Key does not expire at all  
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Tars Test  
+Email address: tars@keemail.me  
+Comment:  
+You selected this USER-ID:  
+    "Tars Test &lt;tars@keemail.me&gt;"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O  
+</code></pre>
+
+<p>Você deve obter no final algo como:  </p>
+
+<pre><code class="language-bash">We need to generate a lot of random bytes. It is a good idea to perform  
+some other action (type on the keyboard, move the mouse, utilize the  
+disks) during the prime generation; this gives the random number  
+generator a better chance to gain enough entropy.  
+We need to generate a lot of random bytes. It is a good idea to perform  
+some other action (type on the keyboard, move the mouse, utilize the  
+disks) during the prime generation; this gives the random number  
+generator a better chance to gain enough entropy.  
+gpg: key 690B17FB marked as ultimately trusted  
+gpg: directory '/home/liveuser/.gnupg/openpgp-revocs.d' created  
+gpg: revocation certificate stored as '/home/liveuser/.gnupg/openpgp-revocs.d/E78CFDE04CE28CBC86DE3741B2AA9ABA690B17FB.rev'  
+public and secret key created and signed.
+
+gpg: checking the trustdb  
+gpg: marginals needed: 3  completes needed: 1  trust model: PGP  
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
+pub   rsa2048/690B17FB 2016-05-27 [S]  
+      Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
+sub   rsa2048/C87D3B19 2016-05-27 []  
+</code></pre>
+
+<p>Essa sequência de bytes denominada <em>key fingerprint</em> é fundamental, os últimos 8 dígitos dela formam a <em>KEY ID</em>. <br>
+Através da sua fingerprint que será estabelecida a confiança de que <strong>aquele e-mail de fato é seu</strong>. É comum as pessoas trocarem as fingerprinters pessoalmente, quando for verificado nos servidores o e-mail e a fingerprint corresponder aquela repassada pessoalmente então você pode confiar que aquele e-mail é realmente da pessoa. <br>
+Ao invés de trocar as fingerprinters, outros preferem repassar a chave pública pessoalmente por pendrive.  </p>
+
+<h4 id="fazerbackup">Fazer backup</h4>
+
+<p>É fundamental fazer backup para revogar a chave caso a perca ou comprometa e poder se comunicar.
+Caso você perca a sua chave e não tenha feito backup, não há nada a se fazer ao menos esperar o tempo limite para ser revogada (caso tenha inserido tempo limite).  </p>
+
+<pre><code class="language-bash">$ gpg2 --export-secret-keys --armor tars@keemail.me &gt; tars-privkey.asc
+$ gpg2 --export --armor tars@keemail.me &gt; tars-pubkey.asc
+</code></pre>
+
+<p>Guarde os arquivos gerados num pendrive ou HD criptografado.  </p>
+
+<h4 id="tornarapublickeydisponvel">Tornar a public key disponível</h4>
+
+<p>Para que as pessoas sejam capazes de se comunicarem com você, é preciso sincronizar a sua chave pública gerada com os servidores. <br>
+A maioria dos servidores sincronizam com o <a href="http://keys.gnupg.net">keys.gnupg.net</a> então mandar só para este é suficiente.  </p>
+
+<pre><code class="language-bash">$ gpg2 -K --fingerprint #visualizar a sua fingerprint
+pub   rsa2048/690B17FB 2016-05-27 [SC]  
+      Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
+sub   rsa2048/C87D3B19 2016-05-27 [E]
+
+$ gpg2 --send-keys 690B17FB #encaminhar para os servidores, a key id é passada 
+gpg: sending key 690B17FB to hkp://keys.gnupg.net  
+</code></pre>
+
+<p>Agora você já está preparado.. <br>
+<img src="https://media.giphy.com/media/7ov6a9UGsHd4I/giphy.gif" alt=""></p>
+
+<h4 id="enviarumamensagem">Enviar uma mensagem</h4>
+
+<p>É necessário buscar a public key do nosso destinatário, lembre-se de verificar se a fingerprint confere caso já o conheça pessoalmente  </p>
+
+<pre><code class="language-bash">$ gpg2 --search-keys danielamorais@tuta.io
+gpg: data source: http://mira.cbaines.net:11371  
+(1)    Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;
+      2048 bit RSA key 8D4FA5B7, created: 2016-05-18
+Enter number(s), N)ext, or Q)uit &gt; 1  
+gpg: key 8D4FA5B7: public key "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" imported  
+gpg: marginals needed: 3  completes needed: 1  trust model: PGP  
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
+gpg: Total number processed: 1  
+gpg:               imported: 1  
+$ gpg2 --fingerprint danielamorais@tuta.io
+pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
+      Key fingerprint = E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
+uid         [ unknown] Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
+sub   rsa2048/91B55539 2016-05-18 [E]  
+</code></pre>
+
+<p>Vou escrever um documento chamado <em>teste</em> e a descrição dos comandos são <br>
+<strong>--encrypt</strong>: cita que desejo criptografar algo<br>
+<strong>--sign</strong>: a mensagem será assinada, ou seja, qualquer alteração no conteúdo será detectada<br>
+<strong>--armor</strong>: converte a mensagem criptografada em  ASCII, comando opcional<br>
+<strong>--recipient / -r</strong>: declara quem são os destinatários<br></p>
+
+<pre><code class="language-bash">$ vi teste
+$ gpg2 --encrypt --sign --armor --recipient danielamorais@tuta.io teste #criptografar teste
+gpg: 91B55539: There is no assurance this key belongs to the named user  
+sub  rsa2048/91B55539 2016-05-18 Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
+ Primary key fingerprint: E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
+      Subkey fingerprint: F859 9BF8 D659 A0E6 EB68  12EA E5AB 81D0 91B5 5539
+
+It is NOT certain that the key belongs to the person named  
+in the user ID.  If you *really* know what you are doing,  
+you may answer the next question with yes.
+
+Use this key anyway? (y/N) y  
+$ ls
+teste  teste.asc  
+</code></pre>
+
+<p>O <em>teste.asc</em> pode ser encaminhado inteiro ou apenas o conteúdo, devido a opção <strong>--armor</strong> é possível encaminhar apenas o conteúdo.  </p>
+
+<h4 id="lerumamensagem">Ler uma mensagem</h4>
+
+<p>Lembre-se que é possível fazer download do <em>teste.asc</em> ou criar um novo arquivo apenas com o conteúdo  </p>
+
+<pre><code class="language-bash">$ gpg2 --decrypt teste.asc
+gpg: encrypted with 2048-bit RSA key, ID 91B55539, created 2016-05-18  
+      "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;"
+teste  
+$ gpg2 --output messageFromTars --decrypt teste.asc #mensagem descriptografada esta no arquivo 'messageFromTars'
+</code></pre>
+
+<h4 id="assinarachave">Assinar a chave</h4>
+
+<p>Assine a chave <strong>somente</strong> depois de checar a fingerprint, quanto mais assinaturas a pessoa possuir maior são as chances de fato aquele e-mail ser válido.  </p>
+
+<pre><code class="language-bash">$ gpg2 --fingerprint danielamorais@tuta.io
+$ gpg2 --sign-key 8D4FA5B7 #key ID
+$ gpg2 -a --keyserver hkp://p80.pool.sks-keyservers.net:80 --send-keys 8D4FA5B7 #enviar key id 
+</code></pre>
+
+<h4 id="verificarassinatura">Verificar assinatura</h4>
+
+<p>A verificação das assinaturas garante que a mensagem não foi alterada. Além disso, caso você queira se comunicar com alguém que não use PGP pode apenas assinar a mensagem.  </p>
+
+<pre><code class="language-bash">$ gpg2 --output exemplo.asc --clearsign exemplo.txt  #assinando exemplo.asc
+$ gpg2 --verify exemplo.asc #verificando assinatura
+gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
+gpg: Good signature from "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" [ultimate]  
+</code></pre>
+
+<p>Caso a mensagem tenha sido alterada  </p>
+
+<pre><code class="language-bash">$ gpg2 --verify exemplo.asc 
+gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
+gpg: BAD signature from "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" [ultimate]  
+</code></pre>
+
+<p>Se o remetente usou a opção <strong>--sign</strong>, no momento da descriptografia é mostrado a assinatura.  </p>
+
+<h4 id="andothercoolthings">And other cool things..</h4>
+
+<pre><code class="language-bash">$ gpg2 --list-public-keys #listar as chaves publicas importadas
+/home/liveuser/.gnupg/pubring.kbx
+---------------------------------
+pub   rsa2048/690B17FB 2016-05-27 [SC]  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
+sub   rsa2048/C87D3B19 2016-05-27 [E]
+
+pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
+uid         [ unknown] Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
+sub   rsa2048/91B55539 2016-05-18 [E]  
+$ gpg2 --list-secret-keys #listar as chaves privadas 
+/home/liveuser/.gnupg/pubring.kbx 
+---------------------------------
+sec   rsa2048/690B17FB 2016-05-27 [SC]  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
+ssb   rsa2048/C87D3B19 2016-05-27 [E]  
+$ gpg2 --search-keys 'Daniela Morais' #buscar por nome
+gpg: data source: http://mira.cbaines.net:11371  
+(1)    Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;
+      2048 bit RSA key 8D4FA5B7, created: 2016-05-18
+(2)    Daniela Morais (My personal key) &lt;danielamorais@protonmail.com&gt;
+      2048 bit RSA key 27D40114, created: 2016-05-08 (revoked)
+</code></pre>
+
+<h4 id="referncias">Referências</h4>
+
+<h6 id="pgpfaqsecurity">PGP FAQ Security</h6>
+
+<p><a href="http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa">http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa</a>  </p>
+
+<h6 id="rsakeysizes2048or2096bits">RSA Key Sizes: 2048 or 2096 bits</h6>
+
+<p><a href="http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits">http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits</a>  </p>
+
+<h6 id="creatinggpgkeys">Creating GPG Keys</h6>
+
+<p><a href="http://bit.ly/1siPE0z">http://bit.ly/1siPE0z</a>  </p>
+
+<h6 id="whatisthedifferencebetweendsaandrsa">What is the difference between DSA and RSA</h6>
+
+<p><a href="http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa">http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa</a>  </p>
+
+<h6 id="pgptutorial">PGP Tutorial</h6>
+
+<p><a href="https://futureboy.us/pgp.html">https://futureboy.us/pgp.html</a></p>
+            
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../../../../author/danielamorais/" style="background-image: url(../../../../content/images/2016/05/15854671410_846358242c_z.jpg)"><span class="hidden">Daniela Morais's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../../../../author/danielamorais/">Daniela Morais</a></h4>
+
+                    <p>Read <a href="../../../../author/danielamorais/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Sao Paulo, Brazil</span>
+                    <span class="author-link icon-link"><a href="https://www.linkedin.com/in/danielammorais">https://www.linkedin.com/in/danielammorais</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Criptografia%20de%20e-mails%20com%20PGP&amp;url=http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+        <!--Config Disqus -->
+<section class="post-content">
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = 'http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'ghost-10' // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//danielammoraiscom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+     </section>
+    </article>
+    
+    
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev " style="background-image: url(../../../../content/images/2016/03/FRDM-K64F_BD.jpg)" href="../../../04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/">
+        <section class="post">
+            <h2>A placa de desenvolvimento Freescale Freedom K64F</h2>
+            <p>A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="../../../../">Daniela Morais</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=c21791006a"></script>
+    <script type="text/javascript" src="../../../../assets/js/index.js?v=c21791006a"></script>
+    <!-- Config Prism -->
+    <script type="text/javascript" src="../../../../assets/js/prism.js?v=c21791006a"></script>
+</body>
