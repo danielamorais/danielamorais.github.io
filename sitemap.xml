@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
+    <url>
         <loc>https://danielammorais.com</loc>
     </url>    <url>
         <loc>https://danielammorais.com/author/danielamorais/</loc>
@@ -21,4 +22,4 @@
         <loc>https://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</loc>
     </url>    <url>
         <loc>https://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
-
+</url></urlset> 
