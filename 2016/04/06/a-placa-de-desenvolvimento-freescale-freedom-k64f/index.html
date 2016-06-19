@@ -1,0 +1,293 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>A placa de desenvolvimento Freescale Freedom K64F</title>
+    <meta name="description" content="Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=1bcfc34e0e">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+    
+    <link rel="canonical" href="http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Daniela Morais">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A placa de desenvolvimento Freescale Freedom K64F">
+    <meta property="og:description" content="Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World">
+    <meta property="og:url" content="http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/">
+    <meta property="og:image" content="http://www.danielammorais.com/content/images/2016/06/freescale.jpg">
+    <meta property="article:published_time" content="2016-04-06T18:07:02.566Z">
+    <meta property="article:modified_time" content="2016-06-06T02:28:22.896Z">
+    <meta property="article:tag" content="IoT">
+    <meta property="article:tag" content="embarcados">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A placa de desenvolvimento Freescale Freedom K64F">
+    <meta name="twitter:description" content="Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World">
+    <meta name="twitter:url" content="http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/">
+    <meta name="twitter:image:src" content="http://www.danielammorais.com/content/images/2016/06/freescale.jpg">
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "Daniela Morais",
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": "http://www.danielammorais.com/content/images/2016/05/15854671410_846358242c_z.jpg",
+        "url": "http://www.danielammorais.com/author/danielamorais/",
+        "sameAs": "https://www.linkedin.com/in/danielammorais"
+    },
+    "headline": "A placa de desenvolvimento Freescale Freedom K64F",
+    "url": "http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/",
+    "datePublished": "2016-04-06T18:07:02.566Z",
+    "dateModified": "2016-06-06T02:28:22.896Z",
+    "image": "http://www.danielammorais.com/content/images/2016/06/freescale.jpg",
+    "keywords": "IoT, embarcados",
+    "description": "Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://www.danielammorais.com/rss/">
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76783820-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    <!-- Config Prism -->
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=1bcfc34e0e"> 
+</head>
+<body class="post-template tag-iot tag-embarcados nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(../../../../content/images/2016/06/freescale.jpg)">
+    <nav class="main-nav overlay clearfix">
+        
+
+        <!---->
+         <a class="back-button icon-arrow-left" href="http://www.danielammorais.com">Home</a>   
+    </nav>
+</header>
+<main class="content" role="main">
+    <article class="post tag-iot tag-embarcados">
+
+        <header class="post-header"> 
+            <h1 class="post-title">A placa de desenvolvimento Freescale Freedom K64F</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-04-06">06 April 2016</time>  on <a href="../../../../tag/iot/">IoT</a>, <a href="../../../../tag/embarcados/">embarcados</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. <br>
+Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  </p>
+
+<h4 id="especificaogeral">Especificação geral</h4>
+
+<ul>
+<li>MK64FN1M0VLL12 MCU (120 MHz, 1 MB flash memory, 256 KB RAM, low-power, crystal-less USB, and 100 Low profile Quad Flat Package (LQFP))</li>
+<li>Dual role USB interface with micro-B USB Connector</li>
+<li>RGB LED</li>
+<li>FXOS8700CQ accelerometer and magnetometer</li>
+<li>Two user push buttons</li>
+<li>Ethernet</li>
+<li>SDHC</li>
+<li>Add-on RF module: nRF24L01+ Nordic 2.4GHz Radio</li>
+<li>Add-on Bluetooth module: JY-MCU BT board V1.05 BT</li>
+</ul>
+
+<p><img src="../../../../content/images/2016/03/mbed1.png" alt="Overview da K64F"></p>
+
+<p>E a reação de quem só usa Arduino após conhecer esta placa.. <br>
+<img src="../../../../content/images/2016/03/spock.gif" alt="Fascinating!"></p>
+
+<h2 id="helloworldbin">Helloworld.bin</h2>
+
+<p>Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente <br>
+<img src="../../../../content/images/2016/03/1.png" alt="">
+Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais <br>
+<img src="../../../../content/images/2016/03/2.png" alt="">
+Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates <br>
+<img src="../../../../content/images/2016/03/3.png" alt="">
+Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  </p>
+
+<pre><code class="language-c  ">#include "mbed.h" 
+DigitalOut led_red(LED_RED);  
+DigitalOut led_green(LED_GREEN);  
+DigitalIn sw2(SW2);  
+DigitalIn sw3(SW3);  
+Serial pc(USBTX, USBRX);
+
+void check_sw2(void){  
+    if (sw2 == 0) {
+        pc.printf("SW2 button pressed.");
+        led_red = 0;
+        led_green = 1;
+    }
+}
+
+void check_sw3(void){  
+    if (sw3 == 0) {
+        pc.printf("SW3 button pressed.");
+        led_green = 0;
+        led_red = 1;
+    }
+}
+
+int main() {  
+    led_green = 1;
+    led_red = 1;
+    pc.baud(9600);
+    pc.printf("Hello World from FRDM-K64F board.\n");
+    while (true) {
+        check_sw2();
+        check_sw3();
+        wait(0.3);
+    }
+}
+</code></pre>
+
+<p>Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... <br>
+<img src="../../../../content/images/2016/03/magic.gif" alt="">
+No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  </p>
+
+<pre><code class="language-bash"># screen /dev/ttyACM0
+</code></pre>
+
+<p>
+<img src="../../../../content/images/2016/03/IMG_3852.gif" alt=""></p>
+
+<h2 id="andothercoolthings">And other cool things..</h2>
+
+<h6 id="conexocomoazureiothub">Conexão com o Azure IoT Hub</h6>
+
+<p><a href="https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md">https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md</a>  </p>
+
+<h6 id="instalarjavameerodaraplicaes">Instalar Java ME e rodar aplicações</h6>
+
+<p><a href="http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2">http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2</a>  </p>
+
+<h6 id="desenvolvimentonoeclipse">Desenvolvimento no Eclipse</h6>
+
+<p><a href="http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/">http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/</a>  </p>
+
+<h6 id="comodepurar">Como depurar</h6>
+
+<p><a href="https://developer.mbed.org/handbook/Debugging">https://developer.mbed.org/handbook/Debugging</a></p>
+
+<blockquote>
+  <p>Poised to become the de facto operating system for the Internet of Things, the cost-free mbed OS is a comprehensive platform for the creation of next-generation IoT devices. The OS includes the connectivity, security and device management functionalities required in virtually every IoT device. When deployed on Freescale’s Kinetis microcontrollers or heterogeneous i.MX processors, developers can bypass low-level software tasks and spend their time on higher-level development, user-experience enhancement and other differentiating features.</p>
+</blockquote>
+
+<p><em>Um agradecimento para o pessoal do ABCMakerspace, especialmente o Pacman Pereira por apresentar a Freescale K64F na Campus Party 9</em></p>
+            
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../../../../author/danielamorais/" style="background-image: url(../../../../content/images/2016/05/15854671410_846358242c_z.jpg)"><span class="hidden">Daniela Morais's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../../../../author/danielamorais/">Daniela Morais</a></h4>
+
+                    <p>Read <a href="../../../../author/danielamorais/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Sao Paulo, Brazil</span>
+                    <span class="author-link icon-link"><a href="https://www.linkedin.com/in/danielammorais">https://www.linkedin.com/in/danielammorais</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=A%20placa%20de%20desenvolvimento%20Freescale%20Freedom%20K64F&amp;url=http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+        <!--Config Disqus -->
+<section class="post-content">
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = 'http://www.danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'ghost-2' // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//danielammoraiscom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+     </section>
+    </article>
+    
+    
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story " style="background-image: url(../../../../content/images/2016/05/bigbrother1-1.png)" href="../../../05/29/criptografia-de-e-mails-com-pgp/">
+        <section class="post">
+            <h2>Criptografia de e-mails com PGP</h2>
+            <p>Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://www.danielammorais.com">Daniela Morais</a> © 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=1bcfc34e0e"></script>
+    <script type="text/javascript" src="../../../../assets/js/index.js?v=1bcfc34e0e"></script>
+    <!-- Config Prism -->
+    <script type="text/javascript" src="../../../../assets/js/prism.js?v=1bcfc34e0e"></script>
+</body>
