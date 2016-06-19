@@ -1,0 +1,361 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 30 May 2016 06:10:44 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
+Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de &lt;a href="https://en.wikipedia.org/wiki/Panopticon"&gt;Panopticon&lt;/a&gt; contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No &lt;a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters"&gt;TEDx&lt;/a&gt;, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. &lt;br&gt;
+Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.&lt;/p&gt;
+
+&lt;h4 id="comopgpfunciona"&gt;Como PGP funciona&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
+O PGP usa o conceito de &lt;strong&gt;criptografia assimétrica&lt;/strong&gt;, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. &lt;br&gt;
+Na ilustração acima, Bob envia um documento para John e para ter certeza que &lt;strong&gt;somente John seja capaz de abrir&lt;/strong&gt; ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  &lt;/p&gt;
+
+&lt;h4 id="openpgp"&gt;OpenPGP&lt;/h4&gt;
+
+&lt;p&gt;É necessário ter o OpenPGP instalado, o qual por default já está instalado na maioria das distribuições Linux. O Seahorse (Passwords and Keys) é uma maneira fácil de administrar as chaves e o Thunderbird oferece uma integração também porém o terminal é muito mais divertido 
+&lt;img src="https://media.giphy.com/media/RGvwaX6hv8k8M/giphy.gif" alt="Criptografia de e-mails com PGP" title=""&gt; &lt;br&gt;
+Utilizo a versão 2.1.11 do &lt;em&gt;gpg2&lt;/em&gt;, existem relatos de erros de importação quando se utiliza o &lt;em&gt;gpg&lt;/em&gt; (versão 1.x) mas eis a diferença segundo a descrição do comando:  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In  contrast  to the standalone command gpg from GnuPG 1.x, which is might be better suited for server and embedded platforms, the 2.x version is commonly installed under the name gpg2 and targeted to the desktop as it requires several other modules to be installed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id="criarachave"&gt;Criar a chave&lt;/h4&gt;
+
+&lt;p&gt;No momento de criação é questionado sobre o tipo de chave ser RSA, DSA ou ElGamal. Os três tipos são algoritmos que realizam diferentes operações matemáticas para gerar a chave, criptografia não é a minha área mas algumas observações antes de decidir:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;O default é RSA-RSA com 2048 bits&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;O DSA possui no máximo 1024 bits e é capaz apenas de assinar (garantir que a mensagem não foi alterada no caminho), não é capaz de criptografar/descriptografar. É considerada vulnerável&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;O RSA varia de 1024 até 4096 bits, é capaz de assinar e criptografar/descriptografar. É o recomendado pelo Debian desde que possua os 4096 bits e o seu criador recomenda ao menos 3k &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;O ElGamal e RSA se diferem pelo tempo levado para criptografar/descriptografar, para saber mais sobre as especificidades clique &lt;a href="http://crypto.stackexchange.com/questions/1677/when-to-use-rsa-and-when-elgamal-asymmetric-encryption"&gt;aqui&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;O tamanho da chave não implica em ser mais segura, por exemplo uma chave X de 1024 bits pode ser mais vulnerável que uma chave Y de 56 bits&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lembre-se de inserir uma senha segura, você pode checar em &lt;a href="https://howsecureismypassword.net/"&gt;How Secure is My Password&lt;/a&gt; (não inserir senha real). E de acordo com Snowden:  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assume your adversary is capable of one trillion guesses per second&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --full-gen-key 
+gpg (GnuPG) 2.1.11; Copyright (C) 2016 Free Software Foundation, Inc.  
+This is free software: you are free to change and redistribute it.  
+There is NO WARRANTY, to the extent permitted by law.
+
+Please select what kind of key you want:  
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 1  
+RSA keys may be between 1024 and 4096 bits long.  
+What keysize do you want? (2048)  
+Requested keysize is 2048 bits  
+Please specify how long the key should be valid.  
+         0 = key does not expire
+      &amp;lt;n&amp;gt;  = key expires in n days
+      &amp;lt;n&amp;gt;w = key expires in n weeks
+      &amp;lt;n&amp;gt;m = key expires in n months
+      &amp;lt;n&amp;gt;y = key expires in n years
+Key is valid for? (0)  
+Key does not expire at all  
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: Tars Test  
+Email address: tars@keemail.me  
+Comment:  
+You selected this USER-ID:  
+    "Tars Test &amp;lt;tars@keemail.me&amp;gt;"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Você deve obter no final algo como:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;We need to generate a lot of random bytes. It is a good idea to perform  
+some other action (type on the keyboard, move the mouse, utilize the  
+disks) during the prime generation; this gives the random number  
+generator a better chance to gain enough entropy.  
+We need to generate a lot of random bytes. It is a good idea to perform  
+some other action (type on the keyboard, move the mouse, utilize the  
+disks) during the prime generation; this gives the random number  
+generator a better chance to gain enough entropy.  
+gpg: key 690B17FB marked as ultimately trusted  
+gpg: directory '/home/liveuser/.gnupg/openpgp-revocs.d' created  
+gpg: revocation certificate stored as '/home/liveuser/.gnupg/openpgp-revocs.d/E78CFDE04CE28CBC86DE3741B2AA9ABA690B17FB.rev'  
+public and secret key created and signed.
+
+gpg: checking the trustdb  
+gpg: marginals needed: 3  completes needed: 1  trust model: PGP  
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
+pub   rsa2048/690B17FB 2016-05-27 [S]  
+      Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
+uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+sub   rsa2048/C87D3B19 2016-05-27 []  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Essa sequência de bytes denominada &lt;em&gt;key fingerprint&lt;/em&gt; é fundamental, os últimos 8 dígitos dela formam a &lt;em&gt;KEY ID&lt;/em&gt;. &lt;br&gt;
+Através da sua fingerprint que será estabelecida a confiança de que &lt;strong&gt;aquele e-mail de fato é seu&lt;/strong&gt;. É comum as pessoas trocarem as fingerprinters pessoalmente, quando for verificado nos servidores o e-mail e a fingerprint corresponder aquela repassada pessoalmente então você pode confiar que aquele e-mail é realmente da pessoa. &lt;br&gt;
+Ao invés de trocar as fingerprinters, outros preferem repassar a chave pública pessoalmente por pendrive.  &lt;/p&gt;
+
+&lt;h4 id="fazerbackup"&gt;Fazer backup&lt;/h4&gt;
+
+&lt;p&gt;É fundamental fazer backup para revogar a chave caso a perca ou comprometa e poder se comunicar.
+Caso você perca a sua chave e não tenha feito backup, não há nada a se fazer ao menos esperar o tempo limite para ser revogada (caso tenha inserido tempo limite).  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --export-secret-keys --armor tars@keemail.me &amp;gt; tars-privkey.asc
+$ gpg2 --export --armor tars@keemail.me &amp;gt; tars-pubkey.asc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Guarde os arquivos gerados num pendrive ou HD criptografado.  &lt;/p&gt;
+
+&lt;h4 id="tornarapublickeydisponvel"&gt;Tornar a public key disponível&lt;/h4&gt;
+
+&lt;p&gt;Para que as pessoas sejam capazes de se comunicarem com você, é preciso sincronizar a sua chave pública gerada com os servidores. &lt;br&gt;
+A maioria dos servidores sincronizam com o &lt;a href="http://keys.gnupg.net"&gt;keys.gnupg.net&lt;/a&gt; então mandar só para este é suficiente.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 -K --fingerprint #visualizar a sua fingerprint
+pub   rsa2048/690B17FB 2016-05-27 [SC]  
+      Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
+uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+sub   rsa2048/C87D3B19 2016-05-27 [E]
+
+$ gpg2 --send-keys 690B17FB #encaminhar para os servidores, a key id é passada 
+gpg: sending key 690B17FB to hkp://keys.gnupg.net  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora você já está preparado.. &lt;br&gt;
+&lt;img src="https://media.giphy.com/media/7ov6a9UGsHd4I/giphy.gif" alt="Criptografia de e-mails com PGP"&gt;&lt;/p&gt;
+
+&lt;h4 id="enviarumamensagem"&gt;Enviar uma mensagem&lt;/h4&gt;
+
+&lt;p&gt;É necessário buscar a public key do nosso destinatário, lembre-se de verificar se a fingerprint confere caso já o conheça pessoalmente  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --search-keys danielamorais@tuta.io
+gpg: data source: http://mira.cbaines.net:11371  
+(1)    Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;
+      2048 bit RSA key 8D4FA5B7, created: 2016-05-18
+Enter number(s), N)ext, or Q)uit &amp;gt; 1  
+gpg: key 8D4FA5B7: public key "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" imported  
+gpg: marginals needed: 3  completes needed: 1  trust model: PGP  
+gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
+gpg: Total number processed: 1  
+gpg:               imported: 1  
+$ gpg2 --fingerprint danielamorais@tuta.io
+pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
+      Key fingerprint = E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
+uid         [ unknown] Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+sub   rsa2048/91B55539 2016-05-18 [E]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vou escrever um documento chamado &lt;em&gt;teste&lt;/em&gt; e a descrição dos comandos são &lt;br&gt;
+&lt;strong&gt;--encrypt&lt;/strong&gt;: cita que desejo criptografar algo&lt;br&gt;
+&lt;strong&gt;--sign&lt;/strong&gt;: a mensagem será assinada, ou seja, qualquer alteração no conteúdo será detectada&lt;br&gt;
+&lt;strong&gt;--armor&lt;/strong&gt;: converte a mensagem criptografada em  ASCII, comando opcional&lt;br&gt;
+&lt;strong&gt;--recipient / -r&lt;/strong&gt;: declara quem são os destinatários&lt;br&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ vi teste
+$ gpg2 --encrypt --sign --armor --recipient danielamorais@tuta.io teste #criptografar teste
+gpg: 91B55539: There is no assurance this key belongs to the named user  
+sub  rsa2048/91B55539 2016-05-18 Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+ Primary key fingerprint: E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
+      Subkey fingerprint: F859 9BF8 D659 A0E6 EB68  12EA E5AB 81D0 91B5 5539
+
+It is NOT certain that the key belongs to the person named  
+in the user ID.  If you *really* know what you are doing,  
+you may answer the next question with yes.
+
+Use this key anyway? (y/N) y  
+$ ls
+teste  teste.asc  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O &lt;em&gt;teste.asc&lt;/em&gt; pode ser encaminhado inteiro ou apenas o conteúdo, devido a opção &lt;strong&gt;--armor&lt;/strong&gt; é possível encaminhar apenas o conteúdo.  &lt;/p&gt;
+
+&lt;h4 id="lerumamensagem"&gt;Ler uma mensagem&lt;/h4&gt;
+
+&lt;p&gt;Lembre-se que é possível fazer download do &lt;em&gt;teste.asc&lt;/em&gt; ou criar um novo arquivo apenas com o conteúdo  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --decrypt teste.asc
+gpg: encrypted with 2048-bit RSA key, ID 91B55539, created 2016-05-18  
+      "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;"
+teste  
+$ gpg2 --output messageFromTars --decrypt teste.asc #mensagem descriptografada esta no arquivo 'messageFromTars'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="assinarachave"&gt;Assinar a chave&lt;/h4&gt;
+
+&lt;p&gt;Assine a chave &lt;strong&gt;somente&lt;/strong&gt; depois de checar a fingerprint, quanto mais assinaturas a pessoa possuir maior são as chances de fato aquele e-mail ser válido.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --fingerprint danielamorais@tuta.io
+$ gpg2 --sign-key 8D4FA5B7 #key ID
+$ gpg2 -a --keyserver hkp://p80.pool.sks-keyservers.net:80 --send-keys 8D4FA5B7 #enviar key id 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="verificarassinatura"&gt;Verificar assinatura&lt;/h4&gt;
+
+&lt;p&gt;A verificação das assinaturas garante que a mensagem não foi alterada. Além disso, caso você queira se comunicar com alguém que não use PGP pode apenas assinar a mensagem.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --output exemplo.asc --clearsign exemplo.txt  #assinando exemplo.asc
+$ gpg2 --verify exemplo.asc #verificando assinatura
+gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
+gpg: Good signature from "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" [ultimate]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Caso a mensagem tenha sido alterada  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --verify exemplo.asc 
+gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
+gpg: BAD signature from "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" [ultimate]  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Se o remetente usou a opção &lt;strong&gt;--sign&lt;/strong&gt;, no momento da descriptografia é mostrado a assinatura.  &lt;/p&gt;
+
+&lt;h4 id="andothercoolthings"&gt;And other cool things..&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --list-public-keys #listar as chaves publicas importadas
+/home/liveuser/.gnupg/pubring.kbx
+---------------------------------
+pub   rsa2048/690B17FB 2016-05-27 [SC]  
+uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+sub   rsa2048/C87D3B19 2016-05-27 [E]
+
+pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
+uid         [ unknown] Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+sub   rsa2048/91B55539 2016-05-18 [E]  
+$ gpg2 --list-secret-keys #listar as chaves privadas 
+/home/liveuser/.gnupg/pubring.kbx 
+---------------------------------
+sec   rsa2048/690B17FB 2016-05-27 [SC]  
+uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+ssb   rsa2048/C87D3B19 2016-05-27 [E]  
+$ gpg2 --search-keys 'Daniela Morais' #buscar por nome
+gpg: data source: http://mira.cbaines.net:11371  
+(1)    Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;
+      2048 bit RSA key 8D4FA5B7, created: 2016-05-18
+(2)    Daniela Morais (My personal key) &amp;lt;danielamorais@protonmail.com&amp;gt;
+      2048 bit RSA key 27D40114, created: 2016-05-08 (revoked)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="referncias"&gt;Referências&lt;/h4&gt;
+
+&lt;h6 id="pgpfaqsecurity"&gt;PGP FAQ Security&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa"&gt;http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="rsakeysizes2048or2096bits"&gt;RSA Key Sizes: 2048 or 2096 bits&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits"&gt;http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="creatinggpgkeys"&gt;Creating GPG Keys&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://bit.ly/1siPE0z"&gt;http://bit.ly/1siPE0z&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="whatisthedifferencebetweendsaandrsa"&gt;What is the difference between DSA and RSA&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa"&gt;http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="pgptutorial"&gt;PGP Tutorial&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://localhost:2368/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
+Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  &lt;/p&gt;
+
+&lt;h4 id="especificaogeral"&gt;Especificação geral&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MK64FN1M0VLL12 MCU (120 MHz, 1 MB flash memory, 256 KB RAM, low-power, crystal-less USB, and 100 Low profile Quad Flat Package (LQFP))&lt;/li&gt;
+&lt;li&gt;Dual role USB interface with micro-B USB Connector&lt;/li&gt;
+&lt;li&gt;RGB LED&lt;/li&gt;
+&lt;li&gt;FXOS8700CQ accelerometer and magnetometer&lt;/li&gt;
+&lt;li&gt;Two user push buttons&lt;/li&gt;
+&lt;li&gt;Ethernet&lt;/li&gt;
+&lt;li&gt;SDHC&lt;/li&gt;
+&lt;li&gt;Add-on RF module: nRF24L01+ Nordic 2.4GHz Radio&lt;/li&gt;
+&lt;li&gt;Add-on Bluetooth module: JY-MCU BT board V1.05 BT&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+
+&lt;p&gt;E a reação de quem só usa Arduino após conhecer esta placa.. &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+
+&lt;h2 id="helloworldbin"&gt;Helloworld.bin&lt;/h2&gt;
+
+&lt;p&gt;Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-c  "&gt;#include "mbed.h" 
+DigitalOut led_red(LED_RED);  
+DigitalOut led_green(LED_GREEN);  
+DigitalIn sw2(SW2);  
+DigitalIn sw3(SW3);  
+Serial pc(USBTX, USBRX);
+
+void check_sw2(void){  
+    if (sw2 == 0) {
+        pc.printf("SW2 button pressed.");
+        led_red = 0;
+        led_green = 1;
+    }
+}
+
+void check_sw3(void){  
+    if (sw3 == 0) {
+        pc.printf("SW3 button pressed.");
+        led_green = 0;
+        led_red = 1;
+    }
+}
+
+int main() {  
+    led_green = 1;
+    led_red = 1;
+    pc.baud(9600);
+    pc.printf("Hello World from FRDM-K64F board.\n");
+    while (true) {
+        check_sw2();
+        check_sw3();
+        wait(0.3);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... &lt;br&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# screen /dev/ttyACM0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;img src="http://localhost:2368/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+
+&lt;h2 id="andothercoolthings"&gt;And other cool things..&lt;/h2&gt;
+
+&lt;h6 id="conexocomoazureiothub"&gt;Conexão com o Azure IoT Hub&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md"&gt;https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="instalarjavameerodaraplicaes"&gt;Instalar Java ME e rodar aplicações&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2"&gt;http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="desenvolvimentonoeclipse"&gt;Desenvolvimento no Eclipse&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/"&gt;http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h6 id="comodepurar"&gt;Como depurar&lt;/h6&gt;
+
+&lt;p&gt;&lt;a href="https://developer.mbed.org/handbook/Debugging"&gt;https://developer.mbed.org/handbook/Debugging&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Poised to become the de facto operating system for the Internet of Things, the cost-free mbed OS is a comprehensive platform for the creation of next-generation IoT devices. The OS includes the connectivity, security and device management functionalities required in virtually every IoT device. When deployed on Freescale’s Kinetis microcontrollers or heterogeneous i.MX processors, developers can bypass low-level software tasks and spend their time on higher-level development, user-experience enhancement and other differentiating features.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Um agradecimento para o pessoal do ABCMakerspace, especialmente o Pacman Pereira por apresentar a Freescale K64F na Campus Party 9&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
