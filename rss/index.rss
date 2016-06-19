@@ -1,10 +1,10 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://localhost:2368/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 30 May 2016 06:10:44 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://localhost:2368/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://danielammorais/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 30 May 2016 06:10:44 GMT</lastBuildDate><atom:link href="http://danielammorais/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://danielammorais/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://danielammorais/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
 Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de &lt;a href="https://en.wikipedia.org/wiki/Panopticon"&gt;Panopticon&lt;/a&gt; contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No &lt;a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters"&gt;TEDx&lt;/a&gt;, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. &lt;br&gt;
 Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.&lt;/p&gt;
 
 &lt;h4 id="comopgpfunciona"&gt;Como PGP funciona&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
+&lt;p&gt;&lt;img src="http://danielammorais/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
 O PGP usa o conceito de &lt;strong&gt;criptografia assimétrica&lt;/strong&gt;, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. &lt;br&gt;
 Na ilustração acima, Bob envia um documento para John e para ter certeza que &lt;strong&gt;somente John seja capaz de abrir&lt;/strong&gt; ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  &lt;/p&gt;
 
@@ -258,7 +258,7 @@ gpg: data source: http://mira.cbaines.net:11371
 
 &lt;h6 id="pgptutorial"&gt;PGP Tutorial&lt;/h6&gt;
 
-&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://localhost:2368/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2016/03/FRDM-K64F_BD.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
+&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://danielammorais/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://danielammorais/content/images/2016/03/FRDM-K64F_BD.jpg" medium="image"/><content:encoded>&lt;img src="http://danielammorais/content/images/2016/03/FRDM-K64F_BD.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
 Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  &lt;/p&gt;
 
 &lt;h4 id="especificaogeral"&gt;Especificação geral&lt;/h4&gt;
@@ -275,19 +275,19 @@ Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis
 &lt;li&gt;Add-on Bluetooth module: JY-MCU BT board V1.05 BT&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://danielammorais/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;p&gt;E a reação de quem só usa Arduino após conhecer esta placa.. &lt;br&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;h2 id="helloworldbin"&gt;Helloworld.bin&lt;/h2&gt;
 
 &lt;p&gt;Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente &lt;br&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais &lt;br&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates &lt;br&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-c  "&gt;#include "mbed.h" 
@@ -327,14 +327,14 @@ int main() {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... &lt;br&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-bash"&gt;# screen /dev/ttyACM0
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;
-&lt;img src="http://localhost:2368/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;img src="http://danielammorais/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;h2 id="andothercoolthings"&gt;And other cool things..&lt;/h2&gt;
 
