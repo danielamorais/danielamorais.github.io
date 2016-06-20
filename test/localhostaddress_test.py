@@ -1,8 +1,9 @@
-from unittest import TestCase
+import unittest
+from localhostaddress import containsLocalHost
 
-class TestLocalHostAdress(TestCase):
-    def setUp(self):
-        TestCase.setUp(self)
+class LocalHostAddressTestCase(unittest.TestCase):
+    def test_isnt_contains_localhost(self):
+        self.assertFalse(containsLocalHost())
 
-    def test_check_html():
-            
+if __name__ == '__main__':
+    unittest.main()
