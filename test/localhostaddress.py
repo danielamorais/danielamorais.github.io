@@ -30,6 +30,8 @@ def containsLocalHost():
             filesNameList[i] = filesNameList[i].replace("\n", "")
             pathname = os.path.join("." + filesNameList[i])
             checkFile(pathname)
-    print contains
+    #Check sitemap.xml
+    pathname = os.path.join("..", "sitemap.xml")
+    checkFile(pathname)
     return contains
 
