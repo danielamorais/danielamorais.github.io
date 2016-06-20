@@ -3,12 +3,22 @@ language: python
 python:
   - "2.7"
 
+env:
+  - secure: "hKzqhXUfpRgvAQ3SnZSTj9YKo1sLJzuN2ufEr+egTsONU9j6hpfbeiviy1OAoajJ2P0dvYLfTjFgAMaNummJwGCbDsdMg+eeDSOf89nV2P+5VJfX/RZ1tsX9x13ZsG1sizCO4z7MiffS3bjHld3lEZi8bn2Fvv3njkfpqeGwhZmrKI+4cl166eGwFqPsohlm7MnJizywjmIol+QE03+YXhjzcW0YNt59o/tk59XDWdo6NXj0ysSPvpmEWpDlWYqwnUnCc/zw8b+VpDuzbrNKl949r+u0lVb6vtrySTLLCf8U47G1yDI3AUuwVXkvfRMCNdtnx32+PyWnFDpu48rr0nMRQz/QhBGpLJ9sJYxHC+y4gkiu1tnhO1VvyM2RfE884FIfDn29dFSC5vmMmV1WAcxeW8MIj+DLSI4uxD5ZPqn8QXekd3L5KLvm7oQgdwTGMqVbzWoVW7qe/K5ly0MRzOxW7A0ct4XgWNV+PisWxjcvesP6NnkSfSiUMZcVkMIEURjyQzIiQQwdAdaFBevm6xvBxQdHqBXyQdU0XCi8Swj3JV+buQA4uiYpyidr3UR7pRc+zt8Diso5Cilfqk7dQogstaNrpYC82TwgWZ5finCPsqQbdUzuhD2Usoe/0i+Q62U3yHQEk18eCQfJ/G+L0G07WDRjboq1Htsikl3JReI="
+
 sudo: required
 
 branches:
   only:
     - master
+    - f/develop
+
 script:
   - cd test/
   - ./listfilescript
   - python localhostaddress_test.py
+
+after_success:
+  - "curl -o /tmp/travis-automerge https://raw.githubusercontent.com/cdown/travis-automerge/master/travis-automerge"
+  - "chmod a+x /tmp/travis-automerge"
+  - "BRANCHES_TO_MERGE_REGEX='^f/' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=cdown/srt /tmp/travis-automerge"
