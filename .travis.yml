@@ -9,5 +9,6 @@ branches:
   only:
     - master
 script:
+  - cd test/
   - ./listfilescript
   - python localhostaddress_test.py
