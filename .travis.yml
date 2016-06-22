@@ -12,6 +12,7 @@ branches:
   only:
     - master
     - f/develop
+    - f/updateghost
 
 script:
   - cd test/
