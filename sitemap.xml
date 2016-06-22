@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
     <url>
-        <loc>https://danielammorais.com</loc>
+        <loc>http://danielammorais.com</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/author/danielamorais/</loc>
+        <loc>http://danielammorais.com/author/danielamorais/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/criptografia/</loc>
+        <loc>http://danielammorais.com/tag/criptografia/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/embarcados/</loc>
+        <loc>http://danielammorais.com/tag/embarcados/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/iot/</loc>
+        <loc>http://danielammorais.com/tag/iot/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/linux/</loc>
+        <loc>http://danielammorais.com/tag/linux/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/seguranca/</loc>
+        <loc>http://danielammorais.com/tag/seguranca/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/tag/software-livre/</loc>
+        <loc>http://danielammorais.com/tag/software-livre/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
+        <loc>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</loc>
+        <loc>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</loc>
     </url>    <url>
-        <loc>https://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
+        <loc>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
 </url></urlset> 
