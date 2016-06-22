@@ -1,10 +1,121 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://danielammorais/</link><generator>Ghost 0.7</generator><lastBuildDate>Mon, 30 May 2016 06:10:44 GMT</lastBuildDate><atom:link href="http://danielammorais/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://danielammorais/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://danielammorais/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Wed, 22 Jun 2016 03:52:36 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>$ sudo dnf install fedora</title><description>Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc.</description><link>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</link><guid isPermaLink="false">c0cef021-2466-4dba-887a-799dcec2000b</guid><category>linux</category><category>software livre</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 19 Jun 2016 08:02:23 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/workstation-large.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/06/workstation-large.png" alt="$ sudo dnf install fedora"&gt;&lt;p&gt;Este guia é para quem é &lt;strong&gt;novo em Linux&lt;/strong&gt; e possui a versão estável do Fedora, especificamente o Fedora 23. Caso não possua baixe a última versão do &lt;a href="https://getfedora.org/en/workstation/download/"&gt;Fedora Workstation&lt;/a&gt;.   &lt;/p&gt;
+
+&lt;p&gt;Se já possui o Fedora, welcome aboard my friend! &lt;br&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/06/rainbow-bobsquare.gif" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+
+&lt;h3 id="fedoraproject"&gt;Fedora Project&lt;/h3&gt;
+
+&lt;p&gt;Antes de tudo é importante lembrar que o Fedora é uma distribuição mantida por colaboradores voluntários e possui como valores os 4 pilares: freedom, friends, features e first. Os quais enfatizam a importância do uso de software livre para a liberdade, a excelência, cultura de inovação e a importância da comunidade. &lt;br&gt;
+Para contribuir não é preciso ser nenhum badass, &lt;strong&gt;qualquer um&lt;/strong&gt; pode contribuir com o projeto como tradução de documentos, testes, marketing, design, desenvolvimento etc. Veja como colaborar &lt;a href="https://fedoraproject.org/wiki/Join"&gt;aqui&lt;/a&gt;. &lt;br&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/06/4Foundations.png" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+
+&lt;h3 id="comandoslinux"&gt;Comandos Linux&lt;/h3&gt;
+
+&lt;p&gt;O GNOME provavelmente é sua interface gráfica (existem diferentes interfaces gráficas no Fedora como KDE e Cinnamon, são os chamados &lt;a href="https://spins.fedoraproject.org/"&gt;spins do Fedora&lt;/a&gt;) e é bem intuitiva porém caso queira aprender alguns comandos úteis conheça o &lt;a href="http://lucasviola.github.io/easyshell/"&gt;Easy Shell - Shell and Linux commands the easy way&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h3 id="instalaodeprogramas"&gt;Instalação de programas&lt;/h3&gt;
+
+&lt;h4 id="modogrfico"&gt;Modo gráfico&lt;/h4&gt;
+
+&lt;p&gt;Vários programas essenciais já estão instalados por default como o Transmission (torrents), Libre Office, Firefox e Boxes (gerenciador de máquinas virtuais) e o Fedora possui o Software Source, a qual é uma loja onde pode buscar o que deseja instalar. &lt;br&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/06/software.png" alt="$ sudo dnf install fedora"&gt;
+O Fedy é a maneira fácil caso opte por instalar o Chrome, Flash, Java, VLC Media Player etc. &lt;br&gt;
+Abra o terminal e execute o seguinte comando para instalar o Fedy:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ bash -c 'su -c "curl http://folkswithhats.org/fedy-installer -o fedy-installer &amp;amp;&amp;amp; chmod +x fedy-installer &amp;amp;&amp;amp; ./fedy-installer"'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Após a instalação, você poderá selecionar o que deseja instalar &lt;br&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/06/fedy.png" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+
+&lt;h4 id="linhadecomando"&gt;Linha de comando&lt;/h4&gt;
+
+&lt;p&gt;O &lt;em&gt;dnf&lt;/em&gt; é o novo gerenciador de pacotes do Fedora e trata-se de uma versão melhorada do antigo &lt;em&gt;yum&lt;/em&gt;, é comum ainda encontrar artigos usando o &lt;em&gt;yum&lt;/em&gt;. &lt;br&gt;
+O gerenciador de pacotes é o responsável por buscar pacotes dos softwares que deseja instalar/remover e resolver os possíveis problemas de dependências.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo dnf search audacity #buscar software chamado audacity
+$ sudo dnf install audacity #instalar software
+$ sudo dnf remove audacity #remover software 
+$ sudo dnf update #atualiza lista de pacotes
+$ sudo dnf upgrade audacity #atualizar software
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O &lt;em&gt;RPM&lt;/em&gt; (Red Hat Packager Manager) também é um gerenciador de pacotes, a diferença é que este &lt;strong&gt;não é capaz&lt;/strong&gt; de resolver as dependências e conflitos automaticamente como o &lt;em&gt;dnf&lt;/em&gt;  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo rpm -q firefox #buscar pacote
+$ sudo rpm -ivh firefox-47.0-4.fc24.i686.rpm #instalar firefox
+$ sudo rpm -e firefox #remover 
+$ sudo rpm -Uvh firefox-47.0-4.fc24.i686.rpm #atualiza, remove versão antiga e instalar nova 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="desenvolvedores"&gt;Desenvolvedores&lt;/h3&gt;
+
+&lt;p&gt;Não tive nenhum problema em usar Fedora para desenvolvimento, a sensação foi de maior produtividade pois raramente tive problemas com o OS. &lt;br&gt;
+O Python 3 é instalado por default, é fácil instalar o Nodejs, Ruby, Haskell, Lua e o OpenJDK. Todas as IDEs da JetBrains, Eclipse, Arduino e o Android Studio também são fáceis e compatíveis. &lt;br&gt;
+Infelizmente ainda não conheço ninguém que use Fedora em ambiente de produção para compartilhar a experiência.&lt;/p&gt;
+
+&lt;h3 id="comopedirajuda"&gt;Como pedir ajuda&lt;/h3&gt;
+
+&lt;p&gt;O principal suporte é o &lt;a href="https://ask.fedoraproject.org/pt-br/questions/"&gt;Ask Fedora Project&lt;/a&gt; e existem inúmeras listas de e-mails, chats em IRC e grupos do Fedora em que você pode recorrer. Clique &lt;a href="https://fedoraproject.org/wiki/Communicating_and_getting_help/pt-br"&gt;aqui&lt;/a&gt; para saber mais.  &lt;/p&gt;
+
+&lt;h3 id="othercoolthings"&gt;Other cool things..&lt;/h3&gt;
+
+&lt;h4 id="kernel"&gt;Kernel&lt;/h4&gt;
+
+&lt;p&gt;Provavelmente haverá um dia em que no momento do boot você irá se deparar com uma lista enorme de diferentes versões. Essa lista são as diferentes versões do kernel que possui instalado, é recomendado sempre possuir ao menos dois kernels diferentes caso algum tenha bug. &lt;br&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/06/grub.png" alt="$ sudo dnf install fedora"&gt;
+Para desinstalar algum kernel de versão específica:  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo dnf remove kernel- #aperte tab para autocomplete
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="verificarportas"&gt;Verificar portas&lt;/h4&gt;
+
+&lt;p&gt;Lembre-se que ao escanear servidores externos geralmente o seu IP será exibido nos logs, o Tor não é apenas um browser e com ele é possível fazer com que toda a sua rede passe pela rede Tor.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ nmap danielammorais.com
+Starting Nmap 7.12 ( https://nmap.org ) at 2016-06-19 04:25 BRT  
+Nmap scan report for danielammorais.com (192.30.252.153)  
+Host is up (0.19s latency).  
+Not shown: 999 filtered ports  
+PORT   STATE SERVICE  
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 26.06 seconds  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;É possível listar os conectados na sua rede e explorar algum ip específico &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ nmap -sP 192.168.0.*
+$ sudo nmap -sF 192.168.0.4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="reiniciarognome"&gt;Reiniciar o GNOME&lt;/h4&gt;
+
+&lt;p&gt;O tty é responsável por conectar dispositivos externos ao kernel, para acessá-los pressione  &lt;em&gt;CTRL + ALT + F1&lt;/em&gt;, &lt;em&gt;CTRL + ALT + F2&lt;/em&gt;, &lt;em&gt;CTRL + ALT + F3&lt;/em&gt; e assim por diante até o &lt;em&gt;F6&lt;/em&gt;. O seguinte comando é extremamente útil caso o modo gráfico trave e não precise reiniciar o computador.  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo /etc/init.d/gdm restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="referncias"&gt;Referências&lt;/h3&gt;
+
+&lt;h5 id="paraqueservemosttys"&gt;Para que servem os TTYs&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys"&gt;http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h5 id="differencebetweenyumandrpm"&gt;Difference between YUM and RPM&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="http://www.differencebetween.net/technology/difference-between-yum-and-rpm/"&gt;http://www.differencebetween.net/technology/difference-between-yum-and-rpm/&lt;/a&gt;  &lt;/p&gt;
+
+&lt;h5 id="dnfguide"&gt;DNF Guide&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href="https://fedoraproject.org/wiki/Dnf"&gt;https://fedoraproject.org/wiki/Dnf&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
 Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de &lt;a href="https://en.wikipedia.org/wiki/Panopticon"&gt;Panopticon&lt;/a&gt; contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No &lt;a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters"&gt;TEDx&lt;/a&gt;, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. &lt;br&gt;
 Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.&lt;/p&gt;
 
 &lt;h4 id="comopgpfunciona"&gt;Como PGP funciona&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src="http://danielammorais/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
+&lt;p&gt;&lt;img src="http://danielammorais.com/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
 O PGP usa o conceito de &lt;strong&gt;criptografia assimétrica&lt;/strong&gt;, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. &lt;br&gt;
 Na ilustração acima, Bob envia um documento para John e para ter certeza que &lt;strong&gt;somente John seja capaz de abrir&lt;/strong&gt; ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  &lt;/p&gt;
 
@@ -258,7 +369,7 @@ gpg: data source: http://mira.cbaines.net:11371
 
 &lt;h6 id="pgptutorial"&gt;PGP Tutorial&lt;/h6&gt;
 
-&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://danielammorais/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://danielammorais/content/images/2016/03/FRDM-K64F_BD.jpg" medium="image"/><content:encoded>&lt;img src="http://danielammorais/content/images/2016/03/FRDM-K64F_BD.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
+&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/freescale.jpg" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/06/freescale.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
 Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  &lt;/p&gt;
 
 &lt;h4 id="especificaogeral"&gt;Especificação geral&lt;/h4&gt;
@@ -275,19 +386,19 @@ Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis
 &lt;li&gt;Add-on Bluetooth module: JY-MCU BT board V1.05 BT&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src="http://danielammorais/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://danielammorais.com/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;p&gt;E a reação de quem só usa Arduino após conhecer esta placa.. &lt;br&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;h2 id="helloworldbin"&gt;Helloworld.bin&lt;/h2&gt;
 
 &lt;p&gt;Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente &lt;br&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais &lt;br&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates &lt;br&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-c  "&gt;#include "mbed.h" 
@@ -327,14 +438,14 @@ int main() {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... &lt;br&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
 No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  &lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-bash"&gt;# screen /dev/ttyACM0
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;
-&lt;img src="http://danielammorais/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+&lt;img src="http://danielammorais.com/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
 
 &lt;h2 id="andothercoolthings"&gt;And other cool things..&lt;/h2&gt;
 
