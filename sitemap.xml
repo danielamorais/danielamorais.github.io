@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
-    <url>
-        <loc>http://danielammorais.com</loc>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    <url>
+        <loc>http://danielammorais.com/404.html</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/</loc>
     </url>    <url>
         <loc>http://danielammorais.com/author/danielamorais/</loc>
     </url>    <url>
@@ -19,7 +20,9 @@
     </url>    <url>
         <loc>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
     </url>    <url>
+        <loc>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
+    </url>    <url>
         <loc>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</loc>
     </url>    <url>
-        <loc>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
-</url></urlset> 
+        <loc>http://danielammorais.com/2016/07/04/fedora-24-release-party-in-sao-paulo/</loc>
+    </url></urlset>

@@ -1,79 +1,124 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Daniela Morais</title><description>Blog sobre tecnologia e desenvolvimento </description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Wed, 22 Jun 2016 03:52:36 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>$ sudo dnf install fedora</title><description>Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc.</description><link>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</link><guid isPermaLink="false">c0cef021-2466-4dba-887a-799dcec2000b</guid><category>linux</category><category>software livre</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 19 Jun 2016 08:02:23 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/workstation-large.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/06/workstation-large.png" alt="$ sudo dnf install fedora"&gt;&lt;p&gt;Este guia é para quem é &lt;strong&gt;novo em Linux&lt;/strong&gt; e possui a versão estável do Fedora, especificamente o Fedora 23. Caso não possua baixe a última versão do &lt;a href="https://getfedora.org/en/workstation/download/"&gt;Fedora Workstation&lt;/a&gt;.   &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Mon, 04 Jul 2016 14:50:08 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Fedora 24 Release Party in Sao Paulo]]></title><description><![CDATA[<p>Every time a new Fedora release is available, the community organizes events around the world to celebrate. Those events are necessary because they help meeting other users, contributors and, of course, it's an opportunity to talk about Fedora.</p>
 
-&lt;p&gt;Se já possui o Fedora, welcome aboard my friend! &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/06/rainbow-bobsquare.gif" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+<p>This Saturday, it was time for São Paulo to make a Release</p>]]></description><link>http://danielammorais.com/2016/07/04/fedora-24-release-party-in-sao-paulo/</link><guid isPermaLink="false">62ab678a-2e26-4dc0-a44c-16677b165ebc</guid><category><![CDATA[software livre]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Mon, 04 Jul 2016 03:52:29 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/07/releaseParty.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/07/releaseParty.jpg" alt="Fedora 24 Release Party in Sao Paulo"><p>Every time a new Fedora release is available, the community organizes events around the world to celebrate. Those events are necessary because they help meeting other users, contributors and, of course, it's an opportunity to talk about Fedora.</p>
 
-&lt;h3 id="fedoraproject"&gt;Fedora Project&lt;/h3&gt;
+<p>This Saturday, it was time for São Paulo to make a Release Party. Athos Ribeiro, Ricardo Martinelli and myself invited Fedora users and free open source software enthusiasts to learn about Fedora 24, how to collaborate with the Fedora Project and how to use Flatpak. They could meet Fedora Cloud SIG and talk about Python with Fedora (Fedora loves Python &lt;3)</p>
 
-&lt;p&gt;Antes de tudo é importante lembrar que o Fedora é uma distribuição mantida por colaboradores voluntários e possui como valores os 4 pilares: freedom, friends, features e first. Os quais enfatizam a importância do uso de software livre para a liberdade, a excelência, cultura de inovação e a importância da comunidade. &lt;br&gt;
-Para contribuir não é preciso ser nenhum badass, &lt;strong&gt;qualquer um&lt;/strong&gt; pode contribuir com o projeto como tradução de documentos, testes, marketing, design, desenvolvimento etc. Veja como colaborar &lt;a href="https://fedoraproject.org/wiki/Join"&gt;aqui&lt;/a&gt;. &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/06/4Foundations.png" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+<p>The event happened at Red Hat Office's and about 25 people attended, filling the meeting room \o/ Unfortunately, the room can only support 36 people, but more than 120 were interested to attend, according to the Facebook Event. This clearly shows that São Paulo have a big FOSS public and that <strong>we need</strong> to organize more Fedora events here. <br>
+<img src="http://danielammorais.com/content/images/2016/07/redHatOffice.JPG" alt="Fedora 24 Release Party in Sao Paulo" title=""> </p>
 
-&lt;h3 id="comandoslinux"&gt;Comandos Linux&lt;/h3&gt;
+<p>I started with a quick introduction about what is Fedora and our four values (freedom, friends, features and first). The majority of the public have used Fedora for a long time and so, many things like Fedora SIGs and how to contribute weren't news for them. After this, I tried to encourage people to create a wiki, greet everyone and introduce themselves via mail lists :) That was the first time I've talked about Fedora but in general I think it worked, because after Release Party new people joined "Fedora Brasil", a group in Telegram group. Lots of people have sent me a friend requests too, and some of them said "wow, the event was so cool!". <br>
+<img src="http://danielammorais.com/content/images/2016/07/meFedoraProject.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;p&gt;O GNOME provavelmente é sua interface gráfica (existem diferentes interfaces gráficas no Fedora como KDE e Cinnamon, são os chamados &lt;a href="https://spins.fedoraproject.org/"&gt;spins do Fedora&lt;/a&gt;) e é bem intuitiva porém caso queira aprender alguns comandos úteis conheça o &lt;a href="http://lucasviola.github.io/easyshell/"&gt;Easy Shell - Shell and Linux commands the easy way&lt;/a&gt;  &lt;/p&gt;
+<p>Athos collaborates with packages in the Fedora Project and talked about tips to use Fedora and about Fedora 24's news. He introduced COPR (Cool Other Package Repository) and solutions for common problems like wifi drivers and video drivers. The Python, NodeJS, GNOME updates and other updates were mentioned and the coolest thing about it was to see the difference between the old version and Fedora 24. Some people commented about their experience in upgrade and, with the exception of proprietary software, it was very easy.<img src="http://danielammorais.com/content/images/2016/07/athosFedoraProject.JPG" alt="Fedora 24 Release Party in Sao Paulo" title=""></p>
 
-&lt;h3 id="instalaodeprogramas"&gt;Instalação de programas&lt;/h3&gt;
+<p>Marcos Sungaila is a CTO in Savant, a consultant, a certified Red Hat Trainer and wrote the book "Autenticação Centralizada com OpenLDAP". He's an awesome person and taught us about Flatpak, a framework made to help with the installation of apps in different Linux distributions and versions. It's very easy to use Flatpak and Marcos showed it for us. Lots of questions about the infrastructure were made, and Marcos and Claudia Sungaila have shared all their experience with us. <br>
+<img src="http://danielammorais.com/content/images/2016/07/sungaFlatpak.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;h4 id="modogrfico"&gt;Modo gráfico&lt;/h4&gt;
+<p>Lunch time or yum yum, ops i mean dnf dnf <br>
+<img src="http://danielammorais.com/content/images/2016/07/lunch.JPG" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;p&gt;Vários programas essenciais já estão instalados por default como o Transmission (torrents), Libre Office, Firefox e Boxes (gerenciador de máquinas virtuais) e o Fedora possui o Software Source, a qual é uma loja onde pode buscar o que deseja instalar. &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/06/software.png" alt="$ sudo dnf install fedora"&gt;
-O Fedy é a maneira fácil caso opte por instalar o Chrome, Flash, Java, VLC Media Player etc. &lt;br&gt;
-Abra o terminal e execute o seguinte comando para instalar o Fedy:  &lt;/p&gt;
+<p>Daniel Bruno is mentor of the LATAM Ambassadors, via Hangouts he presented Fedora Cloud SIG and what they have done. Daniel emphasized too how Fedora Cloud is available in  the most common services like OpenStack and Amazon EC2. Ricardo Martinelli is Senior Software Engineer at Red Hat and showed Openshift, a Container Platform and  Atomic Developer Bundle. <br>
+<img src="http://danielammorais.com/content/images/2016/07/ricardoBrunoCloud.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ bash -c 'su -c "curl http://folkswithhats.org/fedy-installer -o fedy-installer &amp;amp;&amp;amp; chmod +x fedy-installer &amp;amp;&amp;amp; ./fedy-installer"'
-&lt;/code&gt;&lt;/pre&gt;
+<p>For last, Davi Souza talked about Fedora infrastructure and Python SIG. a lot of Fedora's tools were developed using Python and there was a community effort to port everything from Python 2.7 to Python 3 <br>
+<img src="http://danielammorais.com/content/images/2016/07/daviPython.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;p&gt;Após a instalação, você poderá selecionar o que deseja instalar &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/06/fedy.png" alt="$ sudo dnf install fedora"&gt;&lt;/p&gt;
+<p>This t-shiry was made for the Pycon 2016 and is now available in Brazil, if you have interest send a message in Telegram group <br>
+<img src="http://danielammorais.com/content/images/2016/07/pythonSwag.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;h4 id="linhadecomando"&gt;Linha de comando&lt;/h4&gt;
+<p>Thanks everyone, feel free to send me a message in <i>danielamorais@fedoraproject.org</i> and join us: <br>
+ <a href="https://telegram.me/fedorabr">https://telegram.me/fedorabr</a> 
+<img src="http://danielammorais.com/content/images/2016/07/releaseParty.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-&lt;p&gt;O &lt;em&gt;dnf&lt;/em&gt; é o novo gerenciador de pacotes do Fedora e trata-se de uma versão melhorada do antigo &lt;em&gt;yum&lt;/em&gt;, é comum ainda encontrar artigos usando o &lt;em&gt;yum&lt;/em&gt;. &lt;br&gt;
-O gerenciador de pacotes é o responsável por buscar pacotes dos softwares que deseja instalar/remover e resolver os possíveis problemas de dependências.  &lt;/p&gt;
+<h4 id="usefullinks">Useful links</h4>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo dnf search audacity #buscar software chamado audacity
+<h6 id="presentation">Presentation</h6>
+
+<p><a href="https://danielamorais.fedorapeople.org/f24.odp">https://danielamorais.fedorapeople.org/f24.odp</a>  </p>
+
+<h6 id="fedora24releasepartysopaulo">Fedora 24 Release Party - São Paulo</h6>
+
+<p><a href="http://athosribeiro.com/post/fedora24-rp-sp/">http://athosribeiro.com/post/fedora24-rp-sp/</a>  </p>
+
+<h6 id="fedora24releaseparty">Fedora 24 Release Party</h6>
+
+<p><a href="https://rimolive.github.io/aprendendo-cloud-computing/2016/07/fedora-24-release-party">https://rimolive.github.io/aprendendo-cloud-computing/2016/07/fedora-24-release-party</a></p>]]></content:encoded></item><item><title><![CDATA[$ sudo dnf install fedora]]></title><description><![CDATA[Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc.]]></description><link>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</link><guid isPermaLink="false">c0cef021-2466-4dba-887a-799dcec2000b</guid><category><![CDATA[linux]]></category><category><![CDATA[software livre]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 19 Jun 2016 08:02:23 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/workstation-large.png" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/06/workstation-large.png" alt="$ sudo dnf install fedora"><p>Este guia é para quem é <strong>novo em Linux</strong> e possui a versão estável do Fedora, especificamente o Fedora 23. Caso não possua baixe a última versão do <a href="https://getfedora.org/en/workstation/download/">Fedora Workstation</a>.   </p>
+
+<p>Se já possui o Fedora, welcome aboard my friend! <br>
+<img src="http://danielammorais.com/content/images/2016/06/rainbow-bobsquare.gif" alt="$ sudo dnf install fedora"></p>
+
+<h3 id="fedoraproject">Fedora Project</h3>
+
+<p>Antes de tudo é importante lembrar que o Fedora é uma distribuição mantida por colaboradores voluntários e possui como valores os 4 pilares: freedom, friends, features e first. Os quais enfatizam a importância do uso de software livre para a liberdade, a excelência, cultura de inovação e a importância da comunidade. <br>
+Para contribuir não é preciso ser nenhum badass, <strong>qualquer um</strong> pode contribuir com o projeto como tradução de documentos, testes, marketing, design, desenvolvimento etc. Veja como colaborar <a href="https://fedoraproject.org/wiki/Join">aqui</a>. <br>
+<img src="http://danielammorais.com/content/images/2016/06/4Foundations.png" alt="$ sudo dnf install fedora"></p>
+
+<h3 id="comandoslinux">Comandos Linux</h3>
+
+<p>O GNOME provavelmente é sua interface gráfica (existem diferentes interfaces gráficas no Fedora como KDE e Cinnamon, são os chamados <a href="https://spins.fedoraproject.org/">spins do Fedora</a>) e é bem intuitiva porém caso queira aprender alguns comandos úteis conheça o <a href="http://lucasviola.github.io/easyshell/">Easy Shell - Shell and Linux commands the easy way</a>  </p>
+
+<h3 id="instalaodeprogramas">Instalação de programas</h3>
+
+<h4 id="modogrfico">Modo gráfico</h4>
+
+<p>Vários programas essenciais já estão instalados por default como o Transmission (torrents), Libre Office, Firefox e Boxes (gerenciador de máquinas virtuais) e o Fedora possui o Software Source, a qual é uma loja onde pode buscar o que deseja instalar. <br>
+<img src="http://danielammorais.com/content/images/2016/06/software.png" alt="$ sudo dnf install fedora">
+O Fedy é a maneira fácil caso opte por instalar o Chrome, Flash, Java, VLC Media Player etc. <br>
+Abra o terminal e execute o seguinte comando para instalar o Fedy:  </p>
+
+<pre><code class="language-bash">$ bash -c 'su -c "curl http://folkswithhats.org/fedy-installer -o fedy-installer &amp;&amp; chmod +x fedy-installer &amp;&amp; ./fedy-installer"'
+</code></pre>
+
+<p>Após a instalação, você poderá selecionar o que deseja instalar <br>
+<img src="http://danielammorais.com/content/images/2016/06/fedy.png" alt="$ sudo dnf install fedora"></p>
+
+<h4 id="linhadecomando">Linha de comando</h4>
+
+<p>O <em>dnf</em> é o novo gerenciador de pacotes do Fedora e trata-se de uma versão melhorada do antigo <em>yum</em>, é comum ainda encontrar artigos usando o <em>yum</em>. <br>
+O gerenciador de pacotes é o responsável por buscar pacotes dos softwares que deseja instalar/remover e resolver os possíveis problemas de dependências.  </p>
+
+<pre><code class="language-bash">$ sudo dnf search audacity #buscar software chamado audacity
 $ sudo dnf install audacity #instalar software
 $ sudo dnf remove audacity #remover software 
 $ sudo dnf update #atualiza lista de pacotes
 $ sudo dnf upgrade audacity #atualizar software
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;O &lt;em&gt;RPM&lt;/em&gt; (Red Hat Packager Manager) também é um gerenciador de pacotes, a diferença é que este &lt;strong&gt;não é capaz&lt;/strong&gt; de resolver as dependências e conflitos automaticamente como o &lt;em&gt;dnf&lt;/em&gt;  &lt;/p&gt;
+<p>O <em>RPM</em> (Red Hat Packager Manager) também é um gerenciador de pacotes, a diferença é que este <strong>não é capaz</strong> de resolver as dependências e conflitos automaticamente como o <em>dnf</em>  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo rpm -q firefox #buscar pacote
+<pre><code class="language-bash">$ sudo rpm -q firefox #buscar pacote
 $ sudo rpm -ivh firefox-47.0-4.fc24.i686.rpm #instalar firefox
 $ sudo rpm -e firefox #remover 
 $ sudo rpm -Uvh firefox-47.0-4.fc24.i686.rpm #atualiza, remove versão antiga e instalar nova 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3 id="desenvolvedores"&gt;Desenvolvedores&lt;/h3&gt;
+<h3 id="desenvolvedores">Desenvolvedores</h3>
 
-&lt;p&gt;Não tive nenhum problema em usar Fedora para desenvolvimento, a sensação foi de maior produtividade pois raramente tive problemas com o OS. &lt;br&gt;
-O Python 3 é instalado por default, é fácil instalar o Nodejs, Ruby, Haskell, Lua e o OpenJDK. Todas as IDEs da JetBrains, Eclipse, Arduino e o Android Studio também são fáceis e compatíveis. &lt;br&gt;
-Infelizmente ainda não conheço ninguém que use Fedora em ambiente de produção para compartilhar a experiência.&lt;/p&gt;
+<p>Não tive nenhum problema em usar Fedora para desenvolvimento, a sensação foi de maior produtividade pois raramente tive problemas com o OS. <br>
+O Python 3 é instalado por default, é fácil instalar o Nodejs, Ruby, Haskell, Lua e o OpenJDK. Todas as IDEs da JetBrains, Eclipse, Arduino e o Android Studio também são fáceis e compatíveis. <br>
+Infelizmente ainda não conheço ninguém que use Fedora em ambiente de produção para compartilhar a experiência.</p>
 
-&lt;h3 id="comopedirajuda"&gt;Como pedir ajuda&lt;/h3&gt;
+<h3 id="comopedirajuda">Como pedir ajuda</h3>
 
-&lt;p&gt;O principal suporte é o &lt;a href="https://ask.fedoraproject.org/pt-br/questions/"&gt;Ask Fedora Project&lt;/a&gt; e existem inúmeras listas de e-mails, chats em IRC e grupos do Fedora em que você pode recorrer. Clique &lt;a href="https://fedoraproject.org/wiki/Communicating_and_getting_help/pt-br"&gt;aqui&lt;/a&gt; para saber mais.  &lt;/p&gt;
+<p>O principal suporte é o <a href="https://ask.fedoraproject.org/pt-br/questions/">Ask Fedora Project</a> e existem inúmeras listas de e-mails, chats em IRC e grupos do Fedora em que você pode recorrer. Clique <a href="https://fedoraproject.org/wiki/Communicating_and_getting_help/pt-br">aqui</a> para saber mais.  </p>
 
-&lt;h3 id="othercoolthings"&gt;Other cool things..&lt;/h3&gt;
+<h3 id="othercoolthings">Other cool things..</h3>
 
-&lt;h4 id="kernel"&gt;Kernel&lt;/h4&gt;
+<h4 id="kernel">Kernel</h4>
 
-&lt;p&gt;Provavelmente haverá um dia em que no momento do boot você irá se deparar com uma lista enorme de diferentes versões. Essa lista são as diferentes versões do kernel que possui instalado, é recomendado sempre possuir ao menos dois kernels diferentes caso algum tenha bug. &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/06/grub.png" alt="$ sudo dnf install fedora"&gt;
-Para desinstalar algum kernel de versão específica:  &lt;/p&gt;
+<p>Provavelmente haverá um dia em que no momento do boot você irá se deparar com uma lista enorme de diferentes versões. Essa lista são as diferentes versões do kernel que possui instalado, é recomendado sempre possuir ao menos dois kernels diferentes caso algum tenha bug. <br>
+<img src="http://danielammorais.com/content/images/2016/06/grub.png" alt="$ sudo dnf install fedora">
+Para desinstalar algum kernel de versão específica:  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo dnf remove kernel- #aperte tab para autocomplete
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-bash">$ sudo dnf remove kernel- #aperte tab para autocomplete
+</code></pre>
 
-&lt;h4 id="verificarportas"&gt;Verificar portas&lt;/h4&gt;
+<h4 id="verificarportas">Verificar portas</h4>
 
-&lt;p&gt;Lembre-se que ao escanear servidores externos geralmente o seu IP será exibido nos logs, o Tor não é apenas um browser e com ele é possível fazer com que toda a sua rede passe pela rede Tor.  &lt;/p&gt;
+<p>Lembre-se que ao escanear servidores externos geralmente o seu IP será exibido nos logs, o Tor não é apenas um browser e com ele é possível fazer com que toda a sua rede passe pela rede Tor.  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ nmap danielammorais.com
+<pre><code class="language-bash">$ nmap danielammorais.com
 Starting Nmap 7.12 ( https://nmap.org ) at 2016-06-19 04:25 BRT  
 Nmap scan report for danielammorais.com (192.30.252.153)  
 Host is up (0.19s latency).  
@@ -82,72 +127,72 @@ PORT   STATE SERVICE
 80/tcp open  http
 
 Nmap done: 1 IP address (1 host up) scanned in 26.06 seconds  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;É possível listar os conectados na sua rede e explorar algum ip específico &lt;/p&gt;
+<p>É possível listar os conectados na sua rede e explorar algum ip específico </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ nmap -sP 192.168.0.*
+<pre><code class="language-bash">$ nmap -sP 192.168.0.*
 $ sudo nmap -sF 192.168.0.4
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h4 id="reiniciarognome"&gt;Reiniciar o GNOME&lt;/h4&gt;
+<h4 id="reiniciarognome">Reiniciar o GNOME</h4>
 
-&lt;p&gt;O tty é responsável por conectar dispositivos externos ao kernel, para acessá-los pressione  &lt;em&gt;CTRL + ALT + F1&lt;/em&gt;, &lt;em&gt;CTRL + ALT + F2&lt;/em&gt;, &lt;em&gt;CTRL + ALT + F3&lt;/em&gt; e assim por diante até o &lt;em&gt;F6&lt;/em&gt;. O seguinte comando é extremamente útil caso o modo gráfico trave e não precise reiniciar o computador.  &lt;/p&gt;
+<p>O tty é responsável por conectar dispositivos externos ao kernel, para acessá-los pressione  <em>CTRL + ALT + F1</em>, <em>CTRL + ALT + F2</em>, <em>CTRL + ALT + F3</em> e assim por diante até o <em>F6</em>. O seguinte comando é extremamente útil caso o modo gráfico trave e não precise reiniciar o computador.  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ sudo /etc/init.d/gdm restart
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-bash">$ sudo /etc/init.d/gdm restart
+</code></pre>
 
-&lt;h3 id="referncias"&gt;Referências&lt;/h3&gt;
+<h3 id="referncias">Referências</h3>
 
-&lt;h5 id="paraqueservemosttys"&gt;Para que servem os TTYs&lt;/h5&gt;
+<h5 id="paraqueservemosttys">Para que servem os TTYs</h5>
 
-&lt;p&gt;&lt;a href="http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys"&gt;http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys">http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys</a>  </p>
 
-&lt;h5 id="differencebetweenyumandrpm"&gt;Difference between YUM and RPM&lt;/h5&gt;
+<h5 id="differencebetweenyumandrpm">Difference between YUM and RPM</h5>
 
-&lt;p&gt;&lt;a href="http://www.differencebetween.net/technology/difference-between-yum-and-rpm/"&gt;http://www.differencebetween.net/technology/difference-between-yum-and-rpm/&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://www.differencebetween.net/technology/difference-between-yum-and-rpm/">http://www.differencebetween.net/technology/difference-between-yum-and-rpm/</a>  </p>
 
-&lt;h5 id="dnfguide"&gt;DNF Guide&lt;/h5&gt;
+<h5 id="dnfguide">DNF Guide</h5>
 
-&lt;p&gt;&lt;a href="https://fedoraproject.org/wiki/Dnf"&gt;https://fedoraproject.org/wiki/Dnf&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>Criptografia de e-mails com PGP</title><description>Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações</description><link>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category>criptografia</category><category>segurança</category><dc:creator>Daniela Morais</dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"&gt;&lt;p&gt;Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de &lt;strong&gt;nenhum crime&lt;/strong&gt;. &lt;br&gt;
-Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de &lt;a href="https://en.wikipedia.org/wiki/Panopticon"&gt;Panopticon&lt;/a&gt; contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No &lt;a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters"&gt;TEDx&lt;/a&gt;, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. &lt;br&gt;
-Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.&lt;/p&gt;
+<p><a href="https://fedoraproject.org/wiki/Dnf">https://fedoraproject.org/wiki/Dnf</a></p>]]></content:encoded></item><item><title><![CDATA[Criptografia de e-mails com PGP]]></title><description><![CDATA[Como criptografar e-mails e documentos utilizando PGP (Pretty good privacy) para garantir privacidade nas comunicações]]></description><link>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</link><guid isPermaLink="false">366266d1-1da6-4210-854e-7d732b2627cd</guid><category><![CDATA[criptografia]]></category><category><![CDATA[segurança]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 29 May 2016 07:15:15 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/05/bigbrother1-1.png" alt="Criptografia de e-mails com PGP"><p>Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da vigilância em massa de pessoas comuns, as quais eram feitas sem nenhum mandado judicial e estas pessoas não eram suspeitas de <strong>nenhum crime</strong>. <br>
+Os abusos são evidentes e o direito a privacidade é fundamental para garantir a liberdade e poder se expressar sem nenhum julgamento. O conceito de <a href="https://en.wikipedia.org/wiki/Panopticon">Panopticon</a> contextualiza como a vigilância constante pode nos afetar, sendo capaz até de mudar nossos comportamentos. No <a href="https://www.ted.com/talks/glenn_greenwald_why_privacy_matters">TEDx</a>, o Gleen Greenwald utiliza do conceito de panopticon para explicar o por quê a privacidade é importante. <br>
+Obviamente a privacidade nas telecomunicações está inclusa e por isso muitos usam PGP para se proteger.</p>
 
-&lt;h4 id="comopgpfunciona"&gt;Como PGP funciona&lt;/h4&gt;
+<h4 id="comopgpfunciona">Como PGP funciona</h4>
 
-&lt;p&gt;&lt;img src="http://danielammorais.com/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP"&gt;
-O PGP usa o conceito de &lt;strong&gt;criptografia assimétrica&lt;/strong&gt;, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. &lt;br&gt;
-Na ilustração acima, Bob envia um documento para John e para ter certeza que &lt;strong&gt;somente John seja capaz de abrir&lt;/strong&gt; ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  &lt;/p&gt;
+<p><img src="http://danielammorais.com/content/images/2016/05/Drawing-1--1.png" alt="Criptografia de e-mails com PGP">
+O PGP usa o conceito de <strong>criptografia assimétrica</strong>, o mesmo conceito usado no SSH e no qual existem duas chaves: a chave pública e a privada. A chave pública é usada somente para criptografar e a privada para descriptografar. <br>
+Na ilustração acima, Bob envia um documento para John e para ter certeza que <strong>somente John seja capaz de abrir</strong> ele usa a public key de John para criptografar. Quando John receber a mensagem, ele terá que usar a sua private key para descriptografar e conseguir ler o documento.  </p>
 
-&lt;h4 id="openpgp"&gt;OpenPGP&lt;/h4&gt;
+<h4 id="openpgp">OpenPGP</h4>
 
-&lt;p&gt;É necessário ter o OpenPGP instalado, o qual por default já está instalado na maioria das distribuições Linux. O Seahorse (Passwords and Keys) é uma maneira fácil de administrar as chaves e o Thunderbird oferece uma integração também porém o terminal é muito mais divertido 
-&lt;img src="https://media.giphy.com/media/RGvwaX6hv8k8M/giphy.gif" alt="Criptografia de e-mails com PGP" title=""&gt; &lt;br&gt;
-Utilizo a versão 2.1.11 do &lt;em&gt;gpg2&lt;/em&gt;, existem relatos de erros de importação quando se utiliza o &lt;em&gt;gpg&lt;/em&gt; (versão 1.x) mas eis a diferença segundo a descrição do comando:  &lt;/p&gt;
+<p>É necessário ter o OpenPGP instalado, o qual por default já está instalado na maioria das distribuições Linux. O Seahorse (Passwords and Keys) é uma maneira fácil de administrar as chaves e o Thunderbird oferece uma integração também porém o terminal é muito mais divertido 
+<img src="https://media.giphy.com/media/RGvwaX6hv8k8M/giphy.gif" alt="Criptografia de e-mails com PGP" title=""> <br>
+Utilizo a versão 2.1.11 do <em>gpg2</em>, existem relatos de erros de importação quando se utiliza o <em>gpg</em> (versão 1.x) mas eis a diferença segundo a descrição do comando:  </p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;In  contrast  to the standalone command gpg from GnuPG 1.x, which is might be better suited for server and embedded platforms, the 2.x version is commonly installed under the name gpg2 and targeted to the desktop as it requires several other modules to be installed.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>In  contrast  to the standalone command gpg from GnuPG 1.x, which is might be better suited for server and embedded platforms, the 2.x version is commonly installed under the name gpg2 and targeted to the desktop as it requires several other modules to be installed.</p>
+</blockquote>
 
-&lt;h4 id="criarachave"&gt;Criar a chave&lt;/h4&gt;
+<h4 id="criarachave">Criar a chave</h4>
 
-&lt;p&gt;No momento de criação é questionado sobre o tipo de chave ser RSA, DSA ou ElGamal. Os três tipos são algoritmos que realizam diferentes operações matemáticas para gerar a chave, criptografia não é a minha área mas algumas observações antes de decidir:&lt;/p&gt;
+<p>No momento de criação é questionado sobre o tipo de chave ser RSA, DSA ou ElGamal. Os três tipos são algoritmos que realizam diferentes operações matemáticas para gerar a chave, criptografia não é a minha área mas algumas observações antes de decidir:</p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;O default é RSA-RSA com 2048 bits&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;O DSA possui no máximo 1024 bits e é capaz apenas de assinar (garantir que a mensagem não foi alterada no caminho), não é capaz de criptografar/descriptografar. É considerada vulnerável&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;O RSA varia de 1024 até 4096 bits, é capaz de assinar e criptografar/descriptografar. É o recomendado pelo Debian desde que possua os 4096 bits e o seu criador recomenda ao menos 3k &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;O ElGamal e RSA se diferem pelo tempo levado para criptografar/descriptografar, para saber mais sobre as especificidades clique &lt;a href="http://crypto.stackexchange.com/questions/1677/when-to-use-rsa-and-when-elgamal-asymmetric-encryption"&gt;aqui&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;O tamanho da chave não implica em ser mais segura, por exemplo uma chave X de 1024 bits pode ser mais vulnerável que uma chave Y de 56 bits&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li><p>O default é RSA-RSA com 2048 bits</p></li>
+<li><p>O DSA possui no máximo 1024 bits e é capaz apenas de assinar (garantir que a mensagem não foi alterada no caminho), não é capaz de criptografar/descriptografar. É considerada vulnerável</p></li>
+<li><p>O RSA varia de 1024 até 4096 bits, é capaz de assinar e criptografar/descriptografar. É o recomendado pelo Debian desde que possua os 4096 bits e o seu criador recomenda ao menos 3k </p></li>
+<li><p>O ElGamal e RSA se diferem pelo tempo levado para criptografar/descriptografar, para saber mais sobre as especificidades clique <a href="http://crypto.stackexchange.com/questions/1677/when-to-use-rsa-and-when-elgamal-asymmetric-encryption">aqui</a></p></li>
+<li><p>O tamanho da chave não implica em ser mais segura, por exemplo uma chave X de 1024 bits pode ser mais vulnerável que uma chave Y de 56 bits</p></li>
+</ul>
 
-&lt;p&gt;Lembre-se de inserir uma senha segura, você pode checar em &lt;a href="https://howsecureismypassword.net/"&gt;How Secure is My Password&lt;/a&gt; (não inserir senha real). E de acordo com Snowden:  &lt;/p&gt;
+<p>Lembre-se de inserir uma senha segura, você pode checar em <a href="https://howsecureismypassword.net/">How Secure is My Password</a> (não inserir senha real). E de acordo com Snowden:  </p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Assume your adversary is capable of one trillion guesses per second&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Assume your adversary is capable of one trillion guesses per second</p>
+</blockquote>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --full-gen-key 
+<pre><code class="language-bash">$ gpg2 --full-gen-key 
 gpg (GnuPG) 2.1.11; Copyright (C) 2016 Free Software Foundation, Inc.  
 This is free software: you are free to change and redistribute it.  
 There is NO WARRANTY, to the extent permitted by law.
@@ -163,10 +208,10 @@ What keysize do you want? (2048)
 Requested keysize is 2048 bits  
 Please specify how long the key should be valid.  
          0 = key does not expire
-      &amp;lt;n&amp;gt;  = key expires in n days
-      &amp;lt;n&amp;gt;w = key expires in n weeks
-      &amp;lt;n&amp;gt;m = key expires in n months
-      &amp;lt;n&amp;gt;y = key expires in n years
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
 Key is valid for? (0)  
 Key does not expire at all  
 Is this correct? (y/N) y
@@ -177,14 +222,14 @@ Real name: Tars Test
 Email address: tars@keemail.me  
 Comment:  
 You selected this USER-ID:  
-    "Tars Test &amp;lt;tars@keemail.me&amp;gt;"
+    "Tars Test &lt;tars@keemail.me&gt;"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Você deve obter no final algo como:  &lt;/p&gt;
+<p>Você deve obter no final algo como:  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;We need to generate a lot of random bytes. It is a good idea to perform  
+<pre><code class="language-bash">We need to generate a lot of random bytes. It is a good idea to perform  
 some other action (type on the keyboard, move the mouse, utilize the  
 disks) during the prime generation; this gives the random number  
 generator a better chance to gain enough entropy.  
@@ -202,53 +247,53 @@ gpg: marginals needed: 3  completes needed: 1  trust model: PGP
 gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
 pub   rsa2048/690B17FB 2016-05-27 [S]  
       Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
-uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
 sub   rsa2048/C87D3B19 2016-05-27 []  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Essa sequência de bytes denominada &lt;em&gt;key fingerprint&lt;/em&gt; é fundamental, os últimos 8 dígitos dela formam a &lt;em&gt;KEY ID&lt;/em&gt;. &lt;br&gt;
-Através da sua fingerprint que será estabelecida a confiança de que &lt;strong&gt;aquele e-mail de fato é seu&lt;/strong&gt;. É comum as pessoas trocarem as fingerprinters pessoalmente, quando for verificado nos servidores o e-mail e a fingerprint corresponder aquela repassada pessoalmente então você pode confiar que aquele e-mail é realmente da pessoa. &lt;br&gt;
-Ao invés de trocar as fingerprinters, outros preferem repassar a chave pública pessoalmente por pendrive.  &lt;/p&gt;
+<p>Essa sequência de bytes denominada <em>key fingerprint</em> é fundamental, os últimos 8 dígitos dela formam a <em>KEY ID</em>. <br>
+Através da sua fingerprint que será estabelecida a confiança de que <strong>aquele e-mail de fato é seu</strong>. É comum as pessoas trocarem as fingerprinters pessoalmente, quando for verificado nos servidores o e-mail e a fingerprint corresponder aquela repassada pessoalmente então você pode confiar que aquele e-mail é realmente da pessoa. <br>
+Ao invés de trocar as fingerprinters, outros preferem repassar a chave pública pessoalmente por pendrive.  </p>
 
-&lt;h4 id="fazerbackup"&gt;Fazer backup&lt;/h4&gt;
+<h4 id="fazerbackup">Fazer backup</h4>
 
-&lt;p&gt;É fundamental fazer backup para revogar a chave caso a perca ou comprometa e poder se comunicar.
-Caso você perca a sua chave e não tenha feito backup, não há nada a se fazer ao menos esperar o tempo limite para ser revogada (caso tenha inserido tempo limite).  &lt;/p&gt;
+<p>É fundamental fazer backup para revogar a chave caso a perca ou comprometa e poder se comunicar.
+Caso você perca a sua chave e não tenha feito backup, não há nada a se fazer ao menos esperar o tempo limite para ser revogada (caso tenha inserido tempo limite).  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --export-secret-keys --armor tars@keemail.me &amp;gt; tars-privkey.asc
-$ gpg2 --export --armor tars@keemail.me &amp;gt; tars-pubkey.asc
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-bash">$ gpg2 --export-secret-keys --armor tars@keemail.me &gt; tars-privkey.asc
+$ gpg2 --export --armor tars@keemail.me &gt; tars-pubkey.asc
+</code></pre>
 
-&lt;p&gt;Guarde os arquivos gerados num pendrive ou HD criptografado.  &lt;/p&gt;
+<p>Guarde os arquivos gerados num pendrive ou HD criptografado.  </p>
 
-&lt;h4 id="tornarapublickeydisponvel"&gt;Tornar a public key disponível&lt;/h4&gt;
+<h4 id="tornarapublickeydisponvel">Tornar a public key disponível</h4>
 
-&lt;p&gt;Para que as pessoas sejam capazes de se comunicarem com você, é preciso sincronizar a sua chave pública gerada com os servidores. &lt;br&gt;
-A maioria dos servidores sincronizam com o &lt;a href="http://keys.gnupg.net"&gt;keys.gnupg.net&lt;/a&gt; então mandar só para este é suficiente.  &lt;/p&gt;
+<p>Para que as pessoas sejam capazes de se comunicarem com você, é preciso sincronizar a sua chave pública gerada com os servidores. <br>
+A maioria dos servidores sincronizam com o <a href="http://keys.gnupg.net">keys.gnupg.net</a> então mandar só para este é suficiente.  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 -K --fingerprint #visualizar a sua fingerprint
+<pre><code class="language-bash">$ gpg2 -K --fingerprint #visualizar a sua fingerprint
 pub   rsa2048/690B17FB 2016-05-27 [SC]  
       Key fingerprint = E78C FDE0 4CE2 8CBC 86DE  3741 B2AA 9ABA 690B 17FB
-uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
 sub   rsa2048/C87D3B19 2016-05-27 [E]
 
 $ gpg2 --send-keys 690B17FB #encaminhar para os servidores, a key id é passada 
 gpg: sending key 690B17FB to hkp://keys.gnupg.net  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Agora você já está preparado.. &lt;br&gt;
-&lt;img src="https://media.giphy.com/media/7ov6a9UGsHd4I/giphy.gif" alt="Criptografia de e-mails com PGP"&gt;&lt;/p&gt;
+<p>Agora você já está preparado.. <br>
+<img src="https://media.giphy.com/media/7ov6a9UGsHd4I/giphy.gif" alt="Criptografia de e-mails com PGP"></p>
 
-&lt;h4 id="enviarumamensagem"&gt;Enviar uma mensagem&lt;/h4&gt;
+<h4 id="enviarumamensagem">Enviar uma mensagem</h4>
 
-&lt;p&gt;É necessário buscar a public key do nosso destinatário, lembre-se de verificar se a fingerprint confere caso já o conheça pessoalmente  &lt;/p&gt;
+<p>É necessário buscar a public key do nosso destinatário, lembre-se de verificar se a fingerprint confere caso já o conheça pessoalmente  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --search-keys danielamorais@tuta.io
+<pre><code class="language-bash">$ gpg2 --search-keys danielamorais@tuta.io
 gpg: data source: http://mira.cbaines.net:11371  
-(1)    Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;
+(1)    Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;
       2048 bit RSA key 8D4FA5B7, created: 2016-05-18
-Enter number(s), N)ext, or Q)uit &amp;gt; 1  
-gpg: key 8D4FA5B7: public key "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" imported  
+Enter number(s), N)ext, or Q)uit &gt; 1  
+gpg: key 8D4FA5B7: public key "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" imported  
 gpg: marginals needed: 3  completes needed: 1  trust model: PGP  
 gpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u  
 gpg: Total number processed: 1  
@@ -256,20 +301,20 @@ gpg:               imported: 1
 $ gpg2 --fingerprint danielamorais@tuta.io
 pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
       Key fingerprint = E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
-uid         [ unknown] Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+uid         [ unknown] Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
 sub   rsa2048/91B55539 2016-05-18 [E]  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Vou escrever um documento chamado &lt;em&gt;teste&lt;/em&gt; e a descrição dos comandos são &lt;br&gt;
-&lt;strong&gt;--encrypt&lt;/strong&gt;: cita que desejo criptografar algo&lt;br&gt;
-&lt;strong&gt;--sign&lt;/strong&gt;: a mensagem será assinada, ou seja, qualquer alteração no conteúdo será detectada&lt;br&gt;
-&lt;strong&gt;--armor&lt;/strong&gt;: converte a mensagem criptografada em  ASCII, comando opcional&lt;br&gt;
-&lt;strong&gt;--recipient / -r&lt;/strong&gt;: declara quem são os destinatários&lt;br&gt;&lt;/p&gt;
+<p>Vou escrever um documento chamado <em>teste</em> e a descrição dos comandos são <br>
+<strong>--encrypt</strong>: cita que desejo criptografar algo<br>
+<strong>--sign</strong>: a mensagem será assinada, ou seja, qualquer alteração no conteúdo será detectada<br>
+<strong>--armor</strong>: converte a mensagem criptografada em  ASCII, comando opcional<br>
+<strong>--recipient / -r</strong>: declara quem são os destinatários<br></p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ vi teste
+<pre><code class="language-bash">$ vi teste
 $ gpg2 --encrypt --sign --armor --recipient danielamorais@tuta.io teste #criptografar teste
 gpg: 91B55539: There is no assurance this key belongs to the named user  
-sub  rsa2048/91B55539 2016-05-18 Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+sub  rsa2048/91B55539 2016-05-18 Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
  Primary key fingerprint: E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
       Subkey fingerprint: F859 9BF8 D659 A0E6 EB68  12EA E5AB 81D0 91B5 5539
 
@@ -280,128 +325,128 @@ you may answer the next question with yes.
 Use this key anyway? (y/N) y  
 $ ls
 teste  teste.asc  
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;O &lt;em&gt;teste.asc&lt;/em&gt; pode ser encaminhado inteiro ou apenas o conteúdo, devido a opção &lt;strong&gt;--armor&lt;/strong&gt; é possível encaminhar apenas o conteúdo.  &lt;/p&gt;
+<p>O <em>teste.asc</em> pode ser encaminhado inteiro ou apenas o conteúdo, devido a opção <strong>--armor</strong> é possível encaminhar apenas o conteúdo.  </p>
 
-&lt;h4 id="lerumamensagem"&gt;Ler uma mensagem&lt;/h4&gt;
+<h4 id="lerumamensagem">Ler uma mensagem</h4>
 
-&lt;p&gt;Lembre-se que é possível fazer download do &lt;em&gt;teste.asc&lt;/em&gt; ou criar um novo arquivo apenas com o conteúdo  &lt;/p&gt;
+<p>Lembre-se que é possível fazer download do <em>teste.asc</em> ou criar um novo arquivo apenas com o conteúdo  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --decrypt teste.asc
+<pre><code class="language-bash">$ gpg2 --decrypt teste.asc
 gpg: encrypted with 2048-bit RSA key, ID 91B55539, created 2016-05-18  
-      "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;"
+      "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;"
 teste  
 $ gpg2 --output messageFromTars --decrypt teste.asc #mensagem descriptografada esta no arquivo 'messageFromTars'
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h4 id="assinarachave"&gt;Assinar a chave&lt;/h4&gt;
+<h4 id="assinarachave">Assinar a chave</h4>
 
-&lt;p&gt;Assine a chave &lt;strong&gt;somente&lt;/strong&gt; depois de checar a fingerprint, quanto mais assinaturas a pessoa possuir maior são as chances de fato aquele e-mail ser válido.  &lt;/p&gt;
+<p>Assine a chave <strong>somente</strong> depois de checar a fingerprint, quanto mais assinaturas a pessoa possuir maior são as chances de fato aquele e-mail ser válido.  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --fingerprint danielamorais@tuta.io
+<pre><code class="language-bash">$ gpg2 --fingerprint danielamorais@tuta.io
 $ gpg2 --sign-key 8D4FA5B7 #key ID
 $ gpg2 -a --keyserver hkp://p80.pool.sks-keyservers.net:80 --send-keys 8D4FA5B7 #enviar key id 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h4 id="verificarassinatura"&gt;Verificar assinatura&lt;/h4&gt;
+<h4 id="verificarassinatura">Verificar assinatura</h4>
 
-&lt;p&gt;A verificação das assinaturas garante que a mensagem não foi alterada. Além disso, caso você queira se comunicar com alguém que não use PGP pode apenas assinar a mensagem.  &lt;/p&gt;
+<p>A verificação das assinaturas garante que a mensagem não foi alterada. Além disso, caso você queira se comunicar com alguém que não use PGP pode apenas assinar a mensagem.  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --output exemplo.asc --clearsign exemplo.txt  #assinando exemplo.asc
+<pre><code class="language-bash">$ gpg2 --output exemplo.asc --clearsign exemplo.txt  #assinando exemplo.asc
 $ gpg2 --verify exemplo.asc #verificando assinatura
 gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
-gpg: Good signature from "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" [ultimate]  
-&lt;/code&gt;&lt;/pre&gt;
+gpg: Good signature from "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" [ultimate]  
+</code></pre>
 
-&lt;p&gt;Caso a mensagem tenha sido alterada  &lt;/p&gt;
+<p>Caso a mensagem tenha sido alterada  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --verify exemplo.asc 
+<pre><code class="language-bash">$ gpg2 --verify exemplo.asc 
 gpg: Signature made Sun 29 May 2016 03:53:46 AM BRT using RSA key ID 8D4FA5B7  
-gpg: BAD signature from "Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;" [ultimate]  
-&lt;/code&gt;&lt;/pre&gt;
+gpg: BAD signature from "Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;" [ultimate]  
+</code></pre>
 
-&lt;p&gt;Se o remetente usou a opção &lt;strong&gt;--sign&lt;/strong&gt;, no momento da descriptografia é mostrado a assinatura.  &lt;/p&gt;
+<p>Se o remetente usou a opção <strong>--sign</strong>, no momento da descriptografia é mostrado a assinatura.  </p>
 
-&lt;h4 id="andothercoolthings"&gt;And other cool things..&lt;/h4&gt;
+<h4 id="andothercoolthings">And other cool things..</h4>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;$ gpg2 --list-public-keys #listar as chaves publicas importadas
+<pre><code class="language-bash">$ gpg2 --list-public-keys #listar as chaves publicas importadas
 /home/liveuser/.gnupg/pubring.kbx
 ---------------------------------
 pub   rsa2048/690B17FB 2016-05-27 [SC]  
-uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
 sub   rsa2048/C87D3B19 2016-05-27 [E]
 
 pub   rsa2048/8D4FA5B7 2016-05-18 [SC]  
-uid         [ unknown] Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;  
+uid         [ unknown] Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;  
 sub   rsa2048/91B55539 2016-05-18 [E]  
 $ gpg2 --list-secret-keys #listar as chaves privadas 
 /home/liveuser/.gnupg/pubring.kbx 
 ---------------------------------
 sec   rsa2048/690B17FB 2016-05-27 [SC]  
-uid         [ultimate] Tars Test &amp;lt;tars@keemail.me&amp;gt;  
+uid         [ultimate] Tars Test &lt;tars@keemail.me&gt;  
 ssb   rsa2048/C87D3B19 2016-05-27 [E]  
 $ gpg2 --search-keys 'Daniela Morais' #buscar por nome
 gpg: data source: http://mira.cbaines.net:11371  
-(1)    Daniela Morais (My personal key) &amp;lt;danielamorais@tuta.io&amp;gt;
+(1)    Daniela Morais (My personal key) &lt;danielamorais@tuta.io&gt;
       2048 bit RSA key 8D4FA5B7, created: 2016-05-18
-(2)    Daniela Morais (My personal key) &amp;lt;danielamorais@protonmail.com&amp;gt;
+(2)    Daniela Morais (My personal key) &lt;danielamorais@protonmail.com&gt;
       2048 bit RSA key 27D40114, created: 2016-05-08 (revoked)
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h4 id="referncias"&gt;Referências&lt;/h4&gt;
+<h4 id="referncias">Referências</h4>
 
-&lt;h6 id="pgpfaqsecurity"&gt;PGP FAQ Security&lt;/h6&gt;
+<h6 id="pgpfaqsecurity">PGP FAQ Security</h6>
 
-&lt;p&gt;&lt;a href="http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa"&gt;http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa">http://www.pgp.net/pgpnet/pgp-faq/pgp-faq-security-questions.html#security-against-nsa</a>  </p>
 
-&lt;h6 id="rsakeysizes2048or2096bits"&gt;RSA Key Sizes: 2048 or 2096 bits&lt;/h6&gt;
+<h6 id="rsakeysizes2048or2096bits">RSA Key Sizes: 2048 or 2096 bits</h6>
 
-&lt;p&gt;&lt;a href="http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits"&gt;http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits">http://danielpocock.com/rsa-key-sizes-2048-or-4096-bits</a>  </p>
 
-&lt;h6 id="creatinggpgkeys"&gt;Creating GPG Keys&lt;/h6&gt;
+<h6 id="creatinggpgkeys">Creating GPG Keys</h6>
 
-&lt;p&gt;&lt;a href="http://bit.ly/1siPE0z"&gt;http://bit.ly/1siPE0z&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://bit.ly/1siPE0z">http://bit.ly/1siPE0z</a>  </p>
 
-&lt;h6 id="whatisthedifferencebetweendsaandrsa"&gt;What is the difference between DSA and RSA&lt;/h6&gt;
+<h6 id="whatisthedifferencebetweendsaandrsa">What is the difference between DSA and RSA</h6>
 
-&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa"&gt;http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa">http://stackoverflow.com/questions/2841094/what-is-the-difference-between-dsa-and-rsa</a>  </p>
 
-&lt;h6 id="pgptutorial"&gt;PGP Tutorial&lt;/h6&gt;
+<h6 id="pgptutorial">PGP Tutorial</h6>
 
-&lt;p&gt;&lt;a href="https://futureboy.us/pgp.html"&gt;https://futureboy.us/pgp.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>A placa de desenvolvimento Freescale Freedom K64F</title><description>Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World</description><link>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category>IoT</category><category>embarcados</category><dc:creator>Daniela Morais</dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/freescale.jpg" medium="image"/><content:encoded>&lt;img src="http://danielammorais.com/content/images/2016/06/freescale.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;p&gt;A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. &lt;br&gt;
-Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  &lt;/p&gt;
+<p><a href="https://futureboy.us/pgp.html">https://futureboy.us/pgp.html</a></p>]]></content:encoded></item><item><title><![CDATA[A placa de desenvolvimento Freescale Freedom K64F]]></title><description><![CDATA[Introdução a placa Freescale Freedom K64F, especificações e como escrever o primeiro Hello World]]></description><link>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</link><guid isPermaLink="false">2299eb17-3843-40d3-9c0a-59f13259b219</guid><category><![CDATA[IoT]]></category><category><![CDATA[embarcados]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Wed, 06 Apr 2016 18:07:02 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/06/freescale.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/06/freescale.jpg" alt="A placa de desenvolvimento Freescale Freedom K64F"><p>A K64F da Freescale (atual NXP Semiconductors) é uma placa poderosa programável em C++, equipada com um ARM Cortex-M4F no seu microcontrolador que pode operar até 120MHz, possui 1MB de memória flash e 256KB de RAM. <br>
+Além disso, é possível fazer debbuging, todos os seus pinos são compatíveis com o Arduino UNO R3 e possui algumas coisas bacanas integradas: leds, botões, Ethernet, microSD, acelerômetro e magnetômetro.  </p>
 
-&lt;h4 id="especificaogeral"&gt;Especificação geral&lt;/h4&gt;
+<h4 id="especificaogeral">Especificação geral</h4>
 
-&lt;ul&gt;
-&lt;li&gt;MK64FN1M0VLL12 MCU (120 MHz, 1 MB flash memory, 256 KB RAM, low-power, crystal-less USB, and 100 Low profile Quad Flat Package (LQFP))&lt;/li&gt;
-&lt;li&gt;Dual role USB interface with micro-B USB Connector&lt;/li&gt;
-&lt;li&gt;RGB LED&lt;/li&gt;
-&lt;li&gt;FXOS8700CQ accelerometer and magnetometer&lt;/li&gt;
-&lt;li&gt;Two user push buttons&lt;/li&gt;
-&lt;li&gt;Ethernet&lt;/li&gt;
-&lt;li&gt;SDHC&lt;/li&gt;
-&lt;li&gt;Add-on RF module: nRF24L01+ Nordic 2.4GHz Radio&lt;/li&gt;
-&lt;li&gt;Add-on Bluetooth module: JY-MCU BT board V1.05 BT&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>MK64FN1M0VLL12 MCU (120 MHz, 1 MB flash memory, 256 KB RAM, low-power, crystal-less USB, and 100 Low profile Quad Flat Package (LQFP))</li>
+<li>Dual role USB interface with micro-B USB Connector</li>
+<li>RGB LED</li>
+<li>FXOS8700CQ accelerometer and magnetometer</li>
+<li>Two user push buttons</li>
+<li>Ethernet</li>
+<li>SDHC</li>
+<li>Add-on RF module: nRF24L01+ Nordic 2.4GHz Radio</li>
+<li>Add-on Bluetooth module: JY-MCU BT board V1.05 BT</li>
+</ul>
 
-&lt;p&gt;&lt;img src="http://danielammorais.com/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+<p><img src="http://danielammorais.com/content/images/2016/03/mbed1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"></p>
 
-&lt;p&gt;E a reação de quem só usa Arduino após conhecer esta placa.. &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+<p>E a reação de quem só usa Arduino após conhecer esta placa.. <br>
+<img src="http://danielammorais.com/content/images/2016/03/spock.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"></p>
 
-&lt;h2 id="helloworldbin"&gt;Helloworld.bin&lt;/h2&gt;
+<h2 id="helloworldbin">Helloworld.bin</h2>
 
-&lt;p&gt;Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
-Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
-Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs &gt; New program... para criar um novo programa e selecione um dos exemplos listados em Templates &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
-Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  &lt;/p&gt;
+<p>Ao conectar a placa no USB, estes arquivos deverão aparecer e quando acessar MBED.HTM o reconhecimento da placa é feito automaticamente <br>
+<img src="http://danielammorais.com/content/images/2016/03/1.png" alt="A placa de desenvolvimento Freescale Freedom K64F">
+Após criar o seu cadastro, faça login e a seguinte página será exibida. Essa página contém um overview sobre a placa, tutoriais, diagramas etc. e é nela que você encontrará as respostas para os problemas iniciais <br>
+<img src="http://danielammorais.com/content/images/2016/03/2.png" alt="A placa de desenvolvimento Freescale Freedom K64F">
+Acesse o compiler, uma IDE Online abrirá com todos os projetos já criados ou clique com o lado direito em My programs > New program... para criar um novo programa e selecione um dos exemplos listados em Templates <br>
+<img src="http://danielammorais.com/content/images/2016/03/3.png" alt="A placa de desenvolvimento Freescale Freedom K64F">
+Selecione um dos templates que deseja ou insira o seguinte código, o qual de acordo com o botão clicado troca a cor do led para verde ou vermelho  </p>
 
-&lt;pre&gt;&lt;code class="language-c  "&gt;#include "mbed.h" 
+<pre><code class="language-c  ">#include "mbed.h" 
 DigitalOut led_red(LED_RED);  
 DigitalOut led_green(LED_GREEN);  
 DigitalIn sw2(SW2);  
@@ -435,38 +480,38 @@ int main() {
         wait(0.3);
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... &lt;br&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;
-No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  &lt;/p&gt;
+<p>Clique em Compiler para gerar um arquivo .bin, o qual você deverá colocar no diretório da placa como se fosse um pendrive! Os leds da placa irão piscar, aperte Reset para carregar o novo programa and then... <br>
+<img src="http://danielammorais.com/content/images/2016/03/magic.gif" alt="A placa de desenvolvimento Freescale Freedom K64F">
+No programa exemplo, a saída serial está configurada para 9600 bauds e para visualizar os outputs no terminal:  </p>
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;# screen /dev/ttyACM0
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code class="language-bash"># screen /dev/ttyACM0
+</code></pre>
 
-&lt;p&gt;
-&lt;img src="http://danielammorais.com/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"&gt;&lt;/p&gt;
+<p>
+<img src="http://danielammorais.com/content/images/2016/03/IMG_3852.gif" alt="A placa de desenvolvimento Freescale Freedom K64F"></p>
 
-&lt;h2 id="andothercoolthings"&gt;And other cool things..&lt;/h2&gt;
+<h2 id="andothercoolthings">And other cool things..</h2>
 
-&lt;h6 id="conexocomoazureiothub"&gt;Conexão com o Azure IoT Hub&lt;/h6&gt;
+<h6 id="conexocomoazureiothub">Conexão com o Azure IoT Hub</h6>
 
-&lt;p&gt;&lt;a href="https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md"&gt;https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md&lt;/a&gt;  &lt;/p&gt;
+<p><a href="https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md">https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/mbed-freescale-k64f-c.md</a>  </p>
 
-&lt;h6 id="instalarjavameerodaraplicaes"&gt;Instalar Java ME e rodar aplicações&lt;/h6&gt;
+<h6 id="instalarjavameerodaraplicaes">Instalar Java ME e rodar aplicações</h6>
 
-&lt;p&gt;&lt;a href="http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2"&gt;http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2">http://docs.oracle.com/javame/8.1/get-started-freescale-k64/preface.htm#sthref2</a>  </p>
 
-&lt;h6 id="desenvolvimentonoeclipse"&gt;Desenvolvimento no Eclipse&lt;/h6&gt;
+<h6 id="desenvolvimentonoeclipse">Desenvolvimento no Eclipse</h6>
 
-&lt;p&gt;&lt;a href="http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/"&gt;http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/&lt;/a&gt;  &lt;/p&gt;
+<p><a href="http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/">http://mcuoneclipse.com/2014/05/26/tutorial-data-logger-with-the-frdm-k64f-board/</a>  </p>
 
-&lt;h6 id="comodepurar"&gt;Como depurar&lt;/h6&gt;
+<h6 id="comodepurar">Como depurar</h6>
 
-&lt;p&gt;&lt;a href="https://developer.mbed.org/handbook/Debugging"&gt;https://developer.mbed.org/handbook/Debugging&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.mbed.org/handbook/Debugging">https://developer.mbed.org/handbook/Debugging</a></p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;Poised to become the de facto operating system for the Internet of Things, the cost-free mbed OS is a comprehensive platform for the creation of next-generation IoT devices. The OS includes the connectivity, security and device management functionalities required in virtually every IoT device. When deployed on Freescale’s Kinetis microcontrollers or heterogeneous i.MX processors, developers can bypass low-level software tasks and spend their time on higher-level development, user-experience enhancement and other differentiating features.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>Poised to become the de facto operating system for the Internet of Things, the cost-free mbed OS is a comprehensive platform for the creation of next-generation IoT devices. The OS includes the connectivity, security and device management functionalities required in virtually every IoT device. When deployed on Freescale’s Kinetis microcontrollers or heterogeneous i.MX processors, developers can bypass low-level software tasks and spend their time on higher-level development, user-experience enhancement and other differentiating features.</p>
+</blockquote>
 
-&lt;p&gt;&lt;em&gt;Um agradecimento para o pessoal do ABCMakerspace, especialmente o Pacman Pereira por apresentar a Freescale K64F na Campus Party 9&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+<p><em>Um agradecimento para o pessoal do ABCMakerspace, especialmente o Pacman Pereira por apresentar a Freescale K64F na Campus Party 9</em></p>]]></content:encoded></item></channel></rss>
