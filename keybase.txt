@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/danielamorais
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://danielammorais.com
+  * I am danielamorais (https://keybase.io/danielamorais) on keybase.
+  * I have a public key with fingerprint E6F9 E569 0868 29A0 C92C  BE6D 5807 ED06 8D4F A5B7
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101e2e9c4551c4f025927272f9c9667a6d2e0ecf2caa01de40233c0b2950621f5bb0a",
+            "fingerprint": "e6f9e569086829a0c92cbe6d5807ed068d4fa5b7",
+            "host": "keybase.io",
+            "key_id": "5807ed068d4fa5b7",
+            "kid": "0101e2e9c4551c4f025927272f9c9667a6d2e0ecf2caa01de40233c0b2950621f5bb0a",
+            "uid": "054859dd00232f55f76a26614943d419",
+            "username": "danielamorais"
+        },
+        "service": {
+            "hostname": "danielammorais.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1468164483,
+    "expire_in": 157680000,
+    "prev": "d89742e356caa0707203a44aa70ab9cdbb32d12a66c911a3d57886719cb3e564",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v2
+
+owGtknlIFUEcx5/aYUIklYEdkBvZ9dLZ2dnZ3QcdFtQfHRJJJUWP2d1ZXY/dd6ya
+aBkV3YWRdOAfHRYpaYcICR0KXYJZj6AIqUT9I/RlRQRlFq/Zjn+iP5v5Y5j5fX7f
++c5vftXjEzyJcZvGDo05kn3xRlzngOrZuMusqeBUWy/nfBVcIf250CKdhh1/oalz
+Pg7wgKeQKhoSRV5DBoCiAiU2DUVTMJYI1iEFVDOgRgjgdYoAFAQNqFARAYa8Iaoq
+IJyXM0wrj4YCIdNymCzFhkJFrAAZy1AhQFOgplKsizKQqA6wrCODiKrEEvPtsJvB
+zKkkTDNMm52xjf+nvX/w/9l3yS85EcmiouuAUdAQRUPCBGLMIwUJOuIVFwzTkEWK
+KaN1Ypm0iBTbIWKGue1ejoVKTY261XWf8xf2i8vQ7GImEwjZjq3ZRSye7zgBn5vu
+lAdcvoyq/t9KftW0dFZRllBKQ2HTtjgfz0jNMV1pHmGZxwjJgpej2wJmiPpNlxAl
+LAM23Gtoqep6kBUJQSqI2K2DBCQIBIIQIRIgqqLpqipAnYcEY03heSLooiTLWOIV
+TRXYByLOfVzQsjkfYj5JHpMMm3kWcUpClNuedCBu+ihPXKJnzOh4t9c8SeOS/zTg
+xPqxsYrMnJZwdHFDQ1Xdm0fGof2f0oef7LKktAVz9vTaHr62pWBv5pJb6VcqYufb
+C4IddjS9tfv54LTVKWhhV2rmerS6z/ttJHL05vXcrI6Nsz80z1r1YcKZVfGR0zNf
+zft4YbQn+3LP9JHkZZMqW8qefZ0nRrqqJsDE5tqDW1e07Wg8lXCyf03plolZ/YfO
+bW5YXnlruDW2s9OzYcqix/VvOxuf5u6bT2PBY8ebXs9t/VzHnWg+316bX14ZvX3n
+wNndD94l3c2CkcbB4nX7X+RO3VKdf+/6nvaasmNLB6pvFqStDUbb7jd9Gbo6uae7
+7tqlNic1pW9N/EBTTW/s4eH3lStm5LxMHvm+8gc=
+=mrmT
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/danielamorais
+
+==================================================================
+
