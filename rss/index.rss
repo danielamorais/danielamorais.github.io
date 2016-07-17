@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Mon, 04 Jul 2016 14:50:08 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Fedora 24 Release Party in Sao Paulo]]></title><description><![CDATA[<p>Every time a new Fedora release is available, the community organizes events around the world to celebrate. Those events are necessary because they help meeting other users, contributors and, of course, it's an opportunity to talk about Fedora.</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Sun, 17 Jul 2016 08:18:05 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Como postar tweets com Arduino]]></title><description><![CDATA[Como tweetar e enviar requisições HTTP para o Twitter API através do Arduino e o módulo Ethernet ENC28J60]]></description><link>http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/</link><guid isPermaLink="false">63fd1958-78eb-4589-af36-74a7ff716f60</guid><category><![CDATA[IoT]]></category><category><![CDATA[arduino]]></category><category><![CDATA[api]]></category><category><![CDATA[python]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 17 Jul 2016 08:06:00 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/07/arduinoUno.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/07/arduinoUno.jpg" alt="Como postar tweets com Arduino"><p>Há muito tempo comprei um módulo Ethernet ENC28J60 e apenas recentemente tive um tempo livre para testá-lo. Anteriormente, todas as comunicações com servidores eram feitas por serial e usava uma biblioteca ótima em Java e em Python é tão simples que dispensa comentários (<del>nenhuma novidade</del>). <br>
+<strong>Curiosidade off topic</strong>: A biblioteca para Java que utilizei foi desenvolvida pelo pessoal do <a href="http://panamahitek.com/">Panama Hitek</a>, isso em 2014 e eu conversei brevemente com eles por e-mail na época. Eis que esse ano por coincidência descobri que são todos colaboradores do Fedora também e esse mundo é <strong>realmente pequeno</strong>. </p>
+
+<h4 id="twitterapi">Twitter API</h4>
+
+<p>Antes de tudo, registre <a href="https://apps.twitter.com/app/new">aqui</a> o seu app no Twitter para poder utilizar a API. Não se esqueça de gerar o Token para poder postar tweets na sua conta, vá em "Keys and Access Tokens" > "Create my access token"</p>
+
+<h4 id="uipethernet">UIPEthernet</h4>
+
+<p>É provável que use as bibliotecas etherShield e ETHER_28J60, as quais são específicas para esse módulo e existem muitos tutoriais. Porém existe uma muito mais legal (seriously) chamada UIPEthernet, ela é compatível com a famosa Ethernet, ou seja, qualquer exemplo que usa a  Ethernet (File > Examples > Ethernet) pode ser executado apenas substituindo a importação:</p>
+
+<pre><code class="language-c">#include &lt;SPI.h&gt;
+#include &lt;Ethernet.h&gt; //Apenas substituir por UIPEthernet.h
+</code></pre>
+
+<p>
+O download pode ser feito <a href="https://github.com/ntruchsess/arduino_uip/releases">aqui</a> ou apenas:  </p>
+
+<pre><code class="language-bash">$ cd ~/Arduino/libraries/
+$ git clone https://github.com/ntruchsess/arduino_uip UIPEthernet
+</code></pre>
+
+<h4 id="possveissolues">Possíveis soluções</h4>
+
+<h5 id="hardway">Hard way</h5>
+
+<p>Você pode simplesmente criar sua própria biblioteca em C e enviar as requisições HTTPs para a API do Twitter, para consolar existe a <a href="https://arduino-tweet.appspot.com/">"Tweet Library for Arduino"</a> a qual está apenas defasada e não funciona nas versões mais recentes como Arduino IDE 1.6.4 <br>
+<img src="http://danielammorais.com/content/images/2016/07/chucknorrisapproves.gif" alt="Como postar tweets com Arduino"></p>
+
+<h5 id="easyway">Easy way</h5>
+
+<p>Convenhamos que manipular ponteiros e enviar requisições com C pode não ser tão agradável, optei por um pequeno script em Python. <br>
+O processo basicamente é: o Arduino apenas manda o conteúdo para o script e este que lida com a Twitter API.  </p>
+
+<p>Se você nunca usou Python, é necessário baixar o Flask e Twython:  </p>
+
+<pre><code class="language-bash">$ sudo pip install flask
+$ sudo pip install twython 
+</code></pre>
+
+<p>Crie um arquivo chamado <em>apiConfig</em>, é nele que você vai inserir todas as chaves de acesso que o Twitter gerou para você  </p>
+
+<pre><code class="language-bash">APP_KEY = 'your_APIKey'  
+APP_SECRET = 'your_APISecret'  
+OAUTH_TOKEN = 'your_accessToken'  
+OAUTH_TOKEN_SECRET = 'your_tokenSecret'  
+</code></pre>
+
+<p>Na mesma pasta, crie um script chamado <em>tweet.py</em>  </p>
+
+<pre><code class="language-python">from twython import Twython  
+from flask import Flask  
+import apiConfig
+
+app = Flask(__name__)
+
+APP_KEY = apiConfig.APP_KEY  
+APP_SECRET = apiConfig.APP_SECRET  
+OAUTH_TOKEN = apiConfig.OAUTH_TOKEN  
+OAUTH_TOKEN_SECRET = apiConfig.OAUTH_TOKEN_SECRET 
+
+twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+
+@app.route("/")
+def index():  
+    return "Hello world"
+
+@app.route("/sendTweet/&lt;message&gt;")
+def sendTweet(message):  
+    twitter.update_status(status=message); 
+    return "Done." 
+
+if __name__ == '__main__':  
+    #Fix here
+    app.run(host="your_ip", port=8080, debug=True)
+</code></pre>
+
+<p>Obviamente que o script pode ser mil vezes melhor, numa API <strong>sempre retorne</strong> o código HTTP correto e trate as exceções ao menos.  </p>
+
+<p>Destaque para o sticker do FISL deste ano \o/ <br>
+<img src="http://danielammorais.com/content/images/2016/07/arduino.png" alt="Como postar tweets com Arduino"></p>
+
+<p>O código do Arduino é bem simples, é uma alteração do exemplo. Lembre-se de alterar o IP do Arduino caso esteja sendo utilizado e de inserir o IP do server.  </p>
+
+<pre><code class="language-c">#include &lt;SPI.h&gt;
+#include &lt;UIPEthernet.h&gt;
+
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};  
+char server[] = "ip_server"; //fix here  
+IPAddress ip(192, 168, 1, 177);  
+EthernetClient client;
+
+void setup() {  
+  Serial.begin(9600);
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println("Failed to configure Ethernet using DHCP");
+    Ethernet.begin(mac, ip);
+  }
+}
+
+void loop() {  
+  if (client.connect(server, 8080)) {
+    Serial.println("connected");
+    // Make a HTTP request:
+    client.println("GET /sendTweet/Hello%20world%20by%20Arduino HTTP/1.1");
+    client.println("Host: ipServer_withPort"); //fix here
+    client.println("Connection: close");
+    client.println();
+client.stop();  
+  } else {
+    Serial.println("connection failed");
+  }
+
+  delay(5000);
+}
+</code></pre>
+
+<p>Vamos dar algumas permissões para o script, suba o Flask e faça upload do código no Arduino.  </p>
+
+<pre><code class="language-bash">$ chmod a+x tweet.py
+$ python tweet.py
+</code></pre>
+
+<p>E finalmente.. <br>
+<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Hello world by Arduino</p>&mdash; Daniela Morais (@danielammorais) <a href="https://twitter.com/danielammorais/status/754567798819479553">July 17, 2016</a></blockquote> <br>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center></p>
+
+<h4 id="algumasobservaes">Algumas observações</h4>
+
+<p>Por enquanto, eu não consegui fazer requisições para servidores locais e nem ao menos conectava (ip's 192.168.x.x e localhost). O servidor que hospedou esse script não suportava https e em alguns momentos um erro sobre isso é retornado. <br>
+<img src="http://danielammorais.com/content/images/2016/07/wtf_martian.gif" alt="Como postar tweets com Arduino" title=""> </p>
+
+<p>Além disso, o Twitter não permite que seja postado sempre o mesmo conteúdo (obviamente) então  um erro será retornado se não houver nenhum delay longo ou variação do conteúdo. <br>
+Lembre-se de tomar cuidado com caracteres, use sempre o <a href="http://meyerweb.com/eric/tools/dencoder/">URL Encoder/Decoder</a>. Se nada der certo, use o bom e velho curl ou wget para testar.</p>
+
+<h4 id="andothercoolthings">And other cool things..</h4>
+
+<h6 id="webserverwitharduino">WebServer with Arduino</h6>
+
+<p><a href="https://www.arduino.cc/en/Tutorial/WebServer">https://www.arduino.cc/en/Tutorial/WebServer</a>  </p>
+
+<h6 id="acendendoumledviainternetcomarduinoeoethernetshield">Acendendo um LED via Internet com Arduino e o Ethernet Shield</h6>
+
+<p><a href="https://br.renatocandido.org/2013/09/acendendo-um-led-via-internet-com-arduino-e-o-ethernet-shield/">https://br.renatocandido.org/2013/09/acendendo-um-led-via-internet-com-arduino-e-o-ethernet-shield/</a>  </p>
+
+<h6 id="tweetduino">Tweetduino</h6>
+
+<p><a href="https://github.com/danielamorais/tweetduino.git">https://github.com/danielamorais/tweetduino.git</a>  </p>
+
+<h4 id="referncias">Referências</h4>
+
+<h6 id="arduinoethernetpushingdatatoaphpserver">Arduino Ethernet – Pushing data to a (PHP) server</h6>
+
+<p><a href="http://www.tweaking4all.com/hardware/arduino/arduino-ethernet-data-push/">http://www.tweaking4all.com/hardware/arduino/arduino-ethernet-data-push/</a>  </p>
+
+<h6 id="howtosendtweetfromcommandlineusingpython">How to Send Tweet From Command Line using Python</h6>
+
+<p><a href="http://www.techplugg.com/send-tweet-command-line-python/">http://www.techplugg.com/send-tweet-command-line-python/</a></p>]]></content:encoded></item><item><title><![CDATA[Fedora 24 Release Party in Sao Paulo]]></title><description><![CDATA[<p>Every time a new Fedora release is available, the community organizes events around the world to celebrate. Those events are necessary because they help meeting other users, contributors and, of course, it's an opportunity to talk about Fedora.</p>
 
 <p>This Saturday, it was time for São Paulo to make a Release</p>]]></description><link>http://danielammorais.com/2016/07/04/fedora-24-release-party-in-sao-paulo/</link><guid isPermaLink="false">62ab678a-2e26-4dc0-a44c-16677b165ebc</guid><category><![CDATA[software livre]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Mon, 04 Jul 2016 03:52:29 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/07/releaseParty.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/07/releaseParty.jpg" alt="Fedora 24 Release Party in Sao Paulo"><p>Every time a new Fedora release is available, the community organizes events around the world to celebrate. Those events are necessary because they help meeting other users, contributors and, of course, it's an opportunity to talk about Fedora.</p>
 
@@ -21,10 +178,10 @@
 <p>Daniel Bruno is mentor of the LATAM Ambassadors, via Hangouts he presented Fedora Cloud SIG and what they have done. Daniel emphasized too how Fedora Cloud is available in  the most common services like OpenStack and Amazon EC2. Ricardo Martinelli is Senior Software Engineer at Red Hat and showed Openshift, a Container Platform and  Atomic Developer Bundle. <br>
 <img src="http://danielammorais.com/content/images/2016/07/ricardoBrunoCloud.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-<p>For last, Davi Souza talked about Fedora infrastructure and Python SIG. a lot of Fedora's tools were developed using Python and there was a community effort to port everything from Python 2.7 to Python 3 <br>
+<p>For last, Davi Souza talked about Fedora infrastructure and Python SIG. A lot of Fedora's tools were developed using Python and there was a community effort to port everything from Python 2.7 to Python 3 <br>
 <img src="http://danielammorais.com/content/images/2016/07/daviPython.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
-<p>This t-shiry was made for the Pycon 2016 and is now available in Brazil, if you have interest send a message in Telegram group <br>
+<p>This t-shirt was made for the Pycon 2016 and is now available in Brazil, if you have interest send a message in Telegram group <br>
 <img src="http://danielammorais.com/content/images/2016/07/pythonSwag.jpg" alt="Fedora 24 Release Party in Sao Paulo"></p>
 
 <p>Thanks everyone, feel free to send me a message in <i>danielamorais@fedoraproject.org</i> and join us: <br>

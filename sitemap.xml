@@ -4,6 +4,8 @@
     </url>    <url>
         <loc>http://danielammorais.com/</loc>
     </url>    <url>
+        <loc>http://danielammorais.com/static/</loc>
+    </url>    <url>
         <loc>http://danielammorais.com/author/danielamorais/</loc>
     </url>    <url>
         <loc>http://danielammorais.com/tag/criptografia/</loc>
@@ -18,11 +20,41 @@
     </url>    <url>
         <loc>http://danielammorais.com/tag/software-livre/</loc>
     </url>    <url>
-        <loc>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
+        <loc>http://danielammorais.com/static/author/danielamorais/</loc>
     </url>    <url>
-        <loc>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
+        <loc>http://danielammorais.com/static/tag/api/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/arduino/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/criptografia/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/embarcados/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/iot/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/linux/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/python/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/seguranca/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/tag/software-livre/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
     </url>    <url>
         <loc>http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/</loc>
     </url>    <url>
+        <loc>http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
+    </url>    <url>
         <loc>http://danielammorais.com/2016/07/04/fedora-24-release-party-in-sao-paulo/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/2016/04/06/a-placa-de-desenvolvimento-freescale-freedom-k64f/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/2016/05/29/criptografia-de-e-mails-com-pgp/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/2016/06/19/sudo-dnf-install-fedora/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/2016/07/04/fedora-24-release-party-in-sao-paulo/</loc>
+    </url>    <url>
+        <loc>http://danielammorais.com/static/2016/07/17/como-postar-tweets-com-arduino/</loc>
     </url></urlset>
