@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Fri, 22 Jul 2016 21:18:06 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Festival une arte e tecnologia]]></title><description><![CDATA[O Festival Internacional de Linguagem Eletrônica (FILE) nesta edição conta com obras interativas e exposições que exploram as novas mídias. Entrada gratuita]]></description><link>http://danielammorais.com/2016/07/22/festival-une-arte-e-tecnologia/</link><guid isPermaLink="false">a6943822-8e6d-44a3-b2d9-a4dbe7ac1da7</guid><category><![CDATA[tecnologia]]></category><category><![CDATA[arte digital]]></category><dc:creator><![CDATA[Clarice Dellape]]></dc:creator><pubDate>Fri, 22 Jul 2016 20:27:35 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/07/1.png" medium="image"/><content:encoded><![CDATA[<h4 id="festivalinternacionaldelinguagemeletrnica">Festival Internacional de Linguagem Eletrônica</h4>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Sun, 28 Aug 2016 18:33:29 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos]]></title><description><![CDATA[O Marco Civil e direitos fundamentais do usuário estão em risco para atender o interesse das empresas de telecomunicações e violar a liberdade de expressão ]]></description><link>http://danielammorais.com/2016/08/28/internet-sob-ataque/</link><guid isPermaLink="false">f20c743b-da41-4259-b262-980072d2bf79</guid><category><![CDATA[segurança]]></category><category><![CDATA[tecnologia]]></category><category><![CDATA[política]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 28 Aug 2016 18:00:00 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"><p>O mundo cada vez mais conectado através de cabos ópticos submarinos de alta velocidade e a popularização dos smartphones possibilitaram a internet cada mais acessível e intensificaram o fluxo de troca de conhecimento e informação pela rede. <br>
+Apesar disto, em 2015 apenas 50% dos domicílios brasileiros tinham acesso à rede e entre os motivos para não ter internet o alto custo foi o mais citado. Uma pessoa sem acesso à rede é facilmente excluída do mercado de trabalho (se não substituída por máquinas automatizadas), privada do imenso conhecimento gratuito disponível e entre outras implicações, ou seja, 50% dos domicílios são socialmente excluídos e provavelmente possuem outras prioridades mais básicas do que a internet.  </p>
+
+<h2 id="oacessoainternetumdireitohumano">O acesso a internet é um direito humano</h2>
+
+<p>A internet nada mais é que um conjunto de inúmeros computadores interligados e  diferente das telecomunicações comuns como o telefone e TV, foi estabelecida devido as conexões entre milhares de pessoas comuns. A internet <strong>é feita por pessoas</strong> e sempre foi um espaço democrático e com uma pluralidade de ideias. <br>
+São inúmeras suas possibilidades e <strong>todo mundo</strong> deve ter direito de usufruir do acesso à rede.</p>
+
+<h2 id="nemtudosoflores">Nem tudo são flores</h2>
+
+<p>Apesar de toda a maravilha de conhecimento e informação de 0 e 1 que percorre na rede, o contexto daqueles que acessam à rede não é otimista. Um breve resumo das violações mais discutidas:     </p>
+
+<h4 id="vigilnciaglobal">Vigilância global</h4>
+
+<p>Sempre houve grampos e interceptação das comunicações de importantes chefes de governo, <strong>não deveria</strong> ser normal mas sempre ocorreu. O mais assustador é quando todo o poder de processamento de data centers gigantes é usado para espionar pessoas comuns, as quais não estão envolvidas com nenhum crime e sem nenhuma autorização judicial. Além de ilegal e imoral, a justificativa do combate ao terrorismo é sempre usada como uma carta na manga e para assim possibilitar a obtenção de vantagens econômicas e institucionalizar a repressão. Caso esteja interessado em saber mais, leia o post de <a href="http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/">Criptografia de E-mails</a>. <br>
+<img src="http://danielammorais.com/content/images/2016/08/facebook.jpg" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"></p>
+
+<h4 id="cabossubmarinos">Cabos submarinos</h4>
+
+<p>A conexão da internet é feita através de cabos ópticos submarinos, exceto em regiões remotas, as quais usam satélites como a Amazônia que apenas recentemente teve a implantação de cabos ópticos. <br>
+Existem 6 cabos no Brasil sendo 3 de empresas privadas, os outros 3 são o Atlantis 2, Americas 2 e Sam-1. <br>
+Muitos cabos no mundo são construídos através de parcerias de estatais com empresas privadas e há muito mistério envolvido, não há maiores detalhes de domínio público sobre os contratos estabelecidos e as arquiteturas de rede utilizadas do cabo até o provedor.</p>
+
+<p>O Atlantis 2 é o único cabo que liga diretamente o Brasil com a Europa porém é um cabo extremamente limitado e que prioriza sinais de voz ao invés de internet, devido à limitação a Telebras anunciou recentemente a construção de mais um cabo direto com a Europa. <br>
+Restam apenas o Americas 2 e Sam-1 e os quais passam pelos Estados Unidos, ou seja, <strong>toda a comunicação</strong> é interceptada. Por exemplo, ao se conectar com a Ásia ou Uruguai obrigatoriamente os dados são interceptados pelos EUA, principalmente através do <a href="https://pt.wikipedia.org/wiki/Echelon">Programa Echelon</a>. Alguns documentários descrevem este processo como uma "duplicação" do feixe de luz do cabo de óptica, o dado segue o destino normal mas uma cópia foi feita e desviado do seu destino. <br>
+O Brasil não possui <strong>nenhuma</strong> independência das suas comunicações e não é possível uma conexão com países do Mercosul sem que os dados passem pelos EUA, é uma posição política permitir que os dados sejam interceptados principalmente quando há relações comerciais importantes. <br>
+<img src="http://danielammorais.com/content/images/2016/08/cabossubmarinosnobrasil2.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"></p>
+
+<h4 id="leiantiterrorismo">Lei antiterrorismo</h4>
+
+<p><img src="http://danielammorais.com/content/images/2016/08/adventure-time.jpg" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos">
+Evidentemente a lei antiterrorismo é um <strong>desastre total</strong> desde o início e recentemente ela vêem sido usada como respaldo para inúmeras prisões ilegais, usada para justificar a prisão de manifestantes e está sendo cada vez mais usada para o que seriam crimes cibernéticos. Numa tentativa de se promover para pré candidato a governador do Estado de São Paulo, o ministro interino Alexandre de Moraes <del>montou todo o circo</del> convocou toda a impressa para anunciar a prisão de "acho que talvez podem ser supostos terroristas".  Os supostos terroristas são descritos como amadores e estariam planejando no Whatsapp comprar uma arma, é notável nas entrevistas o total desconhecimento de como foi a investigação pois não há maior detalhamento além de descrições superficiais. Para aqueles que acreditam na criptografia do Whatsapp, este é um ótimo exemplo. <br>
+O perigo do abuso das leis e do poder é evidente no caso de pessoas que são presas por criticar à Polícia Militar como instituição na internet, é importante notar que liberdade de expressão não é discurso de ódio e todos podem se manifestar.  </p>
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/GTbxVFTDdo0" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="cpidoscrimescibernticos">CPI dos crimes cibernéticos</h2>
+
+<p>Conhecida como a CPI da censura, os primeiros relatórios propunham permitir o acesso de autoridades policiais as informações de IP como nome e endereço <strong>sem nenhuma autorização judicial</strong>. Após muita pôlemica, o texto foi retirado do relatório final da CPI porém não há nenhuma comemoração: leis semelhantes foram aprovadas, <a href="http://legis.senado.leg.br/mateweb/arquivos/mate-pdf/191814.pdf">"Obtenção  de  meios  de  prova  nos  crimes praticados por intermédio de conexão ou uso de internet"</a> e <a href="http://www2.camara.leg.br/camaranoticias/noticias/SEGURANCA/513143-COMISSAO-APROVA-ACESSO-DE-POLICIA-MILITAR-A-SISTEMAS-DE-INFORMACOES-SOBRE-CIDADAOS.html">"Comissão aprova acesso de polícia militar a sistemas de informações sobre cidadãos"</a></p>
+
+<p>O objetivo desta CPI foi garantir o direito das licenças copyrights e o combate a pirataria, os principais absurdos aprovados foram:<br></p>
+
+<ul>
+<li>Criminalizar qualquer um que invada um "sistema informatizado" mesmo que não haja obtenção de dados ou vantagem pessoal. Ou seja, caso você descubra alguma falha de segurança e reporte o erro <strong>pode ser criminalizado</strong>.</li>
+<li>Permitir a prisão de quem violar os termos de uso que são confusos propositalmente para ninguém ler<br></li>
+<li>Determinar o bloqueio do acesso a sites/apps hospedados fora do país "dedicados à pratica de crimes" </li>
+<li>Destinar a verba que anteriormente seria para fiscalizar as telecomunicações para a Polícia Federal </li>
+</ul>
+
+<p>Foram muitas entidades que participaram efetivamente do debate para tentar impedir a aprovação da CPI e vale a pena acompanhá-los, como o Coletivo Intervozes, Instituto de Tecnologia e Sociedade do Rio e Coding Rights.   </p>
+
+<h2 id="apresidentadacpi">A presidenta da CPI</h2>
+
+<p>Mariana Carvalho foi a presidenta da CPI e apesar do relatório aprovado ser totalmente retrogrado e articular a censura na internet, ironicamente Mariana Carvalho faz parte da "Frente Parlamentar Mista pela Internet Livre e Sem Limites" cujo o objetivo é impedir a franquia de dados. Obviamente devido a rejeição popular da franquia de dados, Mariana Carvalho contrariou os interesses das grandes empresas que outrora defendeu.    </p>
+
+<h2 id="emaisataques">E mais ataques</h2>
+
+<p>É essencial que haja uma proteção dos direitos dos usuários na rede através de leis e fiscalização, grandes empresas de telecomunicações e políticos <strong>não são proprietários da rede</strong> para ditar regras e os seus interesses acima de tudo.   </p>
+
+<blockquote>
+  <p>Vivemos em uma época baseada em ciência e tecnologia com formidáveis poderes tecnológicos. A ciência e a tecnologia estão nos levando adiante a velocidades cada vez maiores. E se não as entendemos e por "nós", eu quero dizer o público em geral. Se você diz: "Ah, não sou bom nisso, não sei nada sobre isso." Então quem está tomando todas as decisões sobre ciência e tecnologia que determinarão em que tipo de futuro nossos filhos viverão? Esta mistura inflamável de ignorância e poder cedo ou tarde irá explodir em nossas caras. - Carl Sagan</p>
+</blockquote>
+
+<p>Desde 2014 o Marco Civil sofre uma série de ataques, o inimigo número 1 daquele ano possuia nome e sobrenome: Eduardo Cunha.<br> O qual é financiado pelas empresas de telecom e defende o seus interesses como retorno dos investimentos feitos. <br>
+Elaborado coletivamente, o Marco Civil é um exemplo mundial de princípios e diretrizes da rede e elogiado por diversas entidades e especialistas. Houve muito debate e participação popular para a elaboração, alguns itens como a neutralidade de rede, direito a privacidade e a suspensão da conexão somente em falta de pagamento desagradou as empresas.<br> <br>
+A neutralidade garante que nenhum pacote de dados tenha prioridade maior que outro, ou seja, é ilegal a fragmentação da internet em "pacotes de redes sociais" e associações de operadoras com o Facebook/Twitter/Whatsapp para fornecer o acesso a estes apps de forma "gratuita". <br>Não há nada de altruísta no Facebook e Google em oferecer "internet" via drone em locais remotos, <strong>não se trata</strong> de internet quando o acesso é limitado a uma série de sites e alguém estabelece onde você pode navegar ou não em troca de metadados.</p>
+
+<p><img src="http://danielammorais.com/content/images/2016/08/folhasp-facebook.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos">
+<center><em>Reportagem da Folha de São Paulo de 2014</em></center></p>
+
+<p>Trecho do Marco Civil que impede casos de porn revenge, violação à privacidade das comunicações e a suspensão da internet por limites de dados:  </p>
+
+<blockquote>
+  <p>"O acesso à internet é essencial ao exercício da cidadania, e ao usuário são assegurados os seguintes direitos: <br>
+  I - inviolabilidade da intimidade e da vida privada, sua proteção e indenização pelo dano material ou moral decorrente de sua violação; <br>
+  II - inviolabilidade e sigilo do fluxo de suas comunicações pela internet, salvo por ordem judicial, na forma da lei; <br>
+  III - inviolabilidade e sigilo de suas comunicações privadas armazenadas, salvo por ordem judicial; <br>
+  IV - não suspensão da conexão à internet, salvo por débito diretamente decorrente de sua utilização"  </p>
+</blockquote>
+
+<p>Os bloqueios recentes do Whatsapp fizeram ressurgir com força os ataques ao Marco Civil, comentários dignos de estar no e-farsas.com e que demonstram a ignorância ao denominá-lo como "Censuro Civil Regulatório". <br>São tempos perigosos e em meio a tantos retrocessos sociais ocorrendo, o Marco Civil já está em risco desde a aprovação da CPI dos Crimes Cibernéticos e mais alterações podem ocorrer.</p>
+
+<p><img src="http://danielammorais.com/content/images/2016/07/temerbyocotidianoilustrado.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos" o="" cotidiano="" ilustrado""="">
+<center><em>"Darth Temer, Marcela Leia e Renan Palpatine, o Império Contra-Ataca" do artista O Cotidiano Ilustrado</em></center></p>
+
+<h3 id="comitgestordainternet">Comitê Gestor da Internet</h3>
+
+<p>O CGI é formado por diversos setores da sociedade, entre eles a sociedade civil, empresas, representantes governamentais, academia etc. Conhecido pelo registro de domínios .br, é responsável por outras atribuições como:</p>
+
+<ul>
+<li>a proposição de normas e procedimentos relativos à regulamentação das atividades na Internet;</li>
+<li>a recomendação de padrões e procedimentos técnicos operacionais para a Internet no Brasil;</li>
+<li>o estabelecimento de diretrizes estratégicas relacionadas ao uso e desenvolvimento da Internet no Brasil; </li>
+</ul>
+
+<p>É um comitê extremamente importante, a composição plural e democrática desagrada as empresas pois há um claro conflito de interesses quando é necessário o consenso dos diferentes setores da sociedade.</p>
+
+<blockquote>
+  <p>As grandes empresas de telecomunicações não gostam desse modelo pois, no CGI.br, sua opinião é apenas mais uma. Diferentemente da Anatel, onde há investimento em lobby para decisões regulatórias favoráveis, a composição atual do CGI.br torna difícil a captura e garante a paridade de opinião sem importar o poder econômico de cada setor — todos os setores são participantes da Internet e portanto têm iguais direitos de representação. - O Ataque à Governança Democrática da Internet    </p>
+</blockquote>
+
+<p>O governo interino está sendo pressionado para mudar a composição do CGI e consequentemente torná-lo favorável somente aos interesses das empresas de telecomunicações. Dessa forma será possível tornar a internet um "serviço de telecomunicação" e poder limitá-la e restringir o uso com preços abusivos e vendas por pacotes ignorando a função social da internet.   </p>
+
+<p><img src="http://danielammorais.com/content/images/2016/07/sothisishowlibertydies.gif" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"></p>
+
+<h6 id="ocotidianoilustrado">O Cotidiano Ilustrado</h6>
+
+<p>Instagram: ocotidianoilustrado <br>
+<a href="https://twitter.com/o_c_ilustrado">Twitter</a>,
+<a href="https://www.facebook.com/ocotidianoilustrado/?fref=ts">Facebook</a> e 
+<a href="https://ocotidianoilustrado.wordpress.com/">Wordpress</a></p>
+
+<h6 id="ticdomicilios">TIC Domicilios</h6>
+
+<p><a href="http://data.cetic.br/cetic/explore?idPesquisa=TIC_DOM">http://data.cetic.br/cetic/explore?idPesquisa=TIC_DOM</a></p>
+
+<h5 id="conheaoscabossubmarinosdobrasil">Conheça os cabos submarinos do Brasil</h5>
+
+<p><a href="http://www.comunicacoes.gov.br/sala-de-imprensa/todas-as-noticias/institucionais/36231-o-fundo-do-mar-a-servico-das-telecomunicacoes">http://www.comunicacoes.gov.br/sala-de-imprensa/todas-as-noticias/institucionais/36231-o-fundo-do-mar-a-servico-das-telecomunicacoes</a></p>
+
+<h6 id="postnofacebookcausadeprisoporterrorismonobrasil">Post no Facebook é causa de prisão por "terrorismo" no Brasil</h6>
+
+<p><a href="https://medium.com/democratize-m%C3%ADdia/post-no-facebook-%C3%A9-causa-de-pris%C3%A3o-por-terrorismo-no-brasil-abdd73f2ae4b#.izwwopz3k">https://medium.com/democratize-m%C3%ADdia/post-no-facebook-%C3%A9-causa-de-pris%C3%A3o-por-terrorismo-no-brasil-abdd73f2ae4b#.izwwopz3k</a></p>
+
+<h6 id="cgibrdivulganotadeesclarecimentosobreobloqueiotemporriodowhatsappnobrasil">CGI.br divulga nota de esclarecimento sobre o bloqueio temporário do Whatsapp no Brasil</h6>
+
+<p><a href="http://cgi.br/noticia/notas/cgi-br-divulga-nota-de-esclarecimento-sobre-o-bloqueio-temporario-do-whatsapp-no-brasil/">http://cgi.br/noticia/notas/cgi-br-divulga-nota-de-esclarecimento-sobre-o-bloqueio-temporario-do-whatsapp-no-brasil/</a></p>
+
+<h6 id="obloqueiodowhatsappfoiculpadomarcocivil">O bloqueio do whatsapp foi culpa do Marco Civil?</h6>
+
+<p><a href="https://medium.com/@prenass/o-bloqueio-do-whatsapp-%C3%A9-culpa-do-marco-civil-b477ebff6171#.7mhjgehu7">https://medium.com/@prenass/o-bloqueio-do-whatsapp-%C3%A9-culpa-do-marco-civil-b477ebff6171#.7mhjgehu7</a></p>
+
+<h6 id="oataquegovernanademocrticadainternet">O Ataque à Governança Democrática da Internet</h6>
+
+<p><a href="https://medium.com/@cdr_br/o-ataque-%C3%A0-governan%C3%A7a-democr%C3%A1tica-da-internet-55d4c6ab8193#.reh0094x4">https://medium.com/@cdr_br/o-ataque-%C3%A0-governan%C3%A7a-democr%C3%A1tica-da-internet-55d4c6ab8193#.reh0094x4</a></p>]]></content:encoded></item><item><title><![CDATA[Festival une arte e tecnologia]]></title><description><![CDATA[O Festival Internacional de Linguagem Eletrônica (FILE) nesta edição conta com obras interativas e exposições que exploram as novas mídias. Entrada gratuita]]></description><link>http://danielammorais.com/2016/07/22/festival-une-arte-e-tecnologia/</link><guid isPermaLink="false">a6943822-8e6d-44a3-b2d9-a4dbe7ac1da7</guid><category><![CDATA[tecnologia]]></category><category><![CDATA[arte digital]]></category><dc:creator><![CDATA[Clarice Dellape]]></dc:creator><pubDate>Fri, 22 Jul 2016 20:27:35 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/07/1.png" medium="image"/><content:encoded><![CDATA[<h4 id="festivalinternacionaldelinguagemeletrnica">Festival Internacional de Linguagem Eletrônica</h4>
 
 <img src="http://danielammorais.com/content/images/2016/07/1.png" alt="Festival une arte e tecnologia"><p><img src="http://danielammorais.com/content/images/2016/07/1-1.png" alt="Festival une arte e tecnologia">
 <em>Robinson, obra de Taiwan e Reino Unido, possui várias expressões faciais que mudam de acordo com a narrativa de uma história contata ao fundo.</em></p>
