@@ -1,0 +1,435 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Deploy de aplicação Django com Nginx</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=202f780a67">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic%7COpen+Sans:700,400">
+    
+    <link rel="canonical" href="http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="Daniela Morais">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Deploy de aplicação Django com Nginx">
+    <meta property="og:description" content="Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não">
+    <meta property="og:url" content="http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/">
+    <meta property="og:image" content="http://danielammorais.com/content/images/2016/11/orly.jpg">
+    <meta property="article:published_time" content="2016-11-21T05:43:10.585Z">
+    <meta property="article:modified_time" content="2016-11-21T06:29:02.416Z">
+    <meta property="article:tag" content="python">
+    <meta property="article:tag" content="linux">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deploy de aplicação Django com Nginx">
+    <meta name="twitter:description" content="Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não">
+    <meta name="twitter:url" content="http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/">
+    <meta name="twitter:image:src" content="http://danielammorais.com/content/images/2016/11/orly.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Daniela Morais">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="python, linux">
+    <meta name="twitter:site" content="@danielammorais">
+    <meta name="twitter:creator" content="@danielammorais">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/ghost/img/ghosticon.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": "http://danielammorais.com/content/images/2016/05/15854671410_846358242c_z.jpg",
+        "url": "http://danielammorais.com/author/danielamorais/",
+        "sameAs": [
+            "https://www.linkedin.com/in/danielammorais",
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "Deploy de aplicação Django com Nginx",
+    "url": "http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/",
+    "datePublished": "2016-11-21T05:43:10.585Z",
+    "dateModified": "2016-11-21T06:29:02.416Z",
+    "image": "http://danielammorais.com/content/images/2016/11/orly.jpg",
+    "keywords": "python, linux",
+    "description": "Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.8">
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/">
+    <!-- Config Prism -->
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/prism.css?v=202f780a67"> 
+</head>
+<body class="post-template tag-python tag-linux nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head " style="background-image: url(../../../../content/images/2016/11/orly.jpg)">
+    <nav class="main-nav overlay clearfix">
+        
+
+        <!---->
+         <a class="back-button icon-arrow-left" href="http://danielammorais.com">Home</a>   
+    </nav>
+</header>
+<main class="content" role="main">
+    <article class="post tag-python tag-linux">
+
+        <header class="post-header"> 
+            <h1 class="post-title">Deploy de app Django no Nginx</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-11-21">21 November 2016</time>  on <a href="../../../../tag/python/">python</a>, <a href="../../../../tag/linux/">linux</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p><img src="../../../../content/images/2016/11/software.jpg" alt="">
+Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não funciona.   </p>
+
+<p><img src="../../../../content/images/2016/10/devops-define-roles.jpg" alt=""></p>
+
+<p>Para tornar menos problemático o processo de deploy, devops propõe muitas coisas que podem ajudar como entrega contínua, versionamento de código, integração contínua, metodologias ágeis etc. É uma área <strong>realmente bacana</strong> de estudar. <br>
+Infelizmente devido ao curto prazo de entrega desta aplicação, não consegui brincar um pouco com Docker neste projeto mas facilitaria e muito.  </p>
+
+<p>Em Java este processo se resume em gerar o .war e configurar o Apache. Caso queira saber mais: <br>
+<a href="http://pt.stackoverflow.com/questions/58729/o-que-%C3%A9-deploy">http://pt.stackoverflow.com/questions/58729/o-que-%C3%A9-deploy</a></p>
+
+<p>Para quem nunca desenvolveu além de aplicações acadêmicas, a grande pergunta é por quê simplesmente não executar:</p>
+
+<pre><code class="language-python">$ python manage.py runserver
+$ python app.py
+</code></pre>
+
+<p>Este "servidor" serve <strong>somente</strong> para desenvolvimento e testes locais, não é adequado para lidar com inúmeras requisições de usuários e não possui nenhuma confiabilidade de segurança. </p>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+<li>python 3.5.1</li>
+<li>django 1.10.0</li>
+<li>gunicorn </li>
+<li>nginx </li>
+</ul>
+
+<p>Quando alguém enviar alguma requisição http (GET, POST, UPDATE etc.), o nginx é o responsável por dizer o que fazer com ela. Nos arquivos do Django, irá ter um arquivo <strong>urls.py</strong> que diz ao nginx qual código deverá ser executado de acordo com a path e código http recebido. </p>
+
+<pre><code class="language-python">from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [  
+    url(r'^$', views.index, name='index'),
+]
+</code></pre>
+
+<p>Para seja possível o nginx lidar com o Django, é necessário que o gunicorn faça a ponte entre os dois. <br>
+<img src="../../../../content/images/2016/11/request_nginx.jpg" alt=""></p>
+
+<h2 id="ambientevirtual">Ambiente virtual</h2>
+
+<p>É ideal isolar os frameworks usados com o virtualenv para evitar conflitos com outros projetos, ainda mais quando há Python 2.7 e Python 3.5 no mesmo sistema. </p>
+
+<p>Para saber mais leia: <br>
+<a href="https://pythonhelp.wordpress.com/2012/10/17/virtualenv-ambientes-virtuais-para-desenvolvimento/">https://pythonhelp.wordpress.com/2012/10/17/virtualenv-ambientes-virtuais-para-desenvolvimento/</a></p>
+
+<h2 id="configuraodoservidor">Configuração do servidor</h2>
+
+<p>Todo processo descrito pode e deve ser automatizado para evitar erros e agilizar o processo. Antes de tudo, não havia feito a configuração do DNS e por se tratar de uma aplicação de site pessoal que exigia atualização somente de imagens, javascript e HTML não foi necessário me preocupar com <em>zero deployment downtime</em>.     </p>
+
+<p>Lembre-se de setar o <em>debug</em> para falso antes de liberar para produção, qualquer erro será exibido para o usuário final e pode facilitar o pentest. Após a instalação do nginx, suba para verificar a mensagem default do nginx. </p>
+
+<p>Provavelmente o diretório do projeto é algo como:</p>
+
+<pre><code class="language-bash">.
+├── __init__.py
+├── settings.py
+├── static
+│   ├── css
+│   │   ├── bootstrap.css
+│   │   ├── combo.css
+│   │   ├── font-awesome.min.css
+│   │   └── raleway.css
+│   ├── fonts
+│   │   ├── fontawesome-webfont.ttf
+│   │   ├── fontawesome-webfont.woff
+│   │   ├── FuturaHeavy.ttf
+│   │   ├── Futura_ICG.ttf
+│   │   └── FuturaLight.ttf
+│   ├── html
+│   │   ├── footer.html
+│   │   └── mainmenu.html
+│   ├── img
+│   │   ├── estrela.png
+│   │   ├── joao-whitaker.jpg
+│   │   ├── logo-branco.jpg
+│   │   ├── logo-preto.jpg
+│   └── js
+│       ├── analytics.js
+│       ├── angular.min.js
+│       ├── bootstrap.min.js
+│       ├── connectionfacebook.js
+│       ├── jquery-2.1.1.min.js
+│       └── w3data.js
+├── templates
+│   ├── colabore.html
+│   ├── index.html
+├── urls.py
+└── wsgi.py
+</code></pre>
+
+<p>
+É essencial inserir o HTML, CSS e JS no diretório static e separar do backend. Edite o arquivo <strong>settings.py</strong> inserindo a path de static,  setando DEBUG=False e adicionando os seus domínios em ALLOWED_HOSTS.</p>
+
+<pre><code class="language-terminal">STATIC_URL = '/static/'  
+STATIC_ROOT = os.path.join(BASE_DIR, "static")  
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "sfiles"), )  
+</code></pre>
+
+<p>Crie um diretório no servidor em <em>/var/www/seu_projeto</em>, todo seu projeto django deve estar neste diretório. Após configurar o diretório de arquivos estátios, execute:  </p>
+
+<pre><code class="language-terminal">$ python manage.py collectstatic --digitar yes para confirmar 
+</code></pre>
+
+<p>Crie o arquivo de script do gunicorn chamando <em>gunicorn_start.sh</em>. <strong>Não esqueça de editar.</strong>  </p>
+
+<pre><code class="language-terminal">#!/bin/bash
+
+NAME="seu-projeto"                              #Name of the application (*)  
+DJANGODIR=/var/www/seu_projeto/my-website             # Django project directory (*)  
+SOCKFILE=/var/www/seu_projeto/run/gunicorn.sock        # we will communicate using this unix socket (*)  
+USER=ubuntu                                       # the user to run as (*)  
+GROUP=webdata                                     # the group to run as (*)  
+NUM_WORKERS=1                                     # how many worker processes should Gunicorn spawn (*)  
+DJANGO_SETTINGS_MODULE=seu_projeto.settings             # which settings file should Django use (*)  
+DJANGO_WSGI_MODULE=seu_projeto.wsgi                     # WSGI module name (*)
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DJANGODIR  
+source /var/www/seu_projeto/venv/bin/activate  
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE  
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)  
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec /var/www/seu_projeto/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \  
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user $USER \
+  --bind=unix:$SOCKFILE
+</code></pre>
+
+<p>Dê permissão de executável para o script com chmod a+x. </p>
+
+<p>Para configurar o nginx, basta editar o arquivo em <em>/etc/nginx/nginx.conf</em>. A seguinte configuração <strong>deveria seguir</strong> o padrão do Apache e deixar o nginx.conf somente para configurações de níveis gerais. Leia o artigo de Vitor Lobo sobre confgurações do nginx:</p>
+
+<p>Desvendando o Nginx <br>
+<a href="http://blog.ti.lemaf.ufla.br/2016/07/29/desvendando-o-nginx-parte-1/">http://blog.ti.lemaf.ufla.br/2016/07/29/desvendando-o-nginx-parte-1/</a> </p>
+
+<p>nginx.conf  </p>
+
+<pre><code class="language-terminal">upstream test_server {  
+  server unix:/var/www/seu_projeto/run/gunicorn.sock fail_timeout=10s;
+}
+
+# This is not neccessary - it's just commonly used
+# it just redirects example.com -&gt; www.example.com
+# so it isn't treated as two separate websites
+server {  
+        listen 80;
+        server_name example.com;
+        return 301 $scheme://www.example.com$request_uri;
+}
+
+server {  
+    listen   80;
+    server_name www.example.com;
+
+    client_max_body_size 4G;
+
+    access_log /var/www/seu_projeto/logs/nginx-access.log;
+    error_log /var/www/seu_projeto/logs/nginx-error.log warn;
+
+    location /static/ {
+        autoindex on;
+        alias   /var/www/seu_projeto/seu-projeto/static/;
+    }
+
+   location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://test_server;
+            break;
+        }
+    }
+
+    #For favicon
+    location  /favicon.ico {
+        alias /var/www/seu_projeto/seu-projeto/static/img/favicon.ico;
+    }
+    #For robots.txt
+    location  /robots.txt {
+        alias /var/www/seu_projeto/seu-projeto/static/robots.txt ;
+    }
+    # Error pages
+    error_page 500 502 503 504 /500.html;
+    location = /500.html {
+        root /var/www/seu_projeto/seu-projeto/static/;
+    }
+}
+</code></pre>
+
+<p>No meu caso, tive muitos problemas com o conteúdo que estava dentro de <em>/static</em> como css e js. Não era redirecionado cada um para a respectiva pasta e tive que inserir manualmente a path inteira:  </p>
+
+<pre><code class="language-terminal"> location /static/css/ {
+    include /etc/nginx/mime.types;
+    alias /var/www/seu_projeto/seu-projeto/static/css/;
+    }
+
+    location /static/js/ {
+    include /etc/nginx/mime.types; 
+    alias /var/www/seu_projeto/seu-projeto/static/js/;
+    }
+</code></pre>
+
+<p>Agora basta subir novamente o servidor e executar o gunicorn.  </p>
+
+<pre><code class="language-terminal">$ pwd
+/var/www/seu_projeto/
+$ sudo service nginx start
+$ ./gunicorn_start.sh 
+</code></pre>
+
+<p>As únicas alterações do projeto eram em /static então o processo se resumia em git pull, cp -a  /static para /var/www/seu_projeto e python manage.py collecstatic para inserir novas atualizações. Lembre-se de automatizar todo seu processo e melhorar os scripts descritos, há vários artigos gratuitos da ThoughtWorks sobre como melhorar o processo de deploy. </p>
+
+<p>E claro, mantenha a calma se algo der errado. <br>
+<img src="https://media.giphy.com/media/mq5y2jHRCAqMo/giphy.gif" alt=""></p>
+
+<h6 id="referncias">Referências</h6>
+
+<p>Esse post teve como objetivo ser útil e rápido e por isso, utilizei as etapas essenciais do seguinte artigo. Os scripts são de autoria de seu autor. <br>
+<a href="http://tutos.readthedocs.io/en/latest/source/ndg.html">http://tutos.readthedocs.io/en/latest/source/ndg.html</a> <br>
+Kickstarting Flask on Ubuntu - Setup and Deployment <br>
+<a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/</a> <br>
+WSGI Servers <br>
+<a href="https://www.fullstackpython.com/wsgi-servers.html">https://www.fullstackpython.com/wsgi-servers.html</a> <br>
+Deploying nginx + django + python 3 <br>
+<a href="http://tutos.readthedocs.io/en/latest/source/ndg.html">http://tutos.readthedocs.io/en/latest/source/ndg.html</a></p>
+            
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="../../../../author/danielamorais/" style="background-image: url(../../../../content/images/2016/05/15854671410_846358242c_z.jpg)"><span class="hidden">Daniela Morais's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="../../../../author/danielamorais/">Daniela Morais</a></h4>
+
+                    <p>Read <a href="../../../../author/danielamorais/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    <span class="author-location icon-location">Sao Paulo, Brazil</span>
+                    <span class="author-link icon-link"><a href="https://www.linkedin.com/in/danielammorais">https://www.linkedin.com/in/danielammorais</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Deploy%20de%20app%20Django%20no%20Nginx&amp;url=http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+        <!--Config Disqus -->
+<section class="post-content">
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    
+    var disqus_config = function () {
+        this.page.url = 'http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'ghost-21' // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//danielammoraiscom.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+     </section>
+    </article>
+    
+    
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev " style="background-image: url(../../../../content/images/2016/08/temerpalpatine2.png)" href="../../../08/28/internet-sob-ataque/">
+        <section class="post">
+            <h2>Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos</h2>
+            <p>O mundo cada vez mais conectado através de cabos ópticos submarinos de alta velocidade e a popularização dos smartphones…</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <!--<section class="copyright"><a href="http://danielammorais.com">Daniela Morais</a> &copy; 2016</section>-->
+            <!--<section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>-->
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+
+    <script type="text/javascript" src="../../../../assets/js/jquery.fitvids.js?v=202f780a67"></script>
+    <script type="text/javascript" src="../../../../assets/js/index.js?v=202f780a67"></script>
+    <!-- Config Prism -->
+    <script type="text/javascript" src="../../../../assets/js/prism.js?v=202f780a67"></script>
+</body>
