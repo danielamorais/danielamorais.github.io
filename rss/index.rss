@@ -1,4 +1,244 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Sun, 28 Aug 2016 18:33:29 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos]]></title><description><![CDATA[O Marco Civil e direitos fundamentais do usuário estão em risco para atender o interesse das empresas de telecomunicações e violar a liberdade de expressão ]]></description><link>http://danielammorais.com/2016/08/28/internet-sob-ataque/</link><guid isPermaLink="false">f20c743b-da41-4259-b262-980072d2bf79</guid><category><![CDATA[segurança]]></category><category><![CDATA[tecnologia]]></category><category><![CDATA[política]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 28 Aug 2016 18:00:00 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"><p>O mundo cada vez mais conectado através de cabos ópticos submarinos de alta velocidade e a popularização dos smartphones possibilitaram a internet cada mais acessível e intensificaram o fluxo de troca de conhecimento e informação pela rede. <br>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Daniela Morais]]></title><description><![CDATA[Blog sobre tecnologia e desenvolvimento ]]></description><link>http://danielammorais.com/</link><generator>Ghost 0.8</generator><lastBuildDate>Mon, 21 Nov 2016 07:08:06 GMT</lastBuildDate><atom:link href="http://danielammorais.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Deploy de app Django no Nginx]]></title><description><![CDATA[<p><img src="http://danielammorais.com/content/images/2016/11/software.jpg" alt="">
+Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não</p>]]></description><link>http://danielammorais.com/2016/11/21/deploy-de-app-django-no-nginx/</link><guid isPermaLink="false">ec9fbaf4-0eaf-4951-8300-dcba15dc5a94</guid><category><![CDATA[python]]></category><category><![CDATA[linux]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Mon, 21 Nov 2016 05:43:10 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/11/orly.jpg" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/11/orly.jpg" alt="Deploy de app Django no Nginx"><p><img src="http://danielammorais.com/content/images/2016/11/software.jpg" alt="Deploy de app Django no Nginx">
+Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível para o cliente final configurando o servidor. Essa etapa é denominada deployment e é a parte mais legal (só que não) de todo o processo: inúmeros bugs podem surgir e você não faz ideia o por quê não funciona.   </p>
+
+<p><img src="http://danielammorais.com/content/images/2016/10/devops-define-roles.jpg" alt="Deploy de app Django no Nginx"></p>
+
+<p>Para tornar menos problemático o processo de deploy, devops propõe muitas coisas que podem ajudar como entrega contínua, versionamento de código, integração contínua, metodologias ágeis etc. É uma área <strong>realmente bacana</strong> de estudar. <br>
+Infelizmente devido ao curto prazo de entrega desta aplicação, não consegui brincar um pouco com Docker neste projeto mas facilitaria e muito.  </p>
+
+<p>Em Java este processo se resume em gerar o .war e configurar o Apache. Caso queira saber mais: <br>
+<a href="http://pt.stackoverflow.com/questions/58729/o-que-%C3%A9-deploy">http://pt.stackoverflow.com/questions/58729/o-que-%C3%A9-deploy</a></p>
+
+<p>Para quem nunca desenvolveu além de aplicações acadêmicas, a grande pergunta é por quê simplesmente não executar:</p>
+
+<pre><code class="language-python">$ python manage.py runserver
+$ python app.py
+</code></pre>
+
+<p>Este "servidor" serve <strong>somente</strong> para desenvolvimento e testes locais, não é adequado para lidar com inúmeras requisições de usuários e não possui nenhuma confiabilidade de segurança. </p>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+<li>python 3.5.1</li>
+<li>django 1.10.0</li>
+<li>gunicorn </li>
+<li>nginx </li>
+</ul>
+
+<p>Quando alguém enviar alguma requisição http (GET, POST, UPDATE etc.), o nginx é o responsável por dizer o que fazer com ela. Nos arquivos do Django, irá ter um arquivo <strong>urls.py</strong> que diz ao nginx qual código deverá ser executado de acordo com a path e código http recebido. </p>
+
+<pre><code class="language-python">from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [  
+    url(r'^$', views.index, name='index'),
+]
+</code></pre>
+
+<p>Para seja possível o nginx lidar com o Django, é necessário que o gunicorn faça a ponte entre os dois. <br>
+<img src="http://danielammorais.com/content/images/2016/11/request_nginx.jpg" alt="Deploy de app Django no Nginx"></p>
+
+<h2 id="ambientevirtual">Ambiente virtual</h2>
+
+<p>É ideal isolar os frameworks usados com o virtualenv para evitar conflitos com outros projetos, ainda mais quando há Python 2.7 e Python 3.5 no mesmo sistema. </p>
+
+<p>Para saber mais leia: <br>
+<a href="https://pythonhelp.wordpress.com/2012/10/17/virtualenv-ambientes-virtuais-para-desenvolvimento/">https://pythonhelp.wordpress.com/2012/10/17/virtualenv-ambientes-virtuais-para-desenvolvimento/</a></p>
+
+<h2 id="configuraodoservidor">Configuração do servidor</h2>
+
+<p>Todo processo descrito pode e deve ser automatizado para evitar erros e agilizar o processo. Antes de tudo, não havia feito a configuração do DNS e por se tratar de uma aplicação de site pessoal que exigia atualização somente de imagens, javascript e HTML não foi necessário me preocupar com <em>zero deployment downtime</em>.     </p>
+
+<p>Lembre-se de setar o <em>debug</em> para falso antes de liberar para produção, qualquer erro será exibido para o usuário final e pode facilitar o pentest. Após a instalação do nginx, suba para verificar a mensagem default do nginx. </p>
+
+<p>Provavelmente o diretório do projeto é algo como:</p>
+
+<pre><code class="language-bash">.
+├── __init__.py
+├── settings.py
+├── static
+│   ├── css
+│   │   ├── bootstrap.css
+│   │   ├── combo.css
+│   │   ├── font-awesome.min.css
+│   │   └── raleway.css
+│   ├── fonts
+│   │   ├── fontawesome-webfont.ttf
+│   │   ├── fontawesome-webfont.woff
+│   │   ├── FuturaHeavy.ttf
+│   │   ├── Futura_ICG.ttf
+│   │   └── FuturaLight.ttf
+│   ├── html
+│   │   ├── footer.html
+│   │   └── mainmenu.html
+│   ├── img
+│   │   ├── estrela.png
+│   │   ├── joao-whitaker.jpg
+│   │   ├── logo-branco.jpg
+│   │   ├── logo-preto.jpg
+│   └── js
+│       ├── analytics.js
+│       ├── angular.min.js
+│       ├── bootstrap.min.js
+│       ├── connectionfacebook.js
+│       ├── jquery-2.1.1.min.js
+│       └── w3data.js
+├── templates
+│   ├── colabore.html
+│   ├── index.html
+├── urls.py
+└── wsgi.py
+</code></pre>
+
+<p>
+É essencial inserir o HTML, CSS e JS no diretório static e separar do backend. Edite o arquivo <strong>settings.py</strong> inserindo a path de static,  setando DEBUG=False e adicionando os seus domínios em ALLOWED_HOSTS.</p>
+
+<pre><code class="language-terminal">STATIC_URL = '/static/'  
+STATIC_ROOT = os.path.join(BASE_DIR, "static")  
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "sfiles"), )  
+</code></pre>
+
+<p>Crie um diretório no servidor em <em>/var/www/seu_projeto</em>, todo seu projeto django deve estar neste diretório. Após configurar o diretório de arquivos estátios, execute:  </p>
+
+<pre><code class="language-terminal">$ python manage.py collectstatic --digitar yes para confirmar 
+</code></pre>
+
+<p>Crie o arquivo de script do gunicorn chamando <em>gunicorn_start.sh</em>. <strong>Não esqueça de editar.</strong>  </p>
+
+<pre><code class="language-terminal">#!/bin/bash
+
+NAME="seu-projeto"                              #Name of the application (*)  
+DJANGODIR=/var/www/seu_projeto/my-website             # Django project directory (*)  
+SOCKFILE=/var/www/seu_projeto/run/gunicorn.sock        # we will communicate using this unix socket (*)  
+USER=ubuntu                                       # the user to run as (*)  
+GROUP=webdata                                     # the group to run as (*)  
+NUM_WORKERS=1                                     # how many worker processes should Gunicorn spawn (*)  
+DJANGO_SETTINGS_MODULE=seu_projeto.settings             # which settings file should Django use (*)  
+DJANGO_WSGI_MODULE=seu_projeto.wsgi                     # WSGI module name (*)
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DJANGODIR  
+source /var/www/seu_projeto/venv/bin/activate  
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE  
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)  
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec /var/www/seu_projeto/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \  
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --user $USER \
+  --bind=unix:$SOCKFILE
+</code></pre>
+
+<p>Dê permissão de executável para o script com chmod a+x. </p>
+
+<p>Para configurar o nginx, basta editar o arquivo em <em>/etc/nginx/nginx.conf</em>. A seguinte configuração <strong>deveria seguir</strong> o padrão do Apache e deixar o nginx.conf somente para configurações de níveis gerais. Leia o artigo de Vitor Lobo sobre confgurações do nginx:</p>
+
+<p>Desvendando o Nginx <br>
+<a href="http://blog.ti.lemaf.ufla.br/2016/07/29/desvendando-o-nginx-parte-1/">http://blog.ti.lemaf.ufla.br/2016/07/29/desvendando-o-nginx-parte-1/</a> </p>
+
+<p>nginx.conf  </p>
+
+<pre><code class="language-terminal">upstream test_server {  
+  server unix:/var/www/seu_projeto/run/gunicorn.sock fail_timeout=10s;
+}
+
+# This is not neccessary - it's just commonly used
+# it just redirects example.com -&gt; www.example.com
+# so it isn't treated as two separate websites
+server {  
+        listen 80;
+        server_name example.com;
+        return 301 $scheme://www.example.com$request_uri;
+}
+
+server {  
+    listen   80;
+    server_name www.example.com;
+
+    client_max_body_size 4G;
+
+    access_log /var/www/seu_projeto/logs/nginx-access.log;
+    error_log /var/www/seu_projeto/logs/nginx-error.log warn;
+
+    location /static/ {
+        autoindex on;
+        alias   /var/www/seu_projeto/seu-projeto/static/;
+    }
+
+   location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://test_server;
+            break;
+        }
+    }
+
+    #For favicon
+    location  /favicon.ico {
+        alias /var/www/seu_projeto/seu-projeto/static/img/favicon.ico;
+    }
+    #For robots.txt
+    location  /robots.txt {
+        alias /var/www/seu_projeto/seu-projeto/static/robots.txt ;
+    }
+    # Error pages
+    error_page 500 502 503 504 /500.html;
+    location = /500.html {
+        root /var/www/seu_projeto/seu-projeto/static/;
+    }
+}
+</code></pre>
+
+<p>No meu caso, tive muitos problemas com o conteúdo que estava dentro de <em>/static</em> como css e js. Não era redirecionado cada um para a respectiva pasta e tive que inserir manualmente a path inteira:  </p>
+
+<pre><code class="language-terminal"> location /static/css/ {
+    include /etc/nginx/mime.types;
+    alias /var/www/seu_projeto/seu-projeto/static/css/;
+    }
+
+    location /static/js/ {
+    include /etc/nginx/mime.types; 
+    alias /var/www/seu_projeto/seu-projeto/static/js/;
+    }
+</code></pre>
+
+<p>Agora basta subir novamente o servidor e executar o gunicorn.  </p>
+
+<pre><code class="language-terminal">$ pwd
+/var/www/seu_projeto/
+$ sudo service nginx start
+$ ./gunicorn_start.sh 
+</code></pre>
+
+<p>As únicas alterações do projeto eram em /static então o processo se resumia em git pull, cp -a  /static para /var/www/seu_projeto e python manage.py collecstatic para inserir novas atualizações. Lembre-se de automatizar todo seu processo e melhorar os scripts descritos, há vários artigos gratuitos da ThoughtWorks sobre como melhorar o processo de deploy. </p>
+
+<p>E claro, mantenha a calma se algo der errado. <br>
+<img src="https://media.giphy.com/media/mq5y2jHRCAqMo/giphy.gif" alt="Deploy de app Django no Nginx"></p>
+
+<h6 id="referncias">Referências</h6>
+
+<p>Esse post teve como objetivo ser útil e rápido e por isso, utilizei as etapas essenciais do seguinte artigo. Os scripts são de autoria de seu autor. <br>
+<a href="http://tutos.readthedocs.io/en/latest/source/ndg.html">http://tutos.readthedocs.io/en/latest/source/ndg.html</a> <br>
+Kickstarting Flask on Ubuntu - Setup and Deployment <br>
+<a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/</a> <br>
+WSGI Servers <br>
+<a href="https://www.fullstackpython.com/wsgi-servers.html">https://www.fullstackpython.com/wsgi-servers.html</a> <br>
+Deploying nginx + django + python 3 <br>
+<a href="http://tutos.readthedocs.io/en/latest/source/ndg.html">http://tutos.readthedocs.io/en/latest/source/ndg.html</a></p>]]></content:encoded></item><item><title><![CDATA[Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos]]></title><description><![CDATA[O Marco Civil e direitos fundamentais do usuário estão em risco para atender o interesse das empresas de telecomunicações e violar a liberdade de expressão ]]></description><link>http://danielammorais.com/2016/08/28/internet-sob-ataque/</link><guid isPermaLink="false">f20c743b-da41-4259-b262-980072d2bf79</guid><category><![CDATA[segurança]]></category><category><![CDATA[tecnologia]]></category><category><![CDATA[política]]></category><dc:creator><![CDATA[Daniela Morais]]></dc:creator><pubDate>Sun, 28 Aug 2016 18:00:00 GMT</pubDate><media:content url="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" medium="image"/><content:encoded><![CDATA[<img src="http://danielammorais.com/content/images/2016/08/temerpalpatine2.png" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"><p>O mundo cada vez mais conectado através de cabos ópticos submarinos de alta velocidade e a popularização dos smartphones possibilitaram a internet cada mais acessível e intensificaram o fluxo de troca de conhecimento e informação pela rede. <br>
 Apesar disto, em 2015 apenas 50% dos domicílios brasileiros tinham acesso à rede e entre os motivos para não ter internet o alto custo foi o mais citado. Uma pessoa sem acesso à rede é facilmente excluída do mercado de trabalho (se não substituída por máquinas automatizadas), privada do imenso conhecimento gratuito disponível e entre outras implicações, ou seja, 50% dos domicílios são socialmente excluídos e provavelmente possuem outras prioridades mais básicas do que a internet.  </p>
 
 <h2 id="oacessoainternetumdireitohumano">O acesso a internet é um direito humano</h2>
@@ -12,7 +252,8 @@ São inúmeras suas possibilidades e <strong>todo mundo</strong> deve ter direit
 
 <h4 id="vigilnciaglobal">Vigilância global</h4>
 
-<p>Sempre houve grampos e interceptação das comunicações de importantes chefes de governo, <strong>não deveria</strong> ser normal mas sempre ocorreu. O mais assustador é quando todo o poder de processamento de data centers gigantes é usado para espionar pessoas comuns, as quais não estão envolvidas com nenhum crime e sem nenhuma autorização judicial. Além de ilegal e imoral, a justificativa do combate ao terrorismo é sempre usada como uma carta na manga e para assim possibilitar a obtenção de vantagens econômicas e institucionalizar a repressão. Caso esteja interessado em saber mais, leia o post de <a href="http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/">Criptografia de E-mails</a>. <br>
+<p><img src="http://danielammorais.com/content/images/2016/08/fb.jpg" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos">
+Sempre houve grampos e interceptação das comunicações de importantes chefes de governo, <strong>não deveria</strong> ser normal mas sempre ocorreu. O mais assustador é quando todo o poder de processamento de data centers gigantes é usado para espionar pessoas comuns, as quais não estão envolvidas com nenhum crime e sem nenhuma autorização judicial. Além de ilegal e imoral, a justificativa do combate ao terrorismo é sempre usada como uma carta na manga e para assim possibilitar a obtenção de vantagens econômicas e institucionalizar a repressão. Caso esteja interessado em saber mais, leia o post de <a href="http://danielammorais.com/2016/05/29/criptografia-de-e-mails-com-pgp/">Criptografia de E-mails</a>. <br>
 <img src="http://danielammorais.com/content/images/2016/08/facebook.jpg" alt="Internet sob ataque: Franquia de dados, Marco Civil e CPI dos Crimes Cibernéticos"></p>
 
 <h4 id="cabossubmarinos">Cabos submarinos</h4>
@@ -44,7 +285,8 @@ O perigo do abuso das leis e do poder é evidente no caso de pessoas que são pr
 <li>Criminalizar qualquer um que invada um "sistema informatizado" mesmo que não haja obtenção de dados ou vantagem pessoal. Ou seja, caso você descubra alguma falha de segurança e reporte o erro <strong>pode ser criminalizado</strong>.</li>
 <li>Permitir a prisão de quem violar os termos de uso que são confusos propositalmente para ninguém ler<br></li>
 <li>Determinar o bloqueio do acesso a sites/apps hospedados fora do país "dedicados à pratica de crimes" </li>
-<li>Destinar a verba que anteriormente seria para fiscalizar as telecomunicações para a Polícia Federal </li>
+<li>Destinar a verba que anteriormente seria para fiscalizar as telecomunicações para a Polícia Federal</li>
+<li>Permite o bloqueio de aplicativos, <strong>diferentemente</strong> do Marco Civil</li>
 </ul>
 
 <p>Foram muitas entidades que participaram efetivamente do debate para tentar impedir a aprovação da CPI e vale a pena acompanhá-los, como o Coletivo Intervozes, Instituto de Tecnologia e Sociedade do Rio e Coding Rights.   </p>
