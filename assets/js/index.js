@@ -24,6 +24,7 @@
 
     // Arctic Scroll by Paul Adam Davis
     // https://github.com/PaulAdamDavis/Arctic-Scroll
+    /*
     $.fn.arctic_scroll = function (options) {
 
         var defaults = {
@@ -52,5 +53,5 @@
             }
         });
 
-    };
+    };*/
 })(jQuery);

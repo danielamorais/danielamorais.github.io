@@ -1623,6 +1623,7 @@ body:not(.post-template) .post-title {
     font-size: 1rem;
     line-height: 1.75em;
     color: #BBC7CC;
+    background-color: #323A3F;
 }
 
 .site-footer a {
