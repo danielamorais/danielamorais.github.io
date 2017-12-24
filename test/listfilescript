@@ -1,0 +1,10 @@
+#! /bin/bash
+# Get name of .html files 
+# by Daniela Morais 
+
+echo "Delete output file.."
+rm output
+echo "Searching *.html files in current directory and subdirectories.."
+cd .. 
+find . -print | grep -i '.*[.]html' >> ./test/output 
+echo "DONE"

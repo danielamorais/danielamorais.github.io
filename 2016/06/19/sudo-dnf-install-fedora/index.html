@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>O mínimo que você deve saber sobre o Fedora</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=2d1d930acd" />
+	<meta name="description" content="Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc." />
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/amp/" />
+    
+    <meta property="og:site_name" content="Daniela Morais" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="O mínimo que você deve saber sobre o Fedora" />
+    <meta property="og:description" content="Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc." />
+    <meta property="og:url" content="http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" />
+    <meta property="og:image" content="http://danielammorais.com/content/images/2016/06/workstation-large.png" />
+    <meta property="article:published_time" content="2016-06-19T08:02:23.000Z" />
+    <meta property="article:modified_time" content="2016-06-19T08:27:50.000Z" />
+    <meta property="article:tag" content="linux" />
+    <meta property="article:tag" content="software livre" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="O mínimo que você deve saber sobre o Fedora" />
+    <meta name="twitter:description" content="Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc." />
+    <meta name="twitter:url" content="http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" />
+    <meta name="twitter:image" content="http://danielammorais.com/content/images/2016/06/workstation-large.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Daniela Morais" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="linux, software livre" />
+    <meta name="twitter:site" content="@danielammorais" />
+    <meta name="twitter:creator" content="@danielammorais" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="680" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/favicon.ico"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://danielammorais.com/content/images/2017/12/me2.jpg",
+            "width": 639,
+            "height": 640
+        },
+        "url": "http://danielammorais.com/author/danielamorais/",
+        "sameAs": [
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "O mínimo que você deve saber sobre o Fedora",
+    "url": "http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/",
+    "datePublished": "2016-06-19T08:02:23.000Z",
+    "dateModified": "2016-06-19T08:27:50.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://danielammorais.com/content/images/2016/06/workstation-large.png",
+        "width": 1200,
+        "height": 680
+    },
+    "keywords": "linux, software livre",
+    "description": "Manual básico para usuários iniciantes em Linux sobre comandos no terminal, RPM, desinstalar programas, redes, interface gráfica etc.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://danielammorais.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=2d1d930acd"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "677e78c77b38"
+});
+</script>
+    <meta name="generator" content="Ghost 1.19" />
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/" />
+</head>
+
+<body class="post-template tag-linux tag-software-livre">
+	
+	
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="http://danielammorais.com" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+		</nav>
+		<h1 class="post-title">$ sudo dnf install fedora</h1>
+		<span class="post-meta"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a> | <time datetime="2016-06-19">19 Jun 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('../../../../content/images/2016/06/workstation-large.png');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-linux tag-software-livre">
+		<div class="inner">
+		
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>Este guia é para quem é <strong>novo em Linux</strong> e possui a versão estável do Fedora, especificamente o Fedora 23. Caso não possua baixe a última versão do <a href="https://getfedora.org/en/workstation/download/">Fedora Workstation</a>.</p>
+<p>Se já possui o Fedora, welcome aboard my friend!<br>
+<img src="../../../../content/images/2016/06/rainbow-bobsquare.gif" alt=""></p>
+<h3 id="fedoraproject">Fedora Project</h3>
+<p>Antes de tudo é importante lembrar que o Fedora é uma distribuição mantida por colaboradores voluntários e possui como valores os 4 pilares: freedom, friends, features e first. Os quais enfatizam a importância do uso de software livre para a liberdade, a excelência, cultura de inovação e a importância da comunidade.<br>
+Para contribuir não é preciso ser nenhum badass, <strong>qualquer um</strong> pode contribuir com o projeto como tradução de documentos, testes, marketing, design, desenvolvimento etc. Veja como colaborar <a href="https://fedoraproject.org/wiki/Join">aqui</a>.<br>
+<img src="../../../../content/images/2016/06/4Foundations.png" alt="4 Foundations"></p>
+<h3 id="comandoslinux">Comandos Linux</h3>
+<p>O GNOME provavelmente é sua interface gráfica (existem diferentes interfaces gráficas no Fedora como KDE e Cinnamon, são os chamados <a href="https://spins.fedoraproject.org/">spins do Fedora</a>) e é bem intuitiva porém caso queira aprender alguns comandos úteis conheça o <a href="http://lucasviola.github.io/easyshell/">Easy Shell - Shell and Linux commands the easy way</a></p>
+<h3 id="instalaodeprogramas">Instalação de programas</h3>
+<h4 id="modogrfico">Modo gráfico</h4>
+<p>Vários programas essenciais já estão instalados por default como o Transmission (torrents), Libre Office, Firefox e Boxes (gerenciador de máquinas virtuais) e o Fedora possui o Software Source, a qual é uma loja onde pode buscar o que deseja instalar.<br>
+<img src="../../../../content/images/2016/06/software.png" alt="software source"><br>
+O Fedy é a maneira fácil caso opte por instalar o Chrome, Flash, Java, VLC Media Player etc.<br>
+Abra o terminal e execute o seguinte comando para instalar o Fedy:</p>
+<pre><code class="language-language-bash">$ bash -c 'su -c &quot;curl http://folkswithhats.org/fedy-installer -o fedy-installer &amp;&amp; chmod +x fedy-installer &amp;&amp; ./fedy-installer&quot;'
+</code></pre>
+<p>Após a instalação, você poderá selecionar o que deseja instalar<br>
+<img src="../../../../content/images/2016/06/fedy.png" alt="Fedy"></p>
+<h4 id="linhadecomando">Linha de comando</h4>
+<p>O <em>dnf</em> é o novo gerenciador de pacotes do Fedora e trata-se de uma versão melhorada do antigo <em>yum</em>, é comum ainda encontrar artigos usando o <em>yum</em>.<br>
+O gerenciador de pacotes é o responsável por buscar pacotes dos softwares que deseja instalar/remover e resolver os possíveis problemas de dependências.</p>
+<pre><code class="language-language-bash">$ sudo dnf search audacity #buscar software chamado audacity
+$ sudo dnf install audacity #instalar software
+$ sudo dnf remove audacity #remover software 
+$ sudo dnf update #atualiza lista de pacotes
+$ sudo dnf upgrade audacity #atualizar software
+</code></pre>
+<p>O <em>RPM</em> (Red Hat Packager Manager) também é um gerenciador de pacotes, a diferença é que este <strong>não é capaz</strong> de resolver as dependências e conflitos automaticamente como o <em>dnf</em></p>
+<pre><code class="language-language-bash">$ sudo rpm -q firefox #buscar pacote
+$ sudo rpm -ivh firefox-47.0-4.fc24.i686.rpm #instalar firefox
+$ sudo rpm -e firefox #remover 
+$ sudo rpm -Uvh firefox-47.0-4.fc24.i686.rpm #atualiza, remove versão antiga e instalar nova 
+</code></pre>
+<h3 id="desenvolvedores">Desenvolvedores</h3>
+<p>Não tive nenhum problema em usar Fedora para desenvolvimento, a sensação foi de maior produtividade pois raramente tive problemas com o OS.<br>
+O Python 3 é instalado por default, é fácil instalar o Nodejs, Ruby, Haskell, Lua e o OpenJDK. Todas as IDEs da JetBrains, Eclipse, Arduino e o Android Studio também são fáceis e compatíveis.<br>
+Infelizmente ainda não conheço ninguém que use Fedora em ambiente de produção para compartilhar a experiência.</p>
+<h3 id="comopedirajuda">Como pedir ajuda</h3>
+<p>O principal suporte é o <a href="https://ask.fedoraproject.org/pt-br/questions/">Ask Fedora Project</a> e existem inúmeras listas de e-mails, chats em IRC e grupos do Fedora em que você pode recorrer. Clique <a href="https://fedoraproject.org/wiki/Communicating_and_getting_help/pt-br">aqui</a> para saber mais.</p>
+<h3 id="othercoolthings">Other cool things..</h3>
+<h4 id="kernel">Kernel</h4>
+<p>Provavelmente haverá um dia em que no momento do boot você irá se deparar com uma lista enorme de diferentes versões. Essa lista são as diferentes versões do kernel que possui instalado, é recomendado sempre possuir ao menos dois kernels diferentes caso algum tenha bug.<br>
+<img src="../../../../content/images/2016/06/grub.png" alt="Grub"><br>
+Para desinstalar algum kernel de versão específica:</p>
+<pre><code class="language-language-bash">$ sudo dnf remove kernel- #aperte tab para autocomplete
+</code></pre>
+<h4 id="verificarportas">Verificar portas</h4>
+<p>Lembre-se que ao escanear servidores externos geralmente o seu IP será exibido nos logs, o Tor não é apenas um browser e com ele é possível fazer com que toda a sua rede passe pela rede Tor.</p>
+<pre><code class="language-language-bash">$ nmap danielammorais.com
+Starting Nmap 7.12 ( https://nmap.org ) at 2016-06-19 04:25 BRT
+Nmap scan report for danielammorais.com (192.30.252.153)
+Host is up (0.19s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 26.06 seconds
+</code></pre>
+<p>É possível listar os conectados na sua rede e explorar algum ip específico</p>
+<pre><code class="language-language-bash">$ nmap -sP 192.168.0.*
+$ sudo nmap -sF 192.168.0.4
+</code></pre>
+<h4 id="reiniciarognome">Reiniciar o GNOME</h4>
+<p>O tty é responsável por conectar dispositivos externos ao kernel, para acessá-los pressione  <em>CTRL + ALT + F1</em>, <em>CTRL + ALT + F2</em>, <em>CTRL + ALT + F3</em> e assim por diante até o <em>F6</em>. O seguinte comando é extremamente útil caso o modo gráfico trave e não precise reiniciar o computador.</p>
+<pre><code class="language-language-bash">$ sudo /etc/init.d/gdm restart
+</code></pre>
+<h3 id="referncias">Referências</h3>
+<h5 id="paraqueservemosttys">Para que servem os TTYs</h5>
+<p><a href="http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys">http://pt.stackoverflow.com/questions/115135/para-que-servem-os-ttys</a></p>
+<h5 id="differencebetweenyumandrpm">Difference between YUM and RPM</h5>
+<p><a href="http://www.differencebetween.net/technology/difference-between-yum-and-rpm/">http://www.differencebetween.net/technology/difference-between-yum-and-rpm/</a></p>
+<h5 id="dnfguide">DNF Guide</h5>
+<p><a href="https://fedoraproject.org/wiki/Dnf">https://fedoraproject.org/wiki/Dnf</a></p>
+</div>
+			</section>
+			
+			<section class="post-info">
+				
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=$ sudo dnf install fedora&url=http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+				
+				<aside class="post-tags">
+					<a href="../../../../tag/linux/index.html">linux</a> <a href="../../../../tag/software-livre/index.html">software livre</a>
+				</aside>
+				
+				<div class="clear"></div>
+				
+				<aside class="post-author">
+						<figure class="post-author-avatar">
+							<img src="../../../../content/images/2017/12/me2.jpg" alt="Daniela Morais" />
+						</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a></h4>
+							<span class="post-author-location"><i class="ic ic-location"></i> Sao Paulo</span>
+							<span class="post-author-twitter"><i class="ic ic-twitter"></i> <a target="_blank" href="https://twitter.com/@danielammorais">Twitter</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+			
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate" style="">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+			var disqus_config = function () {
+			this.page.url = 'http://danielammorais.com/2016/06/19/sudo-dnf-install-fedora/';  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = 'ghost-13'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://danielammoraiscom.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			</section>
+			
+            <!--<section class="post-subscribe">
+                <form method="post" action="/subscribe/" class="post-subscribe-form">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="post-subscribe-input" type="email" name="email"  placeholder="Your email address" />
+    </div>
+    <button class="post-subscribe-button" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <p>Get the latest posts delivered right to your inbox.</p>
+            </section>-->
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../../../07/04/fedora-24-release-party-in-sao-paulo/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Fedora 24 Release Party in Sao Paulo</h2>
+							<p class="post-nav-excerpt">Every time a new Fedora release is available, the community organizes events&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../../../05/29/criptografia-de-e-mails-com-pgp/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Criptografia de e-mails com PGP</h2>
+							<p class="post-nav-excerpt">Há um tempo, os documentos de Edward Snowden revelaram a ocorrência da&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>                            
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-linux tag-software-livre"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<!--<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>!-->
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=2d1d930acd"></script>
+
+	
+
+</body>
+</html>

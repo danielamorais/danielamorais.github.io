@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Streams e Lambdas em Java</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=2d1d930acd" />
+	<meta name="description" content="Guia básico para entender o funcionamento de streams e lambdas em Java 8 com exemplos e as melhores práticas." />
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/amp/" />
+    
+    <meta property="og:site_name" content="Daniela Morais" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Streams e Lambdas em Java" />
+    <meta property="og:description" content="Guia básico para entender o funcionamento de streams e lambdas em Java 8 com exemplos e as melhores práticas." />
+    <meta property="og:url" content="http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" />
+    <meta property="og:image" content="http://danielammorais.com/content/images/2017/12/java_duke_lambda.png" />
+    <meta property="article:published_time" content="2017-12-24T00:50:14.000Z" />
+    <meta property="article:modified_time" content="2017-12-24T00:50:14.000Z" />
+    <meta property="article:tag" content="java" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Streams e Lambdas em Java" />
+    <meta name="twitter:description" content="Guia básico para entender o funcionamento de streams e lambdas em Java 8 com exemplos e as melhores práticas." />
+    <meta name="twitter:url" content="http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" />
+    <meta name="twitter:image" content="http://danielammorais.com/content/images/2017/12/java_duke_lambda.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Daniela Morais" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="java" />
+    <meta name="twitter:site" content="@danielammorais" />
+    <meta name="twitter:creator" content="@danielammorais" />
+    <meta property="og:image:width" content="580" />
+    <meta property="og:image:height" content="300" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/favicon.ico"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://danielammorais.com/content/images/2017/12/me2.jpg",
+            "width": 639,
+            "height": 640
+        },
+        "url": "http://danielammorais.com/author/danielamorais/",
+        "sameAs": [
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "Streams e Lambdas em Java",
+    "url": "http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/",
+    "datePublished": "2017-12-24T00:50:14.000Z",
+    "dateModified": "2017-12-24T00:50:14.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://danielammorais.com/content/images/2017/12/java_duke_lambda.png",
+        "width": 580,
+        "height": 300
+    },
+    "keywords": "java",
+    "description": "Guia básico para entender o funcionamento de streams e lambdas em Java 8 com exemplos e as melhores práticas.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://danielammorais.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=2d1d930acd"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "677e78c77b38"
+});
+</script>
+    <meta name="generator" content="Ghost 1.19" />
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/" />
+</head>
+
+<body class="post-template tag-java">
+	
+	
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="http://danielammorais.com" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Streams e Lambdas em Java</h1>
+		<span class="post-meta"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a> | <time datetime="2017-12-23">23 Dec 2017</time></span>
+		<div class="post-cover cover" style="background-image: url('../../../../content/images/2017/12/java_duke_lambda.png');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-java">
+		<div class="inner">
+		
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>A minha primeira pergunta sobre streams no Stackoverflow foi há exatos 2 anos e 6 meses atrás, o IntelliJ possui um recurso que sugere trechos de código que podem ser convertidos para streams e lambdas e os converte sozinho e lembro que na época fiquei muito confusa sobre um trecho específico (<a href="https://pt.stackoverflow.com/questions/70544/como-usar-lambdas-e-stream">Como usar lambdas e streams?</a>). O recurso chegou em Java há anos atrás em Java 8 e a sintaxe ainda causa estranheza. Eis alguns exemplos de como utilizar.</p>
+<h2 id="filters">Filters</h2>
+<p>Imagine que temos uma lista de nomes e queremos encontrar todos aqueles que começam com a letra J.</p>
+<pre><code class="language-java">List&lt;String&gt; names = Arrays.asList(&quot;John&quot;, &quot;Jack&quot;, &quot;Hamilton&quot;, &quot;George&quot;);
+for (String name : names) {
+	if (name.startsWith(&quot;J&quot;)) {
+		System.out.println(name);
+	}
+}
+</code></pre>
+<p>Os filters são exatamente a regra da busca.</p>
+<pre><code class="language-java">List&lt;String&gt; result = names.stream()
+				.filter(name -&gt; name.startsWith(&quot;J&quot;))
+				.collect(Collectors.toList());
+
+result.forEach(element -&gt; System.out.println(element));
+</code></pre>
+<p>Note que como filters retornam streams, consequentemente podemos ter filter logo em seguida de outro filter. Veja também que com Collectors conseguimos transformar a stream em uma lista de Strings que obedecem a regra de o nome começar com J. Ou seja, a saída é:</p>
+<blockquote>
+<p>John<br>
+Jack</p>
+</blockquote>
+<p>Podemos também alterar a saída com Collectors:</p>
+<pre><code class="language-java">String result = names.stream()
+			.filter(name -&gt; name.startsWith(&quot;J&quot;))
+			.collect(Collectors.joining(&quot;, &quot;));
+System.out.println(result);                
+</code></pre>
+<p>Saída</p>
+<blockquote>
+<p>John, Jack</p>
+</blockquote>
+<p>Veja mais exemplos de Collectors no <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html">Javadoc</a>.</p>
+<h2 id="methodreference">Method reference</h2>
+<p>Na lista de Strings que tivemos como resultado, temos uma expressão lambda apenas para chamar o método:</p>
+<pre><code class="language-java">result.forEach(element -&gt; System.out.println(element));
+</code></pre>
+<p>Agora Java já deduz que obviamente queremos repassar cada elemento para o método println()</p>
+<pre><code class="language-java">result.forEach(System.out::println);
+</code></pre>
+<h2 id="optionals">Optionals</h2>
+<p>Optionals surgiram para evitar nullPointerExceptions e antes de tentar obter algo, podemos validar se <strong>realmente</strong> existe.</p>
+<p>Ainda para a lista de nomes, vamos tentar encontrar qualquer nome que comece com W.</p>
+<pre><code class="language-java">List&lt;String&gt; names = Arrays.asList(&quot;John&quot;, &quot;Jack&quot;, &quot;Hamilton&quot;, &quot;George&quot;);
+Optional&lt;String&gt; result = names.stream()
+				.filter(name -&gt; name.startsWith(&quot;W&quot;))
+				.findAny();
+
+if (!result.isPresent()) {
+	System.out.println(&quot;Not found&quot;);
+}
+</code></pre>
+<p>Podemos reescrever esse trecho também lançando direto uma execeção caso o nome não exista:</p>
+<pre><code class="language-java">names.stream()
+	.filter(name -&gt; name.startsWith(&quot;W&quot;))
+	.findAny()
+	.orElseThrow(IllegalStateException::new);
+</code></pre>
+<h2 id="mapereduce">Map e reduce</h2>
+<p>Note que cada &quot;operação executada&quot; na stream é sequencial e a ordem importa. Isto é, por exemplo colocar um filter antes de um findAny é diferente de um  findAny primeiro e depois o filter.</p>
+<p>Um exemplo disto é como obter todas as pessoas que possuem mais de 20 anos e para estas alterar o nome para upperCase (caixa alta):</p>
+<pre><code class="language-java">List&lt;Person&gt; people = Arrays.asList(new Person(&quot;John&quot;, 26),
+				new Person(&quot;Jack&quot;, 40),
+				new Person(&quot;Hamilton&quot;, 14),
+				new Person(&quot;George&quot;, 63));
+
+people.stream()
+	.filter(p -&gt; p.getAge() &gt; 20)
+	.map(p -&gt; p.getName().toUpperCase())
+	.forEach(System.out::println);
+</code></pre>
+<p>A função map é a responsável por &quot;transformar&quot; a saída.</p>
+<p>Saída</p>
+<blockquote>
+<p>JOHN<br>
+JACK<br>
+GEORGE</p>
+</blockquote>
+<p>Para todos aqueles que possuem idade maior que 20, podemos obter essas idades através do map:</p>
+<pre><code class="language-java">people.stream()
+.filter(p -&gt; p.getAge() &gt; 20)
+.mapToInt(Person::getAge)
+.forEach(System.out::println);
+</code></pre>
+<p>Note que o processo consiste nas fases:</p>
+<ul>
+<li>Buscar pessoas com mais de 20 anos</li>
+<li>Para cada uma pessoa encontrada na busca, obter qual é sua idade</li>
+</ul>
+<p>Através do reduce podemos fazer operações com cada resultado da stream. Por exemplo, somar todas as idades maiores que 20.</p>
+<pre><code class="language-java">OptionalInt result = people.stream()
+				.filter(p -&gt; p.getAge() &gt; 20)
+				.mapToInt(Person::getAge)
+				.reduce((a, b) -&gt; a + b);
+
+if (result.isPresent()) {
+    System.out.println(result.getAsInt());
+}
+</code></pre>
+<p>O método reduce obtem a idade de John, soma com a idade de Jack e por fim soma com a idade de George.</p>
+<p>Note que a maioria das funções mais comuns já estão implementadas como obter a média, obter o valor mínimo/máximo etc.</p>
+<p>Por exemplo, temos que o trecho anterior é equivalente a:</p>
+<pre><code class="language-java">int result = people.stream()
+                    .filter(p -&gt; p.getAge() &gt; 20)
+                    .mapToInt(Person::getAge)
+                    .sum();
+
+System.out.println(result);
+</code></pre>
+<p>Saída</p>
+<blockquote>
+<p>129</p>
+</blockquote>
+<h2 id="boasprticas">Boas práticas</h2>
+<p>Esses conceitos implementados em Java surgiram na programação funcional há muito tempo atrás, as ideias centrais da programação funcional são os conceitos de pureza, idempotência e side effect.</p>
+<p>Resumidamente temos que:</p>
+<ul>
+<li>A operação executada para determinar o valor retornado pelo método deve ser baseada apenas <strong>nas entradas</strong> e não em atributos/variáveis externas.</li>
+<li>Além disso, o método não deve alterar o valor de atributos (atribuindo algum outro valor)</li>
+<li>Para cada chamada ao método (as quais repassando os mesmos pârametros)  devemos obter sempre o mesmo valor.</li>
+</ul>
+<p>Para entender mais sobre conceitos de programação funcional com exemplos, <a href="https://github.com/melloc01/jargoes-programacao-funcional">veja aqui</a>.</p>
+<p>Note que Java nos obriga escrever expressões entre <em>{ }</em> somente em casos em que há mais de uma linha. Exemplo:</p>
+<pre><code class="language-java">people.stream()
+		.filter(p -&gt; p.getAge() &gt; 20)
+		.forEach(p -&gt; {
+			System.out.println(p.getAge());
+			System.out.println(p.getName());
+		});
+</code></pre>
+<p>Trechos de código que usam lambdas e possuem várias linhas dificilmente não estão violando os conceitos de programação funcional <strong>portanto evite</strong>.</p>
+<p>Além disso, uma boa prática para facilitar a leitura é sempre quebrar em uma nova linha o pipeline das streams, ao invés de tudo em uma só linha.</p>
+<p>Portanto ao invés de:</p>
+<pre><code class="language-java">people.stream().filter(p -&gt; p.getAge() &gt; 20).forEach(System.out::println);
+</code></pre>
+<p>Escreva:</p>
+<pre><code class="language-java">people.stream()
+	.filter(p -&gt; p.getAge() &gt; 20)
+	.forEach(System.out::println);
+</code></pre>
+<h2 id="offtopic">Off topic</h2>
+<p>Apesar de Java ser uma linguagem estática, lambdas em Java foi possível graças a <a href="https://pt.wikipedia.org/wiki/Duck_typing">Duck Typing</a>. Isto é, em tempo de execução é inferido qual é sua classe através de InvokeDynamic.</p>
+<h2 id="referncias">Referências</h2>
+<p>Get a Taste of Lambdas and Get Addicted to Streams by Venkat Subramaniam<br>
+<a href="https://www.youtube.com/watch?v=1OpAgZvYXLQ">https://www.youtube.com/watch?v=1OpAgZvYXLQ</a><br>
+Translation of Lambda Expressions<br>
+<a href="http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html">http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html</a></p>
+</div>
+			</section>
+			
+			<section class="post-info">
+				
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Streams e Lambdas em Java&url=http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+				
+				<aside class="post-tags">
+					<a href="../../../../tag/java/index.html">java</a>
+				</aside>
+				
+				<div class="clear"></div>
+				
+				<aside class="post-author">
+						<figure class="post-author-avatar">
+							<img src="../../../../content/images/2017/12/me2.jpg" alt="Daniela Morais" />
+						</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a></h4>
+							<span class="post-author-location"><i class="ic ic-location"></i> Sao Paulo</span>
+							<span class="post-author-twitter"><i class="ic ic-twitter"></i> <a target="_blank" href="https://twitter.com/@danielammorais">Twitter</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+			
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate" style="">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+			var disqus_config = function () {
+			this.page.url = 'http://danielammorais.com/2017/12/23/streams-e-lambdas-em-java/';  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = 'ghost-6'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://danielammoraiscom.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			</section>
+			
+            <!--<section class="post-subscribe">
+                <form method="post" action="/subscribe/" class="post-subscribe-form">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="post-subscribe-input" type="email" name="email"  placeholder="Your email address" />
+    </div>
+    <button class="post-subscribe-button" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <p>Get the latest posts delivered right to your inbox.</p>
+            </section>-->
+
+			<aside class="post-nav">
+					<a class="post-nav-prev" href="../../../../2016/11/21/deploy-de-app-django-no-nginx/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Deploy de app Django no Nginx</h2>
+							<p class="post-nav-excerpt">Após o desenvolvimento e testes de uma aplicação, é necessário torná-la disponível&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>                            
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-java"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<!--<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>!-->
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=2d1d930acd"></script>
+
+	
+
+</body>
+</html>

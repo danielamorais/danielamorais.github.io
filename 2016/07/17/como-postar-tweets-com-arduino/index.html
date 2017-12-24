@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Como postar tweets com Arduino</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=2d1d930acd" />
+	<meta name="description" content="Como tweetar e enviar requisições HTTP para o Twitter API através do Arduino e o módulo Ethernet ENC28J60" />
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/amp/" />
+    
+    <meta property="og:site_name" content="Daniela Morais" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Como postar tweets com Arduino" />
+    <meta property="og:description" content="Como tweetar e enviar requisições HTTP para o Twitter API através do Arduino e o módulo Ethernet ENC28J60" />
+    <meta property="og:url" content="http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" />
+    <meta property="og:image" content="http://danielammorais.com/content/images/2016/07/arduinoUno.jpg" />
+    <meta property="article:published_time" content="2016-07-17T08:06:00.000Z" />
+    <meta property="article:modified_time" content="2016-07-17T08:10:55.000Z" />
+    <meta property="article:tag" content="IoT" />
+    <meta property="article:tag" content="arduino" />
+    <meta property="article:tag" content="api" />
+    <meta property="article:tag" content="python" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Como postar tweets com Arduino" />
+    <meta name="twitter:description" content="Como tweetar e enviar requisições HTTP para o Twitter API através do Arduino e o módulo Ethernet ENC28J60" />
+    <meta name="twitter:url" content="http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" />
+    <meta name="twitter:image" content="http://danielammorais.com/content/images/2016/07/arduinoUno.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Daniela Morais" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="IoT, arduino, api, python" />
+    <meta name="twitter:site" content="@danielammorais" />
+    <meta name="twitter:creator" content="@danielammorais" />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="640" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/favicon.ico"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://danielammorais.com/content/images/2017/12/me2.jpg",
+            "width": 639,
+            "height": 640
+        },
+        "url": "http://danielammorais.com/author/danielamorais/",
+        "sameAs": [
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "Como postar tweets com Arduino",
+    "url": "http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/",
+    "datePublished": "2016-07-17T08:06:00.000Z",
+    "dateModified": "2016-07-17T08:10:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://danielammorais.com/content/images/2016/07/arduinoUno.jpg",
+        "width": 960,
+        "height": 640
+    },
+    "keywords": "IoT, arduino, api, python",
+    "description": "Como tweetar e enviar requisições HTTP para o Twitter API através do Arduino e o módulo Ethernet ENC28J60",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://danielammorais.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=2d1d930acd"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "677e78c77b38"
+});
+</script>
+    <meta name="generator" content="Ghost 1.19" />
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/" />
+</head>
+
+<body class="post-template tag-iot tag-arduino tag-api tag-python">
+	
+	
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header" class="has-cover" >
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="http://danielammorais.com" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Como postar tweets com Arduino</h1>
+		<span class="post-meta"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a> | <time datetime="2016-07-17">17 Jul 2016</time></span>
+		<div class="post-cover cover" style="background-image: url('../../../../content/images/2016/07/arduinoUno.jpg');"></div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-iot tag-arduino tag-api tag-python">
+		<div class="inner">
+		
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>Há muito tempo comprei um módulo Ethernet ENC28J60 e apenas recentemente tive um tempo livre para testá-lo. Anteriormente, todas as comunicações com servidores eram feitas por serial e usava uma biblioteca ótima em Java e em Python é tão simples que dispensa comentários (<s>nenhuma novidade</s>).<br>
+<strong>Curiosidade off topic</strong>: A biblioteca para Java que utilizei foi desenvolvida pelo pessoal do <a href="http://panamahitek.com/">Panama Hitek</a>, isso em 2014 e eu conversei brevemente com eles por e-mail na época. Eis que esse ano por coincidência descobri que são todos colaboradores do Fedora também e esse mundo é <strong>realmente pequeno</strong>.</p>
+<h4 id="twitterapi">Twitter API</h4>
+<p>Antes de tudo, registre <a href="https://apps.twitter.com/app/new">aqui</a> o seu app no Twitter para poder utilizar a API. Não se esqueça de gerar o Token para poder postar tweets na sua conta, vá em &quot;Keys and Access Tokens&quot; &gt; &quot;Create my access token&quot;</p>
+<h4 id="uipethernet">UIPEthernet</h4>
+<p>É provável que use as bibliotecas etherShield e ETHER_28J60, as quais são específicas para esse módulo e existem muitos tutoriais. Porém existe uma muito mais legal (seriously) chamada UIPEthernet, ela é compatível com a famosa Ethernet, ou seja, qualquer exemplo que usa a  Ethernet (File &gt; Examples &gt; Ethernet) pode ser executado apenas substituindo a importação:</p>
+<pre><code class="language-language-c">#include &lt;SPI.h&gt;
+#include &lt;Ethernet.h&gt; //Apenas substituir por UIPEthernet.h
+</code></pre>
+<p>O download pode ser feito <a href="https://github.com/ntruchsess/arduino_uip/releases">aqui</a> ou apenas:</p>
+<pre><code class="language-language-bash">$ cd ~/Arduino/libraries/
+$ git clone https://github.com/ntruchsess/arduino_uip UIPEthernet
+</code></pre>
+<h4 id="possveissolues">Possíveis soluções</h4>
+<h5 id="hardway">Hard way</h5>
+<p>Você pode simplesmente criar sua própria biblioteca em C e enviar as requisições HTTPs para a API do Twitter, para consolar existe a <a href="https://arduino-tweet.appspot.com/">&quot;Tweet Library for Arduino&quot;</a> a qual está apenas defasada e não funciona nas versões mais recentes como Arduino IDE 1.6.4<br>
+<img src="../../../../content/images/2016/07/chucknorrisapproves.gif" alt=""></p>
+<h5 id="easyway">Easy way</h5>
+<p>Convenhamos que manipular ponteiros e enviar requisições com C pode não ser tão agradável, optei por um pequeno script em Python.<br>
+O processo basicamente é: o Arduino apenas manda o conteúdo para o script e este que lida com a Twitter API.</p>
+<p>Se você nunca usou Python, é necessário baixar o Flask e Twython:</p>
+<pre><code class="language-language-bash">$ sudo pip install flask
+$ sudo pip install twython 
+</code></pre>
+<p>Crie um arquivo chamado <em>apiConfig</em>, é nele que você vai inserir todas as chaves de acesso que o Twitter gerou para você</p>
+<pre><code class="language-language-bash">APP_KEY = 'your_APIKey' 
+APP_SECRET = 'your_APISecret' 
+OAUTH_TOKEN = 'your_accessToken' 
+OAUTH_TOKEN_SECRET = 'your_tokenSecret' 
+</code></pre>
+<p>Na mesma pasta, crie um script chamado <em>tweet.py</em></p>
+<pre><code class="language-language-python">from twython import Twython
+from flask import Flask
+import apiConfig
+
+app = Flask(__name__)
+
+APP_KEY = apiConfig.APP_KEY 
+APP_SECRET = apiConfig.APP_SECRET 
+OAUTH_TOKEN = apiConfig.OAUTH_TOKEN  
+OAUTH_TOKEN_SECRET = apiConfig.OAUTH_TOKEN_SECRET 
+
+twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
+   
+@app.route(&quot;/&quot;)
+def index():
+    return &quot;Hello world&quot;
+
+@app.route(&quot;/sendTweet/&lt;message&gt;&quot;)
+def sendTweet(message):
+    twitter.update_status(status=message); 
+    return &quot;Done.&quot; 
+
+if __name__ == '__main__':
+    #Fix here
+    app.run(host=&quot;your_ip&quot;, port=8080, debug=True)
+</code></pre>
+<p>Obviamente que o script pode ser mil vezes melhor, numa API <strong>sempre retorne</strong> o código HTTP correto e trate as exceções ao menos.</p>
+<p>Destaque para o sticker do FISL deste ano \o/<br>
+<img src="../../../../content/images/2016/07/arduino.png" alt=""></p>
+<p>O código do Arduino é bem simples, é uma alteração do exemplo. Lembre-se de alterar o IP do Arduino caso esteja sendo utilizado e de inserir o IP do server.</p>
+<pre><code class="language-language-c">#include &lt;SPI.h&gt;
+#include &lt;UIPEthernet.h&gt;
+
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+char server[] = &quot;ip_server&quot;; //fix here 
+IPAddress ip(192, 168, 1, 177);
+EthernetClient client;
+
+void setup() {
+  Serial.begin(9600);
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println(&quot;Failed to configure Ethernet using DHCP&quot;);
+    Ethernet.begin(mac, ip);
+  }
+}
+
+void loop() {
+  if (client.connect(server, 8080)) {
+    Serial.println(&quot;connected&quot;);
+    // Make a HTTP request:
+    client.println(&quot;GET /sendTweet/Hello%20world%20by%20Arduino HTTP/1.1&quot;);
+    client.println(&quot;Host: ipServer_withPort&quot;); //fix here
+    client.println(&quot;Connection: close&quot;);
+    client.println();
+client.stop();
+  } else {
+    Serial.println(&quot;connection failed&quot;);
+  }
+  
+  delay(5000);
+}
+</code></pre>
+<p>Vamos dar algumas permissões para o script, suba o Flask e faça upload do código no Arduino.</p>
+<pre><code class="language-language-bash">$ chmod a+x tweet.py
+$ python tweet.py
+</code></pre>
+<p>E finalmente..</p>
+<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Hello world by Arduino</p>&mdash; Daniela Morais (@danielammorais) <a href="https://twitter.com/danielammorais/status/754567798819479553">July 17, 2016</a></blockquote>
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+<h4 id="algumasobservaes">Algumas observações</h4>
+<p>Por enquanto, eu não consegui fazer requisições para servidores locais e nem ao menos conectava (ip's 192.168.x.x e localhost). O servidor que hospedou esse script não suportava https e em alguns momentos um erro sobre isso é retornado.<br>
+<img src="../../../../content/images/2016/07/wtf_martian.gif" alt=""></p>
+<p>Além disso, o Twitter não permite que seja postado sempre o mesmo conteúdo (obviamente) então  um erro será retornado se não houver nenhum delay longo ou variação do conteúdo.<br>
+Lembre-se de tomar cuidado com caracteres, use sempre o <a href="http://meyerweb.com/eric/tools/dencoder/">URL Encoder/Decoder</a>. Se nada der certo, use o bom e velho curl ou wget para testar.</p>
+<h4 id="andothercoolthings">And other cool things..</h4>
+<h6 id="webserverwitharduino">WebServer with Arduino</h6>
+<p><a href="https://www.arduino.cc/en/Tutorial/WebServer">https://www.arduino.cc/en/Tutorial/WebServer</a></p>
+<h6 id="acendendoumledviainternetcomarduinoeoethernetshield">Acendendo um LED via Internet com Arduino e o Ethernet Shield</h6>
+<p><a href="https://br.renatocandido.org/2013/09/acendendo-um-led-via-internet-com-arduino-e-o-ethernet-shield/">https://br.renatocandido.org/2013/09/acendendo-um-led-via-internet-com-arduino-e-o-ethernet-shield/</a></p>
+<h6 id="tweetduino">Tweetduino</h6>
+<p><a href="https://github.com/danielamorais/tweetduino.git">https://github.com/danielamorais/tweetduino.git</a></p>
+<h4 id="referncias">Referências</h4>
+<h6 id="arduinoethernetpushingdatatoaphpserver">Arduino Ethernet – Pushing data to a (PHP) server</h6>
+<p><a href="http://www.tweaking4all.com/hardware/arduino/arduino-ethernet-data-push/">http://www.tweaking4all.com/hardware/arduino/arduino-ethernet-data-push/</a></p>
+<h6 id="howtosendtweetfromcommandlineusingpython">How to Send Tweet From Command Line using Python</h6>
+<p><a href="http://www.techplugg.com/send-tweet-command-line-python/">http://www.techplugg.com/send-tweet-command-line-python/</a></p>
+</div>
+			</section>
+			
+			<section class="post-info">
+				
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Como postar tweets com Arduino&url=http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+				
+				<aside class="post-tags">
+					<a href="../../../../tag/iot/index.html">IoT</a> <a href="../../../../tag/arduino/index.html">arduino</a> <a href="../../../../tag/api/index.html">api</a> <a href="../../../../tag/python/index.html">python</a>
+				</aside>
+				
+				<div class="clear"></div>
+				
+				<aside class="post-author">
+						<figure class="post-author-avatar">
+							<img src="../../../../content/images/2017/12/me2.jpg" alt="Daniela Morais" />
+						</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a></h4>
+							<span class="post-author-location"><i class="ic ic-location"></i> Sao Paulo</span>
+							<span class="post-author-twitter"><i class="ic ic-twitter"></i> <a target="_blank" href="https://twitter.com/@danielammorais">Twitter</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+			
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate" style="">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+			var disqus_config = function () {
+			this.page.url = 'http://danielammorais.com/2016/07/17/como-postar-tweets-com-arduino/';  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = 'ghost-3'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://danielammoraiscom.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			</section>
+			
+            <!--<section class="post-subscribe">
+                <form method="post" action="/subscribe/" class="post-subscribe-form">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="post-subscribe-input" type="email" name="email"  placeholder="Your email address" />
+    </div>
+    <button class="post-subscribe-button" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <p>Get the latest posts delivered right to your inbox.</p>
+            </section>-->
+
+			<aside class="post-nav">
+					<a class="post-nav-next" href="../../22/festival-une-arte-e-tecnologia/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-left"></i>
+							<h2 class="post-nav-title">Festival une arte e tecnologia</h2>
+							<p class="post-nav-excerpt">Festival Internacional de Linguagem Eletrônica Robinson, obra de Taiwan e Reino Unido,&hellip;</p>
+						</section>
+					</a>
+					<a class="post-nav-prev" href="../../04/fedora-24-release-party-in-sao-paulo/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Fedora 24 Release Party in Sao Paulo</h2>
+							<p class="post-nav-excerpt">Every time a new Fedora release is available, the community organizes events&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>                            
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-iot tag-arduino tag-api tag-python"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<!--<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>!-->
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=2d1d930acd"></script>
+
+	
+
+</body>
+</html>

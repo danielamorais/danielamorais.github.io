@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Daniela Morais</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css?v=2d1d930acd" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://danielammorais.com/about/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Daniela Morais" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Daniela Morais" />
+    <meta property="og:description" content="danielamorais AT tuta dot io - GPG Key: 0x5807ed068d4fa5b7 Sou desenvolvedora de software e entusiasta de software livre, acredito que como desenvolvedores somos responsáveis pelo código que escrevemos e para mim é tão importante escrever um código de qualidade quanto respeitar a privacidade do usuário. Além disso, sou back-end e" />
+    <meta property="og:url" content="http://danielammorais.com/about/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Daniela Morais" />
+    <meta name="twitter:description" content="danielamorais AT tuta dot io - GPG Key: 0x5807ed068d4fa5b7 Sou desenvolvedora de software e entusiasta de software livre, acredito que como desenvolvedores somos responsáveis pelo código que escrevemos e para mim é tão importante escrever um código de qualidade quanto respeitar a privacidade do usuário. Além disso, sou back-end e" />
+    <meta name="twitter:url" content="http://danielammorais.com/about/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Daniela Morais" />
+    <meta name="twitter:site" content="@danielammorais" />
+    <meta name="twitter:creator" content="@danielammorais" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/favicon.ico"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://danielammorais.com/content/images/2017/12/me2.jpg",
+            "width": 639,
+            "height": 640
+        },
+        "sameAs": [
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "Daniela Morais",
+    "url": "http://danielammorais.com/about/",
+    "description": "danielamorais AT tuta dot io - GPG Key: 0x5807ed068d4fa5b7 Sou desenvolvedora de software e entusiasta de software livre, acredito que como desenvolvedores somos responsáveis pelo código que escrevemos e para mim é tão importante escrever um código de qualidade quanto respeitar a privacidade do usuário. Além disso, sou back-end e",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://danielammorais.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="public/ghost-sdk.js?v=2d1d930acd"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "677e78c77b38"
+});
+</script>
+    <meta name="generator" content="Ghost 1.19" />
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/" />
+</head>
+
+<body class="page-template page-about">
+	
+	
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<header id="post-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="http://danielammorais.com" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Daniela Morais</h1>
+		
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post page">
+		<div class="inner">
+		
+			<section class="post-content">
+				<div class="kg-card-markdown"><p><em>danielamorais AT tuta dot io - GPG Key: 0x5807ed068d4fa5b7</em><br>
+Sou desenvolvedora de software e entusiasta de software livre, acredito que como desenvolvedores somos responsáveis pelo código que escrevemos e para mim é tão importante escrever um código de qualidade quanto respeitar a privacidade do usuário.</p>
+<p>Além disso, sou back-end e aprecio muito Java e Spring.</p>
+<h2 id="carreira">Carreira</h2>
+<ul>
+<li>Desenvolvedor Jr na Stoom E-commerce (Atual)</li>
+<li>Consultor Jr na Sensedia</li>
+<li>Estágio em Sofist Intelligent Software Testing</li>
+</ul>
+<h2 id="formao">Formação</h2>
+<ul>
+<li>Ciência da Computação, UNICAMP (Atual)</li>
+<li>Ciências da Computação, UNESP</li>
+<li>Técnico Informática, Colégio Técnico de Limeira - UNICAMP</li>
+</ul>
+<h2 id="artigos">Artigos</h2>
+<p>Alguns artigos meus publicados em outros sites que preferi não replicar no meu blog.<br>
+Tweeting with Arduino Uno<br>
+<a href="https://dev.to/danielammorais/tweeting-with-arduino-uno">https://dev.to/danielammorais/tweeting-with-arduino-uno</a><br>
+APIs para dispositivos IoT<br>
+<a href="https://sensedia.com/blog/apis/apis-para-dispositivos-iot/">https://sensedia.com/blog/apis/apis-para-dispositivos-iot/</a></p>
+<h2 id="leituras">Leituras</h2>
+<p>Telecomix Manifesto<br>
+<a href="https://telecomix.org/firstmanifesto.txt">https://telecomix.org/firstmanifesto.txt</a><br>
+The Principles of Datalove<br>
+<a href="http://www.datalove.me/index.html">http://www.datalove.me/index.html</a><br>
+O papel do software numa sociedade capitalista informatizada<br>
+<a href="http://www.cic.unb.br/~rezende/trabs/Faced2007.html#topo">http://www.cic.unb.br/~rezende/trabs/Faced2007.html#topo</a><br>
+Zine: Combate à vigilância na internet e Software Livre <a href="https://github.com/userjack161/zine">https://github.com/userjack161/zine</a><br>
+O Mundo Assombrado pelos Demônios: A Ciência Vista Como Uma Vela No Escuro</p>
+</div>
+			</section>
+
+		</div>
+	</article>
+</main>
+
+
+		<div id="body-class" style="display: none;" class="page-template page-about"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<!--<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>!-->
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="assets/js/script.js?v=2d1d930acd"></script>
+
+	
+
+</body>
+</html>
