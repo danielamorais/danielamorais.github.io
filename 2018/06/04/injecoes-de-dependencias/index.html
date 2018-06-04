@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Injeções de dependências: setters, constructor e field injection</title>
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+	<link rel="stylesheet" type="text/css" href="../../../../assets/css/style.css?v=1e42f43b43" />
+	<meta name="description" content="Notas sobre padrões de injeções de dependências como uso de construtores, setters e declaração" />
+    <link rel="shortcut icon" href="../../../../favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="http://danielammorais.com/2018/06/04/injecoes-de-dependencias/amp/" />
+    
+    <meta property="og:site_name" content="Daniela Morais" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Injeções de dependências: setters, constructor e field injection" />
+    <meta property="og:description" content="Notas sobre padrões de injeções de dependências como uso de construtores, setters e declaração" />
+    <meta property="og:url" content="http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" />
+    <meta property="article:published_time" content="2018-06-04T18:25:08.000Z" />
+    <meta property="article:modified_time" content="2018-06-04T18:26:21.000Z" />
+    <meta property="article:tag" content="spring" />
+    <meta property="article:tag" content="java" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Injeções de dependências: setters, constructor e field injection" />
+    <meta name="twitter:description" content="Notas sobre padrões de injeções de dependências como uso de construtores, setters e declaração" />
+    <meta name="twitter:url" content="http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Daniela Morais" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="spring, java" />
+    <meta name="twitter:site" content="@danielammorais" />
+    <meta name="twitter:creator" content="@danielammorais" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Daniela Morais",
+        "logo": "http://danielammorais.com/favicon.ico"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Daniela Morais",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://danielammorais.com/content/images/2017/12/me2.jpg",
+            "width": 639,
+            "height": 640
+        },
+        "url": "http://danielammorais.com/author/danielamorais/",
+        "sameAs": [
+            "https://twitter.com/danielammorais"
+        ]
+    },
+    "headline": "Injeções de dependências: setters, constructor e field injection",
+    "url": "http://danielammorais.com/2018/06/04/injecoes-de-dependencias/",
+    "datePublished": "2018-06-04T18:25:08.000Z",
+    "dateModified": "2018-06-04T18:26:21.000Z",
+    "keywords": "spring, java",
+    "description": "Notas sobre padrões de injeções de dependências como uso de construtores, setters e declaração",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://danielammorais.com/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="../../../../public/ghost-sdk.js?v=1e42f43b43"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "677e78c77b38"
+});
+</script>
+    <meta name="generator" content="Ghost 1.19" />
+    <link rel="alternate" type="application/rss+xml" title="Daniela Morais" href="http://danielammorais.com/rss/" />
+</head>
+
+<body class="post-template tag-spring tag-java">
+	
+	
+	
+	<section id="wrapper">
+		<a class="hidden-close"></a>
+		
+
+<div class="progress-container">
+	<span class="progress-bar"></span>
+</div>
+
+<header id="post-header">
+	<div class="inner">
+		<nav id="navigation">
+			<span id="home-button" class="nav-button">
+				<a class="home-button" href="http://danielammorais.com" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+			</span>
+		</nav>
+		<h1 class="post-title">Injeções de dependências: setters, constructor e field injection</h1>
+		<span class="post-meta"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a> | <time datetime="2018-06-04">04 Jun 2018</time></span>
+		
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="post tag-spring tag-java">
+		<div class="inner">
+		
+			<section class="post-content">
+				<div class="kg-card-markdown"><p>Reflito há algum tempo sobre os códigos que li e os quais possuem diferentes tipos de injeções de dependências:</p>
+<ol>
+<li>configurações de XML para injetar através de <a href="https://dzone.com/tutorials/java/spring/spring-bean-setter-injection-1.html">métodos setters</a></li>
+<li>atributos declarados com <em>@Autowired</em></li>
+<li>os atributos como <em>final</em> que usam construtores para serem inicializados</li>
+</ol>
+<p>A discussão parece irrelevante e se tratar apenas de uma questão de &quot;estilo&quot; mas podem trazer um caos para a manutenção do sistema.</p>
+<h2 id="fieldesetterinjection">Field e setter injection</h2>
+<p>Há uma motivação histórica que explica o intenso uso dos setters, especialmente em sistemas legados. As primeiras releases de Spring foram construidas com injeções em setters e as configurações para usar o framework incentivava o uso de setters mas isso era meados de 2003....</p>
+<p>Considere a seguinte classe:</p>
+<pre><code class="language-java">public class MyService {
+ 
+     private MyExample myExample; 
+ 
+     @Autowired
+     public void setMyExample(MyExample myExample) {
+        this.myExample = myExample;
+     }
+     
+     public String toString() {
+        return myExample.toString();
+    }
+ }
+</code></pre>
+<p>Enquanto com field injection temos poucas linhas de código e é extremamente fácil:</p>
+<pre><code class="language-java">public class MyService {
+    @Autowired
+    private MyExample myExample;
+    
+    public String toString() {
+        return myExample.toString();
+    }
+ }
+</code></pre>
+<p>Note que em ambos os casos é possível criar uma instância da classe:</p>
+<pre><code>MyService myService = new MyService();
+System.out.println(myService.toString()); 
+</code></pre>
+<p>O grande problema é que isso resultará <em>nullPointerException</em> e esse cenário é perfeitamente possível de ocorrer, por exemplo, em testes unitários/integração em que é necessário injetar as dependências ou aplicações que não são 100% Spring e as quais possuem classes fora do &quot;contexto&quot; Spring.</p>
+<p>Há quem defenda que dependendo do contexto pode fazer sentido você ter uma instância da classe com determinados atributos nulos, algo que me parece mais exceção e code smell.</p>
+<p>Reescrevendo com a injeção no construtor:</p>
+<pre><code class="language-java"> public class MyService {
+    
+    private final MyExample myExample;
+    
+    @Autowired
+    public MyService(MyExample myExample) {
+        this.myExample = myExample;
+    }
+ }
+</code></pre>
+<p>Essa abordagem é mais vantajosa principalmente por trazer robustez ao permitir declarar como <em>final</em> e trás mais segurança ao código não permitindo criar instâncias de <em>MyService</em> com <em>MyExample</em> nulo. Para quem gosta de criar testes com builders e mocks, os construtores facilitam e muito na hora de escrever os testes não permitindo que você esqueça de testar nada.</p>
+<p>Um problema que isso pode trazer é o excesso de argumentos nos construtores e é um bom indicador para se questionar: &quot;essa classe realmente está fazendo só o que é necessário?&quot;</p>
+<p>Há algumas técnicas de refatoração nesse caso como separar em novas classes ou construir construtores específicos:</p>
+<blockquote>
+<p>Constructors with parameters give you a clear statement of what it means to create a valid object in an obvious place. If there's more than one way to do it, create multiple constructors that show the different combinations.</p>
+</blockquote>
+<p>O único ponto negativo é ser bastante verboso, nesse caso o Projeto Lombok pode ajudar:</p>
+<pre><code class="language-java"> @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+ public class MyService {
+    
+    private final @lombok.NonNull MyExample myExample;
+   
+ }
+</code></pre>
+<p>Mas cuidado com a <a href="http://www.annotatiomania.com/">Annotatiomania</a>!</p>
+<h2 id="curiosidades">Curiosidades</h2>
+<ul>
+<li>O IntellIJ incluiu há um tempo o warning de que field injection pode causar <em>nullPointerException</em></li>
+<li>Hoje é praticamente consenso entre colaboradores do Projeto Spring em optar por injeção através de construtores</li>
+</ul>
+<h2 id="leiturascomplementares">Leituras complementares</h2>
+<p>Why Field Injection is Evil<br>
+<a href="http://olivergierke.de/2013/11/why-field-injection-is-evil/">http://olivergierke.de/2013/11/why-field-injection-is-evil/</a><br>
+Inversion of Control Containers and the Dependency Injection pattern<br>
+<a href="https://martinfowler.com/articles/injection.html#ConcludingThoughts">https://martinfowler.com/articles/injection.html#ConcludingThoughts</a><br>
+Setter injection versus constructor injection and the use of @Required<br>
+<a href="https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required/">https://spring.io/blog/2007/07/11/setter-injection-versus-constructor-injection-and-the-use-of-required/</a></p>
+</div>
+			</section>
+			
+			<section class="post-info">
+				
+				<div class="post-share">
+					<a class="twitter" href="https://twitter.com/share?text=Injeções de dependências: setters, constructor e field injection&url=http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+						<i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+					</a>
+					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+					</a>
+					<a class="googleplus" href="https://plus.google.com/share?url=http://danielammorais.com/2018/06/04/injecoes-de-dependencias/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+					</a>
+					<div class="clear"></div>
+				</div>
+				
+				<aside class="post-tags">
+					<a href="../../../../tag/spring/index.html">spring</a> <a href="../../../../tag/java/index.html">java</a>
+				</aside>
+				
+				<div class="clear"></div>
+				
+				<aside class="post-author">
+						<figure class="post-author-avatar">
+							<img src="../../../../content/images/2017/12/me2.jpg" alt="Daniela Morais" />
+						</figure>
+					<div class="post-author-bio">
+						<h4 class="post-author-name"><a href="../../../../author/danielamorais/index.html">Daniela Morais</a></h4>
+							<span class="post-author-location"><i class="ic ic-location"></i> Sao Paulo</span>
+							<span class="post-author-twitter"><i class="ic ic-twitter"></i> <a target="_blank" href="https://twitter.com/@danielammorais">Twitter</a></span>
+					</div>
+					<div class="clear"></div>
+				</aside>
+
+			</section>
+			
+
+			<section class="post-comments">
+				<a id="show-disqus" class="post-comments-activate" style="">Show Comments</a>
+			    <div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+			var disqus_config = function () {
+			this.page.url = 'http://danielammorais.com/2018/06/04/injecoes-de-dependencias/';  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = 'ghost-5ae552bb99958f173d0e3d1e'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://danielammoraiscom.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			</section>
+			
+            <!--<section class="post-subscribe">
+                <form method="post" action="/subscribe/" class="post-subscribe-form">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="post-subscribe-input" type="email" name="email"  placeholder="Your email address" />
+    </div>
+    <button class="post-subscribe-button" type="submit"><span>Subscribe</span></button>
+    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
+</form>
+
+
+                <p>Get the latest posts delivered right to your inbox.</p>
+            </section>-->
+
+			<aside class="post-nav">
+					<a class="post-nav-prev" href="../../../../2017/12/23/streams-e-lambdas-em-java/index.html">
+						<section class="post-nav-teaser">
+							<i class="ic ic-arrow-right"></i>
+							<h2 class="post-nav-title">Streams e Lambdas em Java</h2>
+							<p class="post-nav-excerpt">A minha primeira pergunta sobre streams no Stackoverflow foi há exatos 2&hellip;</p>
+						</section>
+					</a>
+				<div class="clear"></div>
+			</aside>
+
+
+		</div>
+	</article>                            
+</main>
+
+
+		<div id="body-class" style="display: none;" class="post-template tag-spring tag-java"></div>
+	
+		<footer id="footer">
+			<div class="inner">
+				<!--<section class="credits">
+					<span class="credits-theme">Theme <a href="https://github.com/zutrinken/attila">Attila</a> by <a href="http://zutrinken.com" rel="nofollow">zutrinken</a></span>
+					<span class="credits-software">Published with <a href="http://ghost.org">Ghost</a></span>
+				</section>!-->
+			</div>
+		</footer>
+	</section>
+
+	<script type="text/javascript" src="../../../../assets/js/script.js?v=1e42f43b43"></script>
+
+	
+
+</body>
+</html>
